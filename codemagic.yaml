@@ -1,0 +1,20 @@
+workflows:
+  ios-simulator-build:
+    name: Build for iOS Simulator
+    max_build_duration: 30
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Build for iOS Simulator
+        script: |
+          flutter build ios --debug --simulator
+      - name: Zip Runner.app for simulator
+        script: |
+          cd build/ios/iphonesimulator
+          zip -r Runner.app.zip Runner.app
+    artifacts:
+      - build/ios/iphonesimulator/Runner.app.zip
