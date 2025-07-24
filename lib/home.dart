@@ -1,8 +1,6 @@
 import 'package:cyanaseapp/chat_ad.dart';
-import 'package:cyanaseapp/creds.dart';
+import 'package:cyanaseapp/features/home/presentation/widgets/wallet_card.dart';
 import 'package:cyanaseapp/goals.dart';
-import 'package:cyanaseapp/invest.dart';
-import 'package:cyanaseapp/portfolio.dart';
 import 'package:cyanaseapp/risk_profile_ad.dart';
 import 'package:cyanaseapp/scrollWallpaper.dart';
 import 'package:cyanaseapp/theme.dart';
@@ -24,7 +22,6 @@ class HomePage extends StatelessWidget {
               print('Card selected');
             },
           ),
-
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(

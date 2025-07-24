@@ -1,4 +1,3 @@
-import 'package:cyanaseapp/goal_chart.dart';
 import 'package:cyanaseapp/invest.dart';
 import 'package:cyanaseapp/portfolio.dart';
 import 'package:cyanaseapp/risk_profile.dart';
