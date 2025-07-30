@@ -1,14 +1,14 @@
 import 'package:cyanaseapp/app/my_home_page.dart';
-import 'package:cyanaseapp/faqs.dart';
-import 'package:cyanaseapp/help.dart';
-import 'package:cyanaseapp/notification_settings.dart';
-import 'package:cyanaseapp/notifications.dart';
-import 'package:cyanaseapp/profile.dart';
-import 'package:cyanaseapp/risk_profile_setting.dart';
-import 'package:cyanaseapp/settings.dart';
+import 'package:cyanaseapp/features/settings/faqs/views/faqs.dart';
+import 'package:cyanaseapp/features/settings/contacts/views/help.dart';
+import 'package:cyanaseapp/features/settings/notifications/views/notification_settings.dart';
+import 'package:cyanaseapp/app/notifications.dart';
+import 'package:cyanaseapp/features/settings/profile/views/profile.dart';
+import 'package:cyanaseapp/features/settings/risk_profile/views/risk_profile_setting.dart';
+import 'package:cyanaseapp/features/settings/views/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'theme.dart';
+import 'core/models/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

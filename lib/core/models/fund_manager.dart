@@ -1,29 +1,18 @@
-// features/home/domain/fund_manager.dart
-class FundManager {
-  final String name;
-  final String imageUrl;
-  final int gain;
-  final int loss;
-  final String category;
+import 'package:cyanaseapp/core/models/profile.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  FundManager({
-    required this.name,
-    required this.imageUrl,
-    required this.gain,
-    required this.loss,
-    required this.category,
-  });
-}
+part 'fund_manager.freezed.dart';
+part 'fund_manager.g.dart';
 
-// features/home/domain/portfolio_item.dart
-class PortfolioItem {
-  final String cardHolder;
-  final String cardNumber;
-  final String expiryDate;
+@freezed
+class FundManager with _$FundManager {
+  const factory FundManager({
+    required int userId,
+    required String firstName,
+    required String lastName,
+    required Profile profile,
+  }) = _FundManager;
 
-  PortfolioItem({
-    required this.cardHolder,
-    required this.cardNumber,
-    required this.expiryDate,
-  });
+  factory FundManager.fromJson(Map<String, dynamic> json) =>
+      _$FundManagerFromJson(json);
 }

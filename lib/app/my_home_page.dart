@@ -1,11 +1,11 @@
 import 'package:cyanaseapp/core/providers/navigation_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:cyanaseapp/appBar.dart';
-import 'package:cyanaseapp/goals.dart';
-import 'package:cyanaseapp/groups.dart';
-import 'package:cyanaseapp/home.dart';
-import 'package:cyanaseapp/theme.dart';
+import 'package:cyanaseapp/app/app_bar.dart';
+import 'package:cyanaseapp/features/goals/views/goals.dart';
+import 'package:cyanaseapp/features/chat/views/groups.dart';
+import 'package:cyanaseapp/features/home/views/home.dart';
+import 'package:cyanaseapp/core/models/theme.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key, required this.title});
