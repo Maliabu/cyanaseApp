@@ -1,8 +1,11 @@
 class ApiEndpoints {
-  static const baseUrl = 'https://your-api.com/api';
+  static const baseUrl = 'https://localhost:8000/api/v1';
 
-  static const fundManagers = '$baseUrl/fund-managers';
-  static const portfolios = '$baseUrl/portfolios';
-  static const investments = '$baseUrl/investments';
+  static const getFundManagers = '$baseUrl/auth/fundmanagers/all';
+  static const getPortfolio = '$baseUrl/portfolios';
+  static const getInvestmentClassoptions =
+      '$baseUrl/auth/get/investment/class/options';
+  static const getFundInvestmentClasses =
+      '$baseUrl/auth/get/fund/investment/class';
   // Add more endpoints here
 }

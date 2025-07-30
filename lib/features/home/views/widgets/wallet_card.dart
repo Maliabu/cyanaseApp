@@ -1,4 +1,4 @@
-import 'package:cyanaseapp/app/invest.dart';
+import 'package:cyanaseapp/features/invest/view/invest_form.dart';
 import 'package:cyanaseapp/features/portfolio/views/portfolio.dart';
 import 'package:cyanaseapp/features/risk_profile/views/risk_profile.dart';
 import 'package:cyanaseapp/core/models/theme.dart';
