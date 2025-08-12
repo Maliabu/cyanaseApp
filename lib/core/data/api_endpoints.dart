@@ -1,11 +1,13 @@
-class ApiEndpoints {
-  static const baseUrl = 'https://localhost:8000/api/v1';
+import 'package:cyanaseapp/core/config/env.dart';
 
-  static const getFundManagers = '$baseUrl/auth/fundmanagers/all';
-  static const getPortfolio = '$baseUrl/portfolios';
-  static const getInvestmentClassoptions =
+class ApiEndpoints {
+  static final envUrl = Env.baseUrl;
+  static final baseUrl = '$envUrl/api/v1';
+
+  static final getFundManagers = '$baseUrl/auth/fundmanagers/all';
+  static final getInvestmentClassoptions =
       '$baseUrl/auth/get/investment/class/options';
-  static const getFundInvestmentClasses =
+  static final getFundInvestmentClasses =
       '$baseUrl/auth/get/fund/investment/class';
   // Add more endpoints here
 }

@@ -44,6 +44,18 @@ class InvestFormNotifier extends Notifier<InvestFormState> {
   Future<void> submitForm(ApiService api) async {
     final state = this.state;
 
+    // relworx for momo - initiate
+    // validate phone number
+    final phone = {"msisdn": state.depositAmount};
+    final data = {
+      "account_no": "REL6AEDF95B5A",
+      "reference": ref,
+      "msisdn": state.depositAmount,
+      "currency": state.depositAmount,
+      "amount": state.depositAmount,
+      "description": "Payment Request.",
+    };
+
     final payload = {
       "fund_manager_id": state.selectedFundManager?.userId,
       "class_option": state.selectedInvestmentClassOption?.name,

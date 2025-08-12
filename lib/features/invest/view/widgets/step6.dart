@@ -1,8 +1,11 @@
 import 'package:cyanaseapp/features/invest/application/invest_form_provider.dart';
+import 'package:cyanaseapp/features/invest/domain/invest_form_state.dart';
+import 'package:cyanaseapp/features/invest/view/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Widget step6Offline(WidgetRef ref) {
+  final step = ref.watch(investFormProvider).step;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -24,12 +27,7 @@ Widget step6Offline(WidgetRef ref) {
         },
       ),
       SizedBox(height: 12),
-      ElevatedButton(
-        onPressed: () {
-          submitOfflineDeposit(ref);
-        },
-        child: Text('Submit'),
-      ),
+      FlutterWave(formState: InvestFormState(step: step)),
     ],
   );
 }
