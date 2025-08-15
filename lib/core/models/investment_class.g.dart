@@ -9,6 +9,7 @@ part of 'investment_class.dart';
 _$InvestmentClassImpl _$$InvestmentClassImplFromJson(
   Map<String, dynamic> json,
 ) => _$InvestmentClassImpl(
+  logo: json['logo'] as String?,
   classId: (json['classId'] as num).toInt(),
   name: json['name'] as String,
   description: json['description'] as String,
@@ -20,6 +21,7 @@ _$InvestmentClassImpl _$$InvestmentClassImplFromJson(
 Map<String, dynamic> _$$InvestmentClassImplToJson(
   _$InvestmentClassImpl instance,
 ) => <String, dynamic>{
+  'logo': instance.logo,
   'classId': instance.classId,
   'name': instance.name,
   'description': instance.description,

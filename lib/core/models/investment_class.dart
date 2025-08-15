@@ -7,6 +7,7 @@ part 'investment_class.g.dart';
 @freezed
 class InvestmentClass with _$InvestmentClass {
   const factory InvestmentClass({
+    String? logo,
     required int classId,
     required String name,
     required String description,

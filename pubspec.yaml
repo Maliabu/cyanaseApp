@@ -41,6 +41,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   json_annotation: ^4.8.1
   freezed_annotation: ^2.4.1
+  percent_indicator: ^4.2.5
 
 dev_dependencies:
   flutter_test:
@@ -78,7 +79,24 @@ flutter:
           weight: 700
     - family: Geist
       fonts:
-        - asset: assets/fonts/geist/Geist-VariableFont_wght.ttf
+        - asset: assets/fonts/geist/Geist-Black.otf
+          weight: 900
+        - asset: assets/fonts/geist/Geist-Bold.otf
+          weight: 800
+        - asset: assets/fonts/geist/Geist-SemiBold.otf
+          weight: 700
+        - asset: assets/fonts/geist/Geist-Medium.otf
+          weight: 600
+        - asset: assets/fonts/geist/Geist-Regular.otf
+          weight: 500
+        - asset: assets/fonts/geist/Geist-Light.otf
+          weight: 400
+        - asset: assets/fonts/geist/Geist-Thin.otf
+          weight: 300
+
+
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

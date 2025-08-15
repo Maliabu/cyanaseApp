@@ -14,20 +14,20 @@ class AppThemes {
       primary: primaryColor,
       secondary: secondaryColor,
       surface: Colors.white,
-      onPrimary: Colors.white,
+      onPrimary: Colors.black,
       onSecondary: Colors.white,
       onSurface: Colors.black87,
     ),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(
         color: Color.fromARGB(255, 1, 1, 1),
-        letterSpacing: 0,
+        letterSpacing: -0.5,
       ),
       bodyMedium: TextStyle(
         color: Color.fromARGB(221, 2, 2, 2),
-        letterSpacing: 0,
+        letterSpacing: -0.5,
       ),
-      headlineMedium: TextStyle(color: Colors.black, letterSpacing: 0),
+      headlineMedium: TextStyle(color: Colors.black, letterSpacing: -0.5),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -41,7 +41,7 @@ class AppThemes {
       style: ElevatedButton.styleFrom(
         backgroundColor: secondaryColor,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         shadowColor: const Color.fromARGB(0, 158, 158, 158),
       ),

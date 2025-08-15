@@ -21,6 +21,7 @@ InvestmentClass _$InvestmentClassFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InvestmentClass {
+  String? get logo => throw _privateConstructorUsedError;
   int get classId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ abstract class $InvestmentClassCopyWith<$Res> {
   ) = _$InvestmentClassCopyWithImpl<$Res, InvestmentClass>;
   @useResult
   $Res call({
+    String? logo,
     int classId,
     String name,
     String description,
@@ -68,6 +70,7 @@ class _$InvestmentClassCopyWithImpl<$Res, $Val extends InvestmentClass>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? logo = freezed,
     Object? classId = null,
     Object? name = null,
     Object? description = null,
@@ -75,6 +78,11 @@ class _$InvestmentClassCopyWithImpl<$Res, $Val extends InvestmentClass>
   }) {
     return _then(
       _value.copyWith(
+            logo:
+                freezed == logo
+                    ? _value.logo
+                    : logo // ignore: cast_nullable_to_non_nullable
+                        as String?,
             classId:
                 null == classId
                     ? _value.classId
@@ -121,6 +129,7 @@ abstract class _$$InvestmentClassImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    String? logo,
     int classId,
     String name,
     String description,
@@ -145,6 +154,7 @@ class __$$InvestmentClassImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? logo = freezed,
     Object? classId = null,
     Object? name = null,
     Object? description = null,
@@ -152,6 +162,11 @@ class __$$InvestmentClassImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$InvestmentClassImpl(
+        logo:
+            freezed == logo
+                ? _value.logo
+                : logo // ignore: cast_nullable_to_non_nullable
+                    as String?,
         classId:
             null == classId
                 ? _value.classId
@@ -181,6 +196,7 @@ class __$$InvestmentClassImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$InvestmentClassImpl implements _InvestmentClass {
   const _$InvestmentClassImpl({
+    this.logo,
     required this.classId,
     required this.name,
     required this.description,
@@ -190,6 +206,8 @@ class _$InvestmentClassImpl implements _InvestmentClass {
   factory _$InvestmentClassImpl.fromJson(Map<String, dynamic> json) =>
       _$$InvestmentClassImplFromJson(json);
 
+  @override
+  final String? logo;
   @override
   final int classId;
   @override
@@ -201,7 +219,7 @@ class _$InvestmentClassImpl implements _InvestmentClass {
 
   @override
   String toString() {
-    return 'InvestmentClass(classId: $classId, name: $name, description: $description, options: $options)';
+    return 'InvestmentClass(logo: $logo, classId: $classId, name: $name, description: $description, options: $options)';
   }
 
   @override
@@ -209,6 +227,7 @@ class _$InvestmentClassImpl implements _InvestmentClass {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvestmentClassImpl &&
+            (identical(other.logo, logo) || other.logo == logo) &&
             (identical(other.classId, classId) || other.classId == classId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -219,7 +238,7 @@ class _$InvestmentClassImpl implements _InvestmentClass {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, classId, name, description, options);
+      Object.hash(runtimeType, logo, classId, name, description, options);
 
   /// Create a copy of InvestmentClass
   /// with the given fields replaced by the non-null parameter values.
@@ -240,6 +259,7 @@ class _$InvestmentClassImpl implements _InvestmentClass {
 
 abstract class _InvestmentClass implements InvestmentClass {
   const factory _InvestmentClass({
+    final String? logo,
     required final int classId,
     required final String name,
     required final String description,
@@ -249,6 +269,8 @@ abstract class _InvestmentClass implements InvestmentClass {
   factory _InvestmentClass.fromJson(Map<String, dynamic> json) =
       _$InvestmentClassImpl.fromJson;
 
+  @override
+  String? get logo;
   @override
   int get classId;
   @override

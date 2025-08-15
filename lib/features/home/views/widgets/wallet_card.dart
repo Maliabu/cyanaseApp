@@ -24,148 +24,43 @@ class WalletCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
-        padding: const EdgeInsets.all(16),
+        height: 250,
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           // image: DecorationImage(
-          //   image: AssetImage('assets/images/goals.png'),
+          //   image: AssetImage('assets/images/back.jpeg'),
           //   fit: BoxFit.cover, // options: cover, contain, fill, etc.
           // ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          //   colors: [
-          //     const Color.fromARGB(
-          //       255,
-          //       252,
-          //       224,
-          //       140,
-          //     ), // End color (bottom-left)
-          //     const Color.fromARGB(
-          //       255,
-          //       252,
-          //       213,
-          //       73,
-          //     ), // Start color (top-right)
-          //     AppThemes.primaryColor, // Start color (top-right)
-          //   ],
-          // ),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.white,
+              Colors.white,
+              const Color.fromARGB(21, 251, 214, 104),
+            ],
+          ),
           // border: Border.all(width: 1, color: Colors.grey),
-          color: AppThemes.primaryColor,
+          // color: Colors.grey[200],
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(
-                59,
-                240,
-                239,
-                239,
-              ).withValues(alpha: 2),
-              blurRadius: 7,
-              // offset: const Offset(0, 6),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: const Color.fromARGB(
+          //       0,
+          //       240,
+          //       239,
+          //       239,
+          //     ).withValues(alpha: 2),
+          //     blurRadius: 10,
+          //     // offset: const Offset(0, 9),
+          //   ),
+          // ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RiskProfilePage(),
-                      ),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(height: 4),
-                      Container(
-                        // margin: EdgeInsets.only(left: 4),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(36, 245, 245, 245),
-                          borderRadius: BorderRadius.circular(12),
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: const Color.fromARGB(
-                          //       19,
-                          //       141,
-                          //       141,
-                          //       141,
-                          //     ).withValues(alpha: 2),
-                          //     blurRadius: 5,
-                          //     // offset: const Offset(0, 6),
-                          //   ),
-                          // ],
-                          // border: Border.all(width: 1, color: Colors.grey),
-                        ),
-                        child: Icon(
-                          Icons.add_chart_outlined,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                Text(
-                  'Total Investment',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PortfolioPage()),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(height: 4),
-                      Container(
-                        // margin: EdgeInsets.only(left: 4),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(27, 245, 245, 245),
-                          borderRadius: BorderRadius.circular(16),
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: const Color.fromARGB(
-                          //       19,
-                          //       141,
-                          //       141,
-                          //       141,
-                          //     ).withValues(alpha: 2),
-                          //     blurRadius: 5,
-                          //     // offset: const Offset(0, 6),
-                          //   ),
-                          // ],
-                          // border: Border.all(width: 1, color: Colors.grey),
-                        ),
-                        child: Icon(Icons.account_circle, color: Colors.black),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             // Top Row: Logo or Chip
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -174,6 +69,10 @@ class WalletCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Text(
+                      'Total Investment made',
+                      style: const TextStyle(fontSize: 12, color: Colors.black),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -188,8 +87,8 @@ class WalletCard extends StatelessWidget {
                         Text(
                           "3,080,000",
                           style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w900,
                             color: Colors.black,
                           ),
                         ),
@@ -262,13 +161,33 @@ class WalletCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 30),
             Row(
-              spacing: 8,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(
-                  onPressed: () {
+                /// Risk Profile
+                _IconWithLabel(
+                  icon: Icons.add_chart_outlined,
+                  label: 'Risk Profile',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RiskProfilePage(),
+                      ),
+                    );
+                  },
+                ),
+
+                /// Deposit
+                _IconWithLabel(
+                  icon: Icons.arrow_outward_sharp,
+                  label: 'Invest',
+                  size: 12,
+                  iconColor: Colors.black,
+                  backgroundColor: AppThemes.primaryColor,
+                  textColor: Colors.black,
+                  onTap: () {
                     showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
@@ -285,57 +204,34 @@ class WalletCard extends StatelessWidget {
                       },
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(20),
-                    backgroundColor: AppThemes.secondaryColor,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.wallet, color: Colors.white),
-                      SizedBox(width: 12),
-                      Text(
-                        'Invest',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
 
-                ElevatedButton(
-                  onPressed: () {
+                /// Withdraw
+                _IconWithLabel(
+                  icon: Icons.download_for_offline_outlined,
+                  label: 'Withdraw',
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PortfolioPage()),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(20),
-                    backgroundColor: const Color.fromARGB(64, 245, 245, 245),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.download_for_offline_outlined,
-                        color: Colors.black,
-                      ),
-                      SizedBox(height: 8),
-                      SizedBox(width: 12),
-                      Text(
-                        'Withdraw',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                ),
+
+                /// Portfolio
+                _IconWithLabel(
+                  icon: Icons.account_circle,
+                  label: 'Portfolio',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PortfolioPage()),
+                    );
+                  },
                 ),
               ],
             ),
+
             // SizedBox(
             //   width: double.infinity,
             //   child: Divider(thickness: 1, color: Colors.black),
@@ -343,6 +239,56 @@ class WalletCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _IconWithLabel extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+  final Color backgroundColor;
+  final Color iconColor;
+  final Color textColor;
+  final double? size;
+
+  const _IconWithLabel({
+    required this.icon,
+    this.size,
+    required this.label,
+    required this.onTap,
+    this.backgroundColor = const Color.fromARGB(15, 7, 7, 7),
+    this.iconColor = Colors.black,
+    this.textColor = Colors.black,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        InkWell(
+          onTap: onTap,
+          radius: 50,
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(icon, color: iconColor),
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          label,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 13,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }

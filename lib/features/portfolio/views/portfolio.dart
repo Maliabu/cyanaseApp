@@ -20,7 +20,7 @@ class PortfolioPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text('Portfolio'),
+        title: const Text('Portfolio', style: TextStyle(color: Colors.black)),
         actions: [
           IconButton(
             onPressed: () {
@@ -113,170 +113,6 @@ class PortfolioPage extends StatelessWidget {
             spacing: 12,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'My Cards',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 170,
-                // margin: EdgeInsets.only(top: 16),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    final matchingColor = colors.firstWhere(
-                      (c) => c.index == index,
-                      orElse:
-                          () =>
-                              colors[index %
-                                  colors.length], // fallback if no match
-                    );
-                    return Container(
-                      width: 300,
-                      margin: const EdgeInsets.only(left: 8, top: 8, bottom: 8),
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: matchingColor.color,
-                        borderRadius: BorderRadius.circular(20),
-                        // border: Border.all(width: 1, color: Colors.grey),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(
-                              73,
-                              223,
-                              222,
-                              222,
-                            ).withValues(alpha: 2),
-                            blurRadius: 5,
-                            // offset: const Offset(0, 6),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Venture Capital $index',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              height: 1.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'total deposit'.toUpperCase(),
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        100, // <- You MUST define width & height
-                                    height: 40,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          left: 20,
-                                          top: 0,
-                                          child: Text(
-                                            "3,080",
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 0,
-                                          top: 0,
-                                          child: Text(
-                                            'ugx'.toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 10,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Total Networth'.toUpperCase(),
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        100, // <- You MUST define width & height
-                                    height: 40,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          left: 20,
-                                          top: 0,
-                                          child: Text(
-                                            "6,160",
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 0,
-                                          top: 0,
-                                          child: Text(
-                                            'ugx'.toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 10,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 3),
-                          Text(
-                            'OAC Venture Associate',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
               NetworthCard(
                 cardHolder: 'John Doe',
                 cardNumber: '**** **** **** 1234',
@@ -367,7 +203,7 @@ class PortfolioPage extends StatelessWidget {
                               Text(
                                 'Deposits',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -394,7 +230,7 @@ class PortfolioPage extends StatelessWidget {
                               Text(
                                 'Withdraws',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -414,17 +250,21 @@ class PortfolioPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 10,
-                                backgroundImage: AssetImage(
-                                  'assets/images/goals.png',
-                                ),
+                              // CircleAvatar(
+                              //   backgroundColor: Colors.white,
+                              //   radius: 10,
+                              //   backgroundImage: AssetImage(
+                              //     'assets/images/goals.png',
+                              //   ),
+                              // ),
+                              Icon(
+                                Icons.ads_click_rounded,
+                                color: AppThemes.primaryColor,
                               ),
                               Text(
                                 'Goals',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

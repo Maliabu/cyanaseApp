@@ -19,9 +19,11 @@ class SettingsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(
+        title: const Text('Settings', style: TextStyle(color: Colors.black)),
+      ),
       body: Container(
-        color: Colors.grey[100],
+        color: Colors.grey[50],
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,10 +45,11 @@ class SettingsList extends StatelessWidget {
                         'Patricia Giramia',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          letterSpacing: -0.05,
+                          fontSize: 20,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 2),
                       Text(
                         'Personal Account',
                         style: TextStyle(color: Colors.grey),

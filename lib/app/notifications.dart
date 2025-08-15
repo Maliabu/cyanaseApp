@@ -7,7 +7,10 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notifications (18)'),
+        title: const Text(
+          'Notifications (18)',
+          style: TextStyle(color: Colors.black),
+        ),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       body: Container(
@@ -16,7 +19,7 @@ class NotificationPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [Colors.grey[300]!, Colors.grey[50]!, Colors.white],
+            colors: [Colors.grey[200]!, Colors.grey[50]!, Colors.white],
           ),
         ),
         child: ListView.builder(

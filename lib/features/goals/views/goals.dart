@@ -23,7 +23,7 @@ class GoalsPage extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+                // color: Colors.white,
               ),
               child: Column(
                 children: [
@@ -97,9 +97,9 @@ class GoalsPage extends StatelessWidget {
             // 2. My Goals Header Card
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              padding: const EdgeInsets.all(16),
+              // padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                // color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
@@ -133,7 +133,7 @@ class GoalsPage extends StatelessWidget {
                       },
                       borderRadius: BorderRadius.circular(16),
                       child: Container(
-                        margin: const EdgeInsets.only(bottom: 12),
+                        margin: const EdgeInsets.only(bottom: 8),
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -172,7 +172,7 @@ class GoalsPage extends StatelessWidget {
                                   const Text(
                                     'Start a Ranch of Alpacas and Dragons',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 16,
                                       height: 1.2,
                                       fontWeight: FontWeight.bold,
                                     ),
