@@ -126,7 +126,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           Container(
-            height: 210,
+            height: 220,
             child: Stack(
               clipBehavior: Clip.none,
               children: [
@@ -135,10 +135,10 @@ class HomePage extends StatelessWidget {
                   left: 30,
                   right: 0,
                   child: SizedBox(
-                    height: 250,
+                    height: 260,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: investments.length, // replace with your list
+                      itemCount: investments.length,
                       itemBuilder: (context, index) {
                         final inv = investments[index];
                         return InvestmentCard(

@@ -10,16 +10,6 @@ class Login extends ConsumerStatefulWidget {
 }
 
 class _LoginState extends ConsumerState<Login> {
-  final _phoneController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    _phoneController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     final submissionState = ref.watch(loginFormProvider);
@@ -37,9 +27,10 @@ class _LoginState extends ConsumerState<Login> {
           const Text('Login', style: TextStyle(fontSize: 18)),
           const SizedBox(height: 8),
 
-          // 📱 Phone input
           TextField(
-            controller: _phoneController,
+            onChanged: (val) {
+              ref.read(loginFormProvider);
+            },
             keyboardType: TextInputType.phone,
             decoration: const InputDecoration(
               labelText: 'Phone Number',
@@ -48,9 +39,7 @@ class _LoginState extends ConsumerState<Login> {
           ),
           const SizedBox(height: 12),
 
-          // 🔒 Password input
           TextField(
-            controller: _passwordController,
             obscureText: true,
             decoration: const InputDecoration(
               labelText: 'Password',
@@ -59,20 +48,14 @@ class _LoginState extends ConsumerState<Login> {
           ),
           const SizedBox(height: 20),
 
-          // 🚀 Submit Button
           ElevatedButton(
             onPressed:
-                submissionState is AsyncLoading
+                submissionState.submission is AsyncLoading
                     ? null
                     : () async {
-                      await ref
-                          .read(loginFormProvider.notifier)
-                          .login(
-                            _phoneController.text.trim(),
-                            _passwordController.text,
-                          );
+                      ref.read(loginFormProvider.notifier);
                     },
-            child: submissionState.maybeWhen(
+            child: submissionState.submission!.maybeWhen(
               loading:
                   () => const CircularProgressIndicator(color: Colors.white),
               orElse: () => const Text('Login'),

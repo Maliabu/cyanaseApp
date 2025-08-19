@@ -3,6 +3,7 @@ import 'package:cyanaseapp/core/models/investment_class.dart';
 import 'package:cyanaseapp/core/models/investment_class_option.dart';
 import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/invest/domain/invest_form_state.dart';
+import 'package:cyanaseapp/features/invest/models/submission_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class InvestFormNotifier extends Notifier<InvestFormState> {
@@ -42,34 +43,50 @@ class InvestFormNotifier extends Notifier<InvestFormState> {
       state = state.copyWith(depositAmount: amount);
 
   Future<void> submitForm(ApiService api) async {
-    final state = this.state;
-
-    // relworx for momo - initiate
-    // validate phone number
-    final phone = {"msisdn": state.depositAmount};
-    final data = {
-      "account_no": "REL6AEDF95B5A",
-      "reference": ref,
-      "msisdn": state.depositAmount,
-      "currency": state.depositAmount,
-      "amount": state.depositAmount,
-      "description": "Payment Request.",
-    };
+    state = state.copyWith(submission: const AsyncLoading());
 
     final payload = {
       "fund_manager_id": state.selectedFundManager?.userId,
       "class_option": state.selectedInvestmentClassOption?.name,
       "amount": state.depositAmount,
       "payment_method": state.paymentMeans,
-      // more fields...
     };
 
     try {
       final response = await api.post("investments/submit", payload);
-      // handle success: maybe update state or navigate
-    } catch (e) {
-      // handle error: update state or notify UI
-      rethrow;
+      state = state.copyWith(
+        submission: AsyncData(response as SubmissionResponse),
+      );
+    } catch (e, st) {
+      state = state.copyWith(submission: AsyncError(e, st));
     }
+  }
+
+  Future<void> relworx(ApiService api) async {
+    state = state.copyWith(submission: const AsyncLoading());
+
+    try {
+      final response = await api.investRelworx(state);
+
+      state = state.copyWith(submission: AsyncData(response));
+    } catch (e, st) {
+      state = state.copyWith(submission: AsyncError(e, st));
+    }
+  }
+
+  Future<void> flutterwave(ApiService api) async {
+    state = state.copyWith(submission: const AsyncLoading());
+
+    try {
+      final response = await api.investFlutterwave(state);
+
+      state = state.copyWith(submission: AsyncData(response));
+    } catch (e, st) {
+      state = state.copyWith(submission: AsyncError(e, st));
+    }
+  }
+
+  void resetForm() {
+    state = InvestFormState.initial();
   }
 }
