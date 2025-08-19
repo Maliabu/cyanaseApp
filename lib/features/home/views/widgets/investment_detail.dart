@@ -1,8 +1,6 @@
 import 'package:cyanaseapp/features/home/views/invest.dart';
 import 'package:cyanaseapp/features/home/views/widgets/invest_time_area_chart.dart';
-import 'package:cyanaseapp/features/invest/view/invest_form.dart';
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class InvestmentDetail extends StatelessWidget {
   final String title;

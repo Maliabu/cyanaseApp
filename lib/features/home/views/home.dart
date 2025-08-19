@@ -1,7 +1,6 @@
 import 'package:cyanaseapp/core/widgets/scroll_wallpaper.dart';
 import 'package:cyanaseapp/features/home/models/investment_model.dart';
 import 'package:cyanaseapp/features/home/views/widgets/investment_class_card.dart';
-import 'package:cyanaseapp/features/home/views/widgets/investment_detail.dart';
 import 'package:cyanaseapp/features/home/views/widgets/investment_option_card.dart';
 import 'package:cyanaseapp/features/home/views/widgets/wallet_card.dart';
 
@@ -125,7 +124,7 @@ class HomePage extends StatelessWidget {
               }
             },
           ),
-          Container(
+          SizedBox(
             height: 210,
             child: Stack(
               clipBehavior: Clip.none,

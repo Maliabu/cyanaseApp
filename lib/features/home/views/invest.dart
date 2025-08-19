@@ -1,9 +1,5 @@
 import 'package:cyanaseapp/features/invest/application/invest_form_provider.dart';
 import 'package:cyanaseapp/features/invest/view/widgets/payment_means.dart';
-import 'package:cyanaseapp/features/invest/view/widgets/step1.dart';
-import 'package:cyanaseapp/features/invest/view/widgets/step2.dart';
-import 'package:cyanaseapp/features/invest/view/widgets/step3.dart';
-import 'package:cyanaseapp/features/invest/view/widgets/step4.dart';
 import 'package:cyanaseapp/features/invest/view/widgets/step5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
