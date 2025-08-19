@@ -1,34 +1,40 @@
-import 'package:cyanaseapp/core/providers/api_provider.dart';
-import 'package:cyanaseapp/core/services/api_service.dart';
+// lib/features/auth/application/login_form_provider.dart
+
 import 'package:cyanaseapp/features/auth/data/login_form_state.dart';
-import 'package:cyanaseapp/features/invest/models/submission_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final loginFormProvider =
-    StateNotifierProvider<LoginViewModel, AsyncValue<SubmissionResponse>>((
-      ref,
-    ) {
-      final api = ref.read(apiServiceProvider);
-      return LoginViewModel(api);
-    });
+    StateNotifierProvider<LoginFormNotifier, LoginFormState>(
+      (ref) => LoginFormNotifier(),
+    );
 
-class LoginViewModel extends StateNotifier<AsyncValue<SubmissionResponse>> {
-  final ApiService _api;
+class LoginFormNotifier extends StateNotifier<LoginFormState> {
+  LoginFormNotifier() : super(LoginFormState.initial());
 
-  LoginViewModel(this._api) : super(const AsyncLoading());
+  void updatePhone(String value) {
+    state = state.copyWith(phoneNumber: value);
+  }
 
-  Future<void> login(String phoneNumber, String password) async {
-    state = const AsyncLoading();
+  void updatePassword(String value) {
+    state = state.copyWith(password: value);
+  }
 
-    //try, catch
+  Future<void> submit() async {
+    state = state.copyWith(submission: const AsyncLoading());
+
     try {
-      final response = await _api.login(
-        LoginFormState(phoneNumber: phoneNumber, password: password),
-      );
-      state = AsyncData(response);
+      final response = await Future.delayed(
+        const Duration(seconds: 2),
+      ); // simulate API
+
+      if (state.phoneNumber != '0700000000' || state.password != '1234') {
+        throw Exception("Invalid credentials");
+      }
+
+      state = state.copyWith(submission: AsyncData(response));
+      // Success: Navigate or show success
     } catch (e, st) {
-      // error + stack trace
-      state = AsyncError(e, st);
+      state = state.copyWith(submission: AsyncError(e, st));
     }
   }
 }
