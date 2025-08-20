@@ -31,18 +31,20 @@ class AppThemes {
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        backgroundColor: Color.fromARGB(0, 7, 36, 71),
-        foregroundColor: Colors.black,
+        foregroundColor: AppThemes.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        textStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+        )
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: secondaryColor,
+        backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         shadowColor: const Color.fromARGB(0, 158, 158, 158),
       ),
     ),

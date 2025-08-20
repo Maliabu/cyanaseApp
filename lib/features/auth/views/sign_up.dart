@@ -1,3 +1,4 @@
+import 'package:cyanaseapp/app/app_bar.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/step1_name.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/step2_email_phone.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/step3_dob.dart';
@@ -26,7 +27,8 @@ class SignUp extends ConsumerWidget {
       }
     }
 
-    return SingleChildScrollView(
+    return Scaffold(appBar: AppBar(title: Text('Sign Up'),),
+    body: SingleChildScrollView(
       padding: EdgeInsets.fromLTRB(
         20,
         20,
@@ -43,6 +45,6 @@ class SignUp extends ConsumerWidget {
             ),
         ],
       ),
-    );
+    ),);
   }
 }

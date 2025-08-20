@@ -11,6 +11,7 @@ class LoginFormState with _$LoginFormState {
   const factory LoginFormState({
     required String phoneNumber,
     required String password,
+    @Default(false) bool isPasswordVisible,
     @JsonKey(includeFromJson: false, includeToJson: false)
     AsyncValue<SubmissionResponse?>? submission,
   }) = _LoginFormState;
@@ -20,6 +21,7 @@ class LoginFormState with _$LoginFormState {
   factory LoginFormState.initial() => const LoginFormState(
     phoneNumber: '',
     password: '',
+    isPasswordVisible: false,
     submission: AsyncData(null),
   );
   factory LoginFormState.fromJson(Map<String, dynamic> json) =>

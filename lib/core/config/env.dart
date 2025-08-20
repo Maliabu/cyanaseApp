@@ -4,10 +4,10 @@ class Env {
   static String get baseUrl {
     switch (env) {
       case 'dev':
-        return 'http://localhost:8000/'; // your local backend
+        return 'http://localhost:8000'; // your local backend
       case 'prod':
       default:
-        return 'https://server.cyanase.app/';
+        return 'https://server.cyanase.app';
     }
   }
 }

@@ -19,6 +19,10 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
     state = state.copyWith(password: value);
   }
 
+  void togglePasswordVisibility() {
+    state = state.copyWith(isPasswordVisible: !state.isPasswordVisible);
+  }
+
   Future<void> submit() async {
     state = state.copyWith(submission: const AsyncLoading());
 

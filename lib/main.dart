@@ -1,4 +1,5 @@
 import 'package:cyanaseapp/app/my_home_page.dart';
+import 'package:cyanaseapp/features/auth/views/auth.dart';
 import 'package:cyanaseapp/features/settings/faqs/views/faqs.dart';
 import 'package:cyanaseapp/features/settings/contacts/views/help.dart';
 import 'package:cyanaseapp/features/settings/notifications/views/notification_settings.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       theme: AppThemes.lightTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => const MyHomePage(title: 'Cyanase'),
+        '/': (context) => const Auth(),
+        '/home': (context) => MyHomePage(title: 'Cyanase'),
         '/notifications': (context) => const NotificationPage(),
         '/settings':
             (context) => SettingsList(

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:cyanaseapp/core/data/api_endpoints.dart';
+import 'package:cyanaseapp/core/data/auth_endpoints.dart';
 import 'package:cyanaseapp/features/auth/data/login_form_state.dart';
+import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
 import 'package:cyanaseapp/features/invest/domain/invest_form_state.dart';
 import 'package:cyanaseapp/features/invest/models/submission_response.dart';
 import 'package:http/http.dart' as http;
@@ -56,4 +58,11 @@ class ApiService {
     final response = await post('login', formState.toJson());
     return SubmissionResponse.fromJson(response);
   }
+
+  Future<VerifyEmailResponse> verifyEmail(String email) async {
+    final response = await post(AuthEndpoints.apiEmailVerify, {'email': email});
+    print(response);
+   return VerifyEmailResponse.fromJson(response);
+  }
+
 }
