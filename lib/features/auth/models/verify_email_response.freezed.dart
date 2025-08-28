@@ -23,6 +23,7 @@ VerifyEmailResponse _$VerifyEmailResponseFromJson(Map<String, dynamic> json) {
 mixin _$VerifyEmailResponse {
   bool get success => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  String? get ref => throw _privateConstructorUsedError;
 
   /// Serializes this VerifyEmailResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +42,7 @@ abstract class $VerifyEmailResponseCopyWith<$Res> {
     $Res Function(VerifyEmailResponse) then,
   ) = _$VerifyEmailResponseCopyWithImpl<$Res, VerifyEmailResponse>;
   @useResult
-  $Res call({bool success, String? message});
+  $Res call({bool success, String? message, String? ref});
 }
 
 /// @nodoc
@@ -58,7 +59,11 @@ class _$VerifyEmailResponseCopyWithImpl<$Res, $Val extends VerifyEmailResponse>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? success = null, Object? message = freezed}) {
+  $Res call({
+    Object? success = null,
+    Object? message = freezed,
+    Object? ref = freezed,
+  }) {
     return _then(
       _value.copyWith(
             success:
@@ -70,6 +75,11 @@ class _$VerifyEmailResponseCopyWithImpl<$Res, $Val extends VerifyEmailResponse>
                 freezed == message
                     ? _value.message
                     : message // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            ref:
+                freezed == ref
+                    ? _value.ref
+                    : ref // ignore: cast_nullable_to_non_nullable
                         as String?,
           )
           as $Val,
@@ -86,7 +96,7 @@ abstract class _$$VerifyEmailResponseImplCopyWith<$Res>
   ) = __$$VerifyEmailResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, String? message});
+  $Res call({bool success, String? message, String? ref});
 }
 
 /// @nodoc
@@ -102,7 +112,11 @@ class __$$VerifyEmailResponseImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? success = null, Object? message = freezed}) {
+  $Res call({
+    Object? success = null,
+    Object? message = freezed,
+    Object? ref = freezed,
+  }) {
     return _then(
       _$VerifyEmailResponseImpl(
         success:
@@ -115,6 +129,11 @@ class __$$VerifyEmailResponseImplCopyWithImpl<$Res>
                 ? _value.message
                 : message // ignore: cast_nullable_to_non_nullable
                     as String?,
+        ref:
+            freezed == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -123,7 +142,11 @@ class __$$VerifyEmailResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$VerifyEmailResponseImpl implements _VerifyEmailResponse {
-  const _$VerifyEmailResponseImpl({required this.success, this.message});
+  const _$VerifyEmailResponseImpl({
+    required this.success,
+    this.message,
+    this.ref,
+  });
 
   factory _$VerifyEmailResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$VerifyEmailResponseImplFromJson(json);
@@ -132,10 +155,12 @@ class _$VerifyEmailResponseImpl implements _VerifyEmailResponse {
   final bool success;
   @override
   final String? message;
+  @override
+  final String? ref;
 
   @override
   String toString() {
-    return 'VerifyEmailResponse(success: $success, message: $message)';
+    return 'VerifyEmailResponse(success: $success, message: $message, ref: $ref)';
   }
 
   @override
@@ -144,12 +169,13 @@ class _$VerifyEmailResponseImpl implements _VerifyEmailResponse {
         (other.runtimeType == runtimeType &&
             other is _$VerifyEmailResponseImpl &&
             (identical(other.success, success) || other.success == success) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.ref, ref) || other.ref == ref));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, success, message);
+  int get hashCode => Object.hash(runtimeType, success, message, ref);
 
   /// Create a copy of VerifyEmailResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -172,6 +198,7 @@ abstract class _VerifyEmailResponse implements VerifyEmailResponse {
   const factory _VerifyEmailResponse({
     required final bool success,
     final String? message,
+    final String? ref,
   }) = _$VerifyEmailResponseImpl;
 
   factory _VerifyEmailResponse.fromJson(Map<String, dynamic> json) =
@@ -181,6 +208,8 @@ abstract class _VerifyEmailResponse implements VerifyEmailResponse {
   bool get success;
   @override
   String? get message;
+  @override
+  String? get ref;
 
   /// Create a copy of VerifyEmailResponse
   /// with the given fields replaced by the non-null parameter values.

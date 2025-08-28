@@ -24,7 +24,7 @@ Widget step1ResetEmail(WidgetRef ref, BuildContext context) {
               errorText: form.emailError,
               border: OutlineInputBorder(
                 borderSide: BorderSide.none, // Removes the border
-                borderRadius: BorderRadius.circular(12), // Rounded corners
+                borderRadius: BorderRadius.circular(8), // Rounded corners
               ),
               prefixIcon: Icon(Icons.mail, color: AppThemes.primaryColor,),
               filled: true,

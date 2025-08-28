@@ -1,7 +1,8 @@
 import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/auth/application/forgot_password_provider.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/step2_verification.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/step1ResetEmail.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/step2NewPassword.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/step3NewPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,14 +13,35 @@ class ForgotPassword extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final form = ref.watch(forgotPasswordProvider);
     final formNotifier = ref.read(forgotPasswordProvider.notifier);
-    final apiService = ApiService(); // Or get from Provider if you have one
-
+    final apiService = ApiService();
+    ref.listen(forgotPasswordProvider.select((state) => state.codeDigits), (prev, next) async {
+      final isCodeComplete = next.every((d) => d.isNotEmpty);
+      if (isCodeComplete) {
+        ref.read(forgotPasswordProvider.notifier).setLoading(true);
+        final fullCode = next.join();
+        final success = await ref
+          .read(forgotPasswordProvider.notifier)
+          .validateAndProceedEmailCode(apiService, fullCode);
+        if (!success.success) {
+          ref.read(forgotPasswordProvider.notifier).setLoading(false);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(success.message!),
+              backgroundColor: Colors.amber,
+            ),
+          );
+        }
+      }
+    });
+    
     Widget stepContent() {
       switch (form.step) {
         case 1:
           return step1ResetEmail(ref, context);
         case 2:
-          return step2NewPassword(ref, context);
+          return step2Verification(ref, context);
+        case 3:
+          return step3NewPassword(ref, context);
         default:
           return SizedBox.shrink();
       }
@@ -38,34 +60,104 @@ class ForgotPassword extends ConsumerWidget {
         children: [
           stepContent(),
           if (form.step == 2)
-            TextButton(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
               onPressed: () => formNotifier.previousStep(),
-              child: Text('Back'),
+              child: Text('Previous'),
             ),
-          if (form.step == 1 && form.email.isNotEmpty && form.emailError == null)
-  TextButton(
-  onPressed: () async {
-    final success = await ref
-        .read(forgotPasswordProvider.notifier)
-        .validateAndProceedEmail(apiService);
+            TextButton(
+          onPressed: () async {
+            final success = await ref
+                .read(forgotPasswordProvider.notifier)
+                .validateAndProceedEmail(apiService);
+            if (!success.success) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(success.message!),
+                  backgroundColor: Colors.amber,
+                ),
+              );
+            }
+            else {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('A password reset link has been sent to your email'), backgroundColor: Colors.amberAccent,));
+            }
+          },
+          child: form.codeError != null
+              ? SizedBox(
+                  width: 16, height: 16,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text('Resend Code')
 
-    if (!success) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Could not verify email. Please try again.'),
-          backgroundColor: Colors.amber,
         ),
-      );
-    }
-  },
-  child: form.submission?.isLoading ?? false 
-      ? SizedBox(
-          width: 16, height: 16,
-          child: CircularProgressIndicator(strokeWidth: 2),
-        )
-      : Text('Next'),
+            ],
+          ),
+          if(form.step == 3)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+              onPressed: () => formNotifier.previousStep(),
+              child: Text('Previous'),
+            ),
+            TextButton(
+          onPressed: () async {
+            final success = await ref
+                .read(forgotPasswordProvider.notifier)
+                .submit(apiService);
+            if (!success.success) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(success.message!),
+                  backgroundColor: Colors.amber,
+                ),
+              );
+            }
+            else {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(success.message!), backgroundColor: Colors.amberAccent,));
+              Navigator.pushNamed(context, '/');
+            }
+          },
+          child: form.submission?.isLoading ?? false
+              ? SizedBox(
+                  width: 16, height: 16,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : (form.password.length > 4 && form.confirmPassword.length > 4) && (form.password.trim() == form.confirmPassword.trim())
+              ? Text('Submit')
+              : SizedBox.shrink()
 
-),
+        ),
+            ],
+          ),
+          if (form.step == 1 && form.email.isNotEmpty && form.emailError == null)
+          TextButton(
+          onPressed: () async {
+            final success = await ref
+                .read(forgotPasswordProvider.notifier)
+                .validateAndProceedEmail(apiService);
+
+            if (!success.success) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(success.message!),
+                  backgroundColor: Colors.amber,
+                ),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('A password reset link has been sent to your email'), backgroundColor: Colors.amberAccent,));
+            }
+          },
+          child: form.submission?.isLoading ?? false
+              ? SizedBox(
+                  width: 16, height: 16,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text('Next'),
+
+        ),
 
 ],
       ),

@@ -8,10 +8,10 @@ class VerifyEmailResponse with _$VerifyEmailResponse {
   const factory VerifyEmailResponse({
     required bool success,
     String? message,
+    String? ref,
   }) = _VerifyEmailResponse;
 
   factory VerifyEmailResponse.fromJson(Map<String, dynamic> json) =>
-    _$VerifyEmailResponseFromJson(json);
+      _$VerifyEmailResponseFromJson(json);
   
-
 }

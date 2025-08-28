@@ -10,18 +10,44 @@ part 'forgot_password_form_state.g.dart';
 class ForgotPasswordFormState with _$ForgotPasswordFormState{
   const factory ForgotPasswordFormState({
     required int step,
-  required String email,
-   String? emailError,
-  required String password,
-  required bool isPasswordVisible,
-        @JsonKey(includeFromJson: false, includeToJson: false)
-      AsyncValue<VerifyEmailResponse?>? emailVerify,
-      @JsonKey(includeFromJson: false, includeToJson: false)
-      AsyncValue<SubmissionResponse?>? submission,
-  required String confirmPassword}) = _ForgotPasswordFormState;
+    required String email,
+    String? emailError,
+    String? ref,
+    required String password,
+    required bool isPasswordVisible,
+    required bool isConfirmPasswordVisible,
+    @Default(['', '', '', '', '', ''])
+    @JsonKey(defaultValue: ['', '', '', '', '', ''])
+    List<String> codeDigits,
+    required String verificationCode,
+    String? codeError,
+    String? passwordError,
+    String? confirmPasswordError,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    AsyncValue<VerifyEmailResponse?>? emailVerify,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    AsyncValue<SubmissionResponse?>? submission,
+    required String confirmPassword
+  }) = _ForgotPasswordFormState;
 
-  factory ForgotPasswordFormState.initial() => ForgotPasswordFormState(email: '', emailError: null, password: '', confirmPassword: '', step: 1, isPasswordVisible: false,    submission: AsyncData(null), emailVerify: AsyncData(null)
+  factory ForgotPasswordFormState.initial() => ForgotPasswordFormState(
+    email: '',
+    confirmPasswordError: null,
+    isConfirmPasswordVisible: false,
+    codeError: null, 
+    passwordError: null, 
+    emailError: null, 
+    password: '', 
+    confirmPassword: '', 
+    step: 1, 
+    ref: null,
+    isPasswordVisible: false,
+    verificationCode: '',
+    submission: AsyncData(null), 
+    emailVerify: AsyncData(null)
 );
+
+
 
   factory ForgotPasswordFormState.fromJson(Map<String, dynamic> json) => _$ForgotPasswordFormStateFromJson(json);
 }

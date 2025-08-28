@@ -65,40 +65,40 @@ class _LoginState extends ConsumerState<Login> {
             ),
           ),
           const SizedBox(height: 14),
-        TextField(
-          obscureText: !submissionState.isPasswordVisible,
-          onChanged: notifier.updatePassword,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-      borderSide: BorderSide.none, // Removes the border
-      borderRadius: BorderRadius.circular(12), // Rounded corners
-    ),
-            filled: true,
-            fillColor: Colors.grey[100],
-            prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
-            suffixIcon: IconButton(
-              icon: Icon( color: AppThemes.primaryColor,
-                submissionState.isPasswordVisible
-                    ? Icons.visibility
-                    : Icons.visibility_off,
+          TextField(
+            obscureText: !submissionState.isPasswordVisible,
+            onChanged: notifier.updatePassword,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none, // Removes the border
+                borderRadius: BorderRadius.circular(12), // Rounded corners
               ),
-              onPressed: notifier.togglePasswordVisibility,
+              filled: true,
+              fillColor: Colors.grey[100],
+              prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
+              suffixIcon: IconButton(
+                icon: Icon( color: AppThemes.primaryColor,
+                  submissionState.isPasswordVisible
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                ),
+                onPressed: notifier.togglePasswordVisibility,
+              ),
+              label: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100], // Background color for label
+                  borderRadius: BorderRadius.circular(8), // Rounded corners
+                ),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontSize: 14,
+                  ),
+                ),
+              ),
             ),
-            label: Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.grey[100], // Background color for label
-        borderRadius: BorderRadius.circular(8), // Rounded corners
-      ),
-      child: Text(
-        'Password',
-        style: TextStyle(
-          fontSize: 14,
-        ),
-      ),
-    ),
           ),
-        ),
           const SizedBox(height: 20),
 
 SizedBox(

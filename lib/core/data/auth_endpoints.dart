@@ -114,6 +114,8 @@ class AuthEndpoints {
   static final String apiUrlGetGoal = "en/get/user/goal/";
   static final String apiEmailVerify =
       "en/get/user/verification/";
+      static final String verifyCode =
+      "en/verify/code/";
   static final String apiResendVerificationEmail =
       "en/resend/verification/email/";
   static final String apiUrlUserProfilePhoto =
@@ -140,6 +142,7 @@ class AuthEndpoints {
   static final String apiUrlGetRiskProfile =
       "en/auth/get/riskprofile/";
   static final String checkPasswordEmail = "en/password/reset/";
+    static final String passwordResetLink = "en/password/reset/link/";
   static final String apiUrlPasswordReset = "/reset/password/";
   static final String changeUserPassword =
       "en/auth/user/change/password/";

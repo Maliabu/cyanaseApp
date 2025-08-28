@@ -26,8 +26,16 @@ mixin _$ForgotPasswordFormState {
   int get step => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String? get emailError => throw _privateConstructorUsedError;
+  String? get ref => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get isPasswordVisible => throw _privateConstructorUsedError;
+  bool get isConfirmPasswordVisible => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: ['', '', '', '', '', ''])
+  List<String> get codeDigits => throw _privateConstructorUsedError;
+  String get verificationCode => throw _privateConstructorUsedError;
+  String? get codeError => throw _privateConstructorUsedError;
+  String? get passwordError => throw _privateConstructorUsedError;
+  String? get confirmPasswordError => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   AsyncValue<VerifyEmailResponse?>? get emailVerify =>
       throw _privateConstructorUsedError;
@@ -57,8 +65,15 @@ abstract class $ForgotPasswordFormStateCopyWith<$Res> {
     int step,
     String email,
     String? emailError,
+    String? ref,
     String password,
     bool isPasswordVisible,
+    bool isConfirmPasswordVisible,
+    @JsonKey(defaultValue: ['', '', '', '', '', '']) List<String> codeDigits,
+    String verificationCode,
+    String? codeError,
+    String? passwordError,
+    String? confirmPasswordError,
     @JsonKey(includeFromJson: false, includeToJson: false)
     AsyncValue<VerifyEmailResponse?>? emailVerify,
     @JsonKey(includeFromJson: false, includeToJson: false)
@@ -88,8 +103,15 @@ class _$ForgotPasswordFormStateCopyWithImpl<
     Object? step = null,
     Object? email = null,
     Object? emailError = freezed,
+    Object? ref = freezed,
     Object? password = null,
     Object? isPasswordVisible = null,
+    Object? isConfirmPasswordVisible = null,
+    Object? codeDigits = null,
+    Object? verificationCode = null,
+    Object? codeError = freezed,
+    Object? passwordError = freezed,
+    Object? confirmPasswordError = freezed,
     Object? emailVerify = freezed,
     Object? submission = freezed,
     Object? confirmPassword = null,
@@ -111,6 +133,11 @@ class _$ForgotPasswordFormStateCopyWithImpl<
                     ? _value.emailError
                     : emailError // ignore: cast_nullable_to_non_nullable
                         as String?,
+            ref:
+                freezed == ref
+                    ? _value.ref
+                    : ref // ignore: cast_nullable_to_non_nullable
+                        as String?,
             password:
                 null == password
                     ? _value.password
@@ -121,6 +148,36 @@ class _$ForgotPasswordFormStateCopyWithImpl<
                     ? _value.isPasswordVisible
                     : isPasswordVisible // ignore: cast_nullable_to_non_nullable
                         as bool,
+            isConfirmPasswordVisible:
+                null == isConfirmPasswordVisible
+                    ? _value.isConfirmPasswordVisible
+                    : isConfirmPasswordVisible // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            codeDigits:
+                null == codeDigits
+                    ? _value.codeDigits
+                    : codeDigits // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+            verificationCode:
+                null == verificationCode
+                    ? _value.verificationCode
+                    : verificationCode // ignore: cast_nullable_to_non_nullable
+                        as String,
+            codeError:
+                freezed == codeError
+                    ? _value.codeError
+                    : codeError // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            passwordError:
+                freezed == passwordError
+                    ? _value.passwordError
+                    : passwordError // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            confirmPasswordError:
+                freezed == confirmPasswordError
+                    ? _value.confirmPasswordError
+                    : confirmPasswordError // ignore: cast_nullable_to_non_nullable
+                        as String?,
             emailVerify:
                 freezed == emailVerify
                     ? _value.emailVerify
@@ -155,8 +212,15 @@ abstract class _$$ForgotPasswordFormStateImplCopyWith<$Res>
     int step,
     String email,
     String? emailError,
+    String? ref,
     String password,
     bool isPasswordVisible,
+    bool isConfirmPasswordVisible,
+    @JsonKey(defaultValue: ['', '', '', '', '', '']) List<String> codeDigits,
+    String verificationCode,
+    String? codeError,
+    String? passwordError,
+    String? confirmPasswordError,
     @JsonKey(includeFromJson: false, includeToJson: false)
     AsyncValue<VerifyEmailResponse?>? emailVerify,
     @JsonKey(includeFromJson: false, includeToJson: false)
@@ -186,8 +250,15 @@ class __$$ForgotPasswordFormStateImplCopyWithImpl<$Res>
     Object? step = null,
     Object? email = null,
     Object? emailError = freezed,
+    Object? ref = freezed,
     Object? password = null,
     Object? isPasswordVisible = null,
+    Object? isConfirmPasswordVisible = null,
+    Object? codeDigits = null,
+    Object? verificationCode = null,
+    Object? codeError = freezed,
+    Object? passwordError = freezed,
+    Object? confirmPasswordError = freezed,
     Object? emailVerify = freezed,
     Object? submission = freezed,
     Object? confirmPassword = null,
@@ -209,6 +280,11 @@ class __$$ForgotPasswordFormStateImplCopyWithImpl<$Res>
                 ? _value.emailError
                 : emailError // ignore: cast_nullable_to_non_nullable
                     as String?,
+        ref:
+            freezed == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                    as String?,
         password:
             null == password
                 ? _value.password
@@ -219,6 +295,36 @@ class __$$ForgotPasswordFormStateImplCopyWithImpl<$Res>
                 ? _value.isPasswordVisible
                 : isPasswordVisible // ignore: cast_nullable_to_non_nullable
                     as bool,
+        isConfirmPasswordVisible:
+            null == isConfirmPasswordVisible
+                ? _value.isConfirmPasswordVisible
+                : isConfirmPasswordVisible // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        codeDigits:
+            null == codeDigits
+                ? _value._codeDigits
+                : codeDigits // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+        verificationCode:
+            null == verificationCode
+                ? _value.verificationCode
+                : verificationCode // ignore: cast_nullable_to_non_nullable
+                    as String,
+        codeError:
+            freezed == codeError
+                ? _value.codeError
+                : codeError // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        passwordError:
+            freezed == passwordError
+                ? _value.passwordError
+                : passwordError // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        confirmPasswordError:
+            freezed == confirmPasswordError
+                ? _value.confirmPasswordError
+                : confirmPasswordError // ignore: cast_nullable_to_non_nullable
+                    as String?,
         emailVerify:
             freezed == emailVerify
                 ? _value.emailVerify
@@ -246,12 +352,20 @@ class _$ForgotPasswordFormStateImpl implements _ForgotPasswordFormState {
     required this.step,
     required this.email,
     this.emailError,
+    this.ref,
     required this.password,
     required this.isPasswordVisible,
+    required this.isConfirmPasswordVisible,
+    @JsonKey(defaultValue: ['', '', '', '', '', ''])
+    final List<String> codeDigits = const ['', '', '', '', '', ''],
+    required this.verificationCode,
+    this.codeError,
+    this.passwordError,
+    this.confirmPasswordError,
     @JsonKey(includeFromJson: false, includeToJson: false) this.emailVerify,
     @JsonKey(includeFromJson: false, includeToJson: false) this.submission,
     required this.confirmPassword,
-  });
+  }) : _codeDigits = codeDigits;
 
   factory _$ForgotPasswordFormStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ForgotPasswordFormStateImplFromJson(json);
@@ -263,9 +377,30 @@ class _$ForgotPasswordFormStateImpl implements _ForgotPasswordFormState {
   @override
   final String? emailError;
   @override
+  final String? ref;
+  @override
   final String password;
   @override
   final bool isPasswordVisible;
+  @override
+  final bool isConfirmPasswordVisible;
+  final List<String> _codeDigits;
+  @override
+  @JsonKey(defaultValue: ['', '', '', '', '', ''])
+  List<String> get codeDigits {
+    if (_codeDigits is EqualUnmodifiableListView) return _codeDigits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_codeDigits);
+  }
+
+  @override
+  final String verificationCode;
+  @override
+  final String? codeError;
+  @override
+  final String? passwordError;
+  @override
+  final String? confirmPasswordError;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   final AsyncValue<VerifyEmailResponse?>? emailVerify;
@@ -277,7 +412,7 @@ class _$ForgotPasswordFormStateImpl implements _ForgotPasswordFormState {
 
   @override
   String toString() {
-    return 'ForgotPasswordFormState(step: $step, email: $email, emailError: $emailError, password: $password, isPasswordVisible: $isPasswordVisible, emailVerify: $emailVerify, submission: $submission, confirmPassword: $confirmPassword)';
+    return 'ForgotPasswordFormState(step: $step, email: $email, emailError: $emailError, ref: $ref, password: $password, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, codeDigits: $codeDigits, verificationCode: $verificationCode, codeError: $codeError, passwordError: $passwordError, confirmPasswordError: $confirmPasswordError, emailVerify: $emailVerify, submission: $submission, confirmPassword: $confirmPassword)';
   }
 
   @override
@@ -289,10 +424,28 @@ class _$ForgotPasswordFormStateImpl implements _ForgotPasswordFormState {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.emailError, emailError) ||
                 other.emailError == emailError) &&
+            (identical(other.ref, ref) || other.ref == ref) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.isPasswordVisible, isPasswordVisible) ||
                 other.isPasswordVisible == isPasswordVisible) &&
+            (identical(
+                  other.isConfirmPasswordVisible,
+                  isConfirmPasswordVisible,
+                ) ||
+                other.isConfirmPasswordVisible == isConfirmPasswordVisible) &&
+            const DeepCollectionEquality().equals(
+              other._codeDigits,
+              _codeDigits,
+            ) &&
+            (identical(other.verificationCode, verificationCode) ||
+                other.verificationCode == verificationCode) &&
+            (identical(other.codeError, codeError) ||
+                other.codeError == codeError) &&
+            (identical(other.passwordError, passwordError) ||
+                other.passwordError == passwordError) &&
+            (identical(other.confirmPasswordError, confirmPasswordError) ||
+                other.confirmPasswordError == confirmPasswordError) &&
             (identical(other.emailVerify, emailVerify) ||
                 other.emailVerify == emailVerify) &&
             (identical(other.submission, submission) ||
@@ -308,8 +461,15 @@ class _$ForgotPasswordFormStateImpl implements _ForgotPasswordFormState {
     step,
     email,
     emailError,
+    ref,
     password,
     isPasswordVisible,
+    isConfirmPasswordVisible,
+    const DeepCollectionEquality().hash(_codeDigits),
+    verificationCode,
+    codeError,
+    passwordError,
+    confirmPasswordError,
     emailVerify,
     submission,
     confirmPassword,
@@ -336,8 +496,16 @@ abstract class _ForgotPasswordFormState implements ForgotPasswordFormState {
     required final int step,
     required final String email,
     final String? emailError,
+    final String? ref,
     required final String password,
     required final bool isPasswordVisible,
+    required final bool isConfirmPasswordVisible,
+    @JsonKey(defaultValue: ['', '', '', '', '', ''])
+    final List<String> codeDigits,
+    required final String verificationCode,
+    final String? codeError,
+    final String? passwordError,
+    final String? confirmPasswordError,
     @JsonKey(includeFromJson: false, includeToJson: false)
     final AsyncValue<VerifyEmailResponse?>? emailVerify,
     @JsonKey(includeFromJson: false, includeToJson: false)
@@ -355,9 +523,24 @@ abstract class _ForgotPasswordFormState implements ForgotPasswordFormState {
   @override
   String? get emailError;
   @override
+  String? get ref;
+  @override
   String get password;
   @override
   bool get isPasswordVisible;
+  @override
+  bool get isConfirmPasswordVisible;
+  @override
+  @JsonKey(defaultValue: ['', '', '', '', '', ''])
+  List<String> get codeDigits;
+  @override
+  String get verificationCode;
+  @override
+  String? get codeError;
+  @override
+  String? get passwordError;
+  @override
+  String? get confirmPasswordError;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   AsyncValue<VerifyEmailResponse?>? get emailVerify;

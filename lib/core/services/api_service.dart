@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cyanaseapp/core/config/env.dart';
 import 'package:cyanaseapp/core/data/api_endpoints.dart';
 import 'package:cyanaseapp/core/data/auth_endpoints.dart';
 import 'package:cyanaseapp/features/auth/data/login_form_state.dart';
@@ -9,6 +10,8 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   final String _baseUrl;
+  final envUrl = Env.baseUrl;
+
 
   ApiService({String? baseUrl}) : _baseUrl = baseUrl ?? ApiEndpoints.baseUrl;
 
@@ -19,17 +22,30 @@ class ApiService {
   }
 
   // POST request
-  Future<Map<String, dynamic>> post(
-    String endpoint,
-    Map<String, dynamic> body,
-  ) async {
+  Future<dynamic> post(
+  String endpoint,
+  Map<String, dynamic> body, {
+  String? token,
+  bool isFullUrl = false,
+  }) async {
+    final url = isFullUrl ? '$envUrl/$endpoint' : '$_baseUrl/$endpoint';
+    final headers = {
+      'Content-Type': 'application/json',
+    };
+
+    if (token != null) {
+      headers['Authorization'] = 'Token $token';
+    }
+
     final response = await http.post(
-      Uri.parse('$_baseUrl/$endpoint'),
-      headers: {'Content-Type': 'application/json'},
+      Uri.parse(url),
+      headers: headers,
       body: jsonEncode(body),
     );
+
     return _handleResponse(response);
   }
+
 
   dynamic _handleResponse(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
@@ -60,9 +76,18 @@ class ApiService {
   }
 
   Future<VerifyEmailResponse> verifyEmail(String email) async {
-    final response = await post(AuthEndpoints.apiEmailVerify, {'email': email});
-    print(response);
-   return VerifyEmailResponse.fromJson(response);
+    final response = await post(AuthEndpoints.passwordResetLink, {'email': email});
+    return VerifyEmailResponse.fromJson(response);
+  }
+
+  Future<VerifyEmailResponse> verifyEmailCode(String email, String verificationCode) async {
+    final response = await post(AuthEndpoints.verifyCode, {'email': email, 'code': verificationCode});
+    return VerifyEmailResponse.fromJson(response);
+  }
+
+  Future<VerifyEmailResponse> resetPassword( String password, String email, String ref) async {
+    final response = await post( AuthEndpoints.apiUrlResetPassword, {'email': email, 'password': password, 'ref': ref}, isFullUrl: true);
+    return VerifyEmailResponse.fromJson(response);
   }
 
 }

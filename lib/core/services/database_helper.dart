@@ -267,8 +267,9 @@ class DatabaseHelper {
     final db = await database;
     final updateData = <String, dynamic>{};
     if (filePath != null) updateData['file_path'] = filePath;
-    if (isDownloaded != null)
+    if (isDownloaded != null) {
       updateData['is_downloaded'] = isDownloaded ? 1 : 0;
+    }
     if (thumbnailPath != null) updateData['thumbnail_path'] = thumbnailPath;
     if (fileSize != null) updateData['file_size'] = fileSize;
     if (duration != null) updateData['duration'] = duration;
@@ -378,7 +379,7 @@ class DatabaseHelper {
       );
 
       return result;
-    } catch (e, stackTrace) {
+    } catch (e) {
       rethrow;
     }
   }
@@ -545,7 +546,7 @@ class DatabaseHelper {
       // Immediately get and broadcast updated unread counts
       final unreadCounts = await getGroupUnreadCounts();
       _unreadCountController.add(unreadCounts);
-    } catch (e, stackTrace) {
+    } catch (e) {
       rethrow;
     }
   }
