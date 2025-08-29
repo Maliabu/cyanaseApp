@@ -12,6 +12,7 @@ _$VerifyEmailResponseImpl _$$VerifyEmailResponseImplFromJson(
   success: json['success'] as bool,
   message: json['message'] as String?,
   ref: json['ref'] as String?,
+  type: json['type'] as String?,
 );
 
 Map<String, dynamic> _$$VerifyEmailResponseImplToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$VerifyEmailResponseImplToJson(
   'success': instance.success,
   'message': instance.message,
   'ref': instance.ref,
+  'type': instance.type,
 };

@@ -132,6 +132,7 @@ class AuthEndpoints {
       "en/user/nextOfKin/";
   static final String apiUrlGetNextOfKin = "en/get/nextOfKin/";
   static final String apiUrlGetToken = "en/auth/token/";
+  static final String validateuserEmailPhone = "en/validate/user/email/phone/";
   static final String apiUrlGetAuthUser = "en/auth/user/";
   static final String apiUrlRegisterApiUser =
       "en/register/api/user/";

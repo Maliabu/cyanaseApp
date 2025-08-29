@@ -1,4 +1,4 @@
-import 'package:cyanaseapp/core/models/profile.dart';
+import 'package:cyanaseapp/features/auth/models/profile.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'fund_manager.freezed.dart';
@@ -15,4 +15,5 @@ class FundManager with _$FundManager {
 
   factory FundManager.fromJson(Map<String, dynamic> json) =>
       _$FundManagerFromJson(json);
+
 }

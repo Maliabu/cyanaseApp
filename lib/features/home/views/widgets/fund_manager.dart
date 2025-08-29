@@ -21,8 +21,8 @@ class FundManagerList extends ConsumerWidget {
                 final manager = managers[index];
                 return FundManagerCard(
                   name: manager.firstName,
-                  category: manager.profile.companyCategory,
-                  imageUrl: manager.profile.profilePicture,
+                  category: '',
+                  imageUrl: '',
                   gain: 12000, // example value
                   loss: 3500, // example value
                   onTap: () {

@@ -47,8 +47,6 @@ class ForgotPasswordFormState with _$ForgotPasswordFormState{
     emailVerify: AsyncData(null)
 );
 
-
-
   factory ForgotPasswordFormState.fromJson(Map<String, dynamic> json) => _$ForgotPasswordFormStateFromJson(json);
 }
 

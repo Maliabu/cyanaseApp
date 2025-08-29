@@ -1,8 +1,8 @@
 import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/auth/application/forgot_password_provider.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/step2_verification.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/step1ResetEmail.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/step3NewPassword.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step2_verification.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step1_reset_email.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step3_new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

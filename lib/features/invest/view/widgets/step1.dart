@@ -23,7 +23,7 @@ Widget step1FundManagers(WidgetRef ref, BuildContext context) {
                   fundManagers.map((manager) {
                     return ListTile(
                       title: Text('${manager.firstName} ${manager.lastName}'),
-                      subtitle: Text(manager.profile.companyCategory),
+                      subtitle: Text(manager.profile.country),
                       onTap: () {
                         if (manager.userId <= 0) {
                           // all ids start at 1

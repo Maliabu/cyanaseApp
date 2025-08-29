@@ -9,6 +9,7 @@ class VerifyEmailResponse with _$VerifyEmailResponse {
     required bool success,
     String? message,
     String? ref,
+    String? type,
   }) = _VerifyEmailResponse;
 
   factory VerifyEmailResponse.fromJson(Map<String, dynamic> json) =>
