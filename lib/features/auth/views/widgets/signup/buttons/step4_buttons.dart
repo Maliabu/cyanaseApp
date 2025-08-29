@@ -23,7 +23,7 @@ class Step4Buttons extends ConsumerWidget {
           onPressed: () => formNotifier.previousStep(),
           child: Text('Previous', style: TextStyle(fontSize: 18)),
         ),
-        TextButton(
+        ElevatedButton(
           onPressed: () async {
             final success = await formNotifier.submit(api);
             ScaffoldMessenger.of(context).showSnackBar(
