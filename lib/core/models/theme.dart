@@ -46,6 +46,7 @@ class AppThemes {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         shadowColor: const Color.fromARGB(0, 158, 158, 158),
+        textStyle: TextStyle(fontSize: 18)
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -77,7 +78,7 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.grey[50],
       foregroundColor: Colors.black,
-      titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
     ),
   );
 

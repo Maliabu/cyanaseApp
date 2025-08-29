@@ -1,77 +1,31 @@
-import 'package:cyanaseapp/core/models/theme.dart';
-import 'package:cyanaseapp/features/auth/application/sign_up_form_provider.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/first_name_field.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/last_name_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-Widget step1Name(WidgetRef ref, BuildContext context) {
-  final state = ref.watch(signupFormProvider);
-  final notifier = ref.watch(signupFormProvider.notifier);
-  return SingleChildScrollView(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+class Step1Name extends StatelessWidget {
+  const Step1Name({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    debugPrint('signup rebuilt: ${identityHashCode(this)}');
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(child: 
-        const Text('Full names', style: TextStyle(fontSize: 18)),),
-        const SizedBox(height: 8),
-        Text('First Name', style: TextStyle(fontSize: 14)),
-        const SizedBox(height: 8),
-        TextField(
-        onChanged: (value) => notifier.setFirstName(value),
-        decoration: InputDecoration(
-          errorText: state.firstNameError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(8), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
-          prefixIcon: const Icon(Icons.person, color: AppThemes.primaryColor,),
-          label: Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              color: Colors.grey[100], // Background color for label
-              borderRadius: BorderRadius.circular(8), // Rounded corners
-            ),
-            child: Text(
-              'first name',
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
-          ),
+        const Center(
+          child: Text('Full names', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
         ),
-      ),
-        const SizedBox(height: 10),
-        Text('Last Name', style: TextStyle(fontSize: 14)),
-        const SizedBox(height: 8),
-        TextField(
-        onChanged: (value) => notifier.setLastName(value),
-        decoration: InputDecoration(
-          errorText: state.lastNameError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(8), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
-          prefixIcon: const Icon(Icons.person, color: AppThemes.primaryColor,),
-          label: Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              color: Colors.grey[100], // Background color for label
-              borderRadius: BorderRadius.circular(8), // Rounded corners
-            ),
-            child: Text(
-              'last name',
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
-          ),
-        ),
-      ),
-      SizedBox(height: 12,)
+        const SizedBox(height: 25),
+        const Text('First Name', style: TextStyle(fontSize: 18)),
+        const SizedBox(height: 12),
+        FirstNameField(),
+        const SizedBox(height: 18),
+        const Text('Last Name', style: TextStyle(fontSize: 18)),
+        const SizedBox(height: 12),
+        LastNameField(),
+        const SizedBox(height: 12),
       ],
-    ),
-  );
+    );
+  }
 }
+

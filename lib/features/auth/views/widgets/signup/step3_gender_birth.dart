@@ -4,7 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart'; // For formatting date
 import 'package:cyanaseapp/features/auth/application/sign_up_form_provider.dart';
 
-Widget step3GenderBirth(WidgetRef ref, BuildContext context) {
+class Step3GenderBirth extends ConsumerWidget {
+  const Step3GenderBirth({super.key});
+
+  @override
+Widget build(BuildContext context, WidgetRef ref) {
   final state = ref.watch(signupFormProvider);
   final notifier = ref.read(signupFormProvider.notifier);
 
@@ -77,4 +81,5 @@ Widget step3GenderBirth(WidgetRef ref, BuildContext context) {
       SizedBox(height: 12,)
     ],
   );
+}
 }

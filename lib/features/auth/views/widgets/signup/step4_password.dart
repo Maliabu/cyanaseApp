@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cyanaseapp/features/auth/application/sign_up_form_provider.dart';
 
-Widget step4Password(WidgetRef ref, BuildContext context) {
+class Step4Password extends ConsumerWidget {
+  const Step4Password({super.key});
+
+  @override
+Widget build(BuildContext context, WidgetRef ref) {
   final state = ref.watch(signupFormProvider);
   final notifier = ref.read(signupFormProvider.notifier);
 
@@ -98,4 +102,5 @@ Widget step4Password(WidgetRef ref, BuildContext context) {
       const SizedBox(height: 12),
     ],
   );
+}
 }

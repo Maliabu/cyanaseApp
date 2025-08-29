@@ -11,19 +11,19 @@ Widget footer(BuildContext context){
         TextButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
         }
-        , child: Text('Forgot Password')),
+        , child: Text('Forgot Password', style: TextStyle(fontSize: 18),)),
         TextButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => PasscodeLoginScreen()));
 
-        }, child: Text('Login with Passcode')),
+        }, child: Text('Login with Passcode', style: TextStyle(fontSize: 18),)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          Text('Dont have an account?'),
+          Text('Dont have an account?', style: TextStyle(fontSize: 18),),
           TextButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
 
-          }, child: Text('Sign Up'))
+          }, child: Text('Sign Up', style: TextStyle(fontSize: 18),))
         ],)
       ],
     ),

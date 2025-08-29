@@ -65,7 +65,7 @@ class ForgotPassword extends ConsumerWidget {
             children: [
               TextButton(
               onPressed: () => formNotifier.previousStep(),
-              child: Text('Previous'),
+              child: Text('Previous', style: TextStyle(fontSize: 18),),
             ),
             TextButton(
           onPressed: () async {
@@ -89,7 +89,7 @@ class ForgotPassword extends ConsumerWidget {
                   width: 16, height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text('Resend Code')
+              : Text('Resend Code', style: TextStyle(fontSize: 18),)
 
         ),
             ],
@@ -100,7 +100,7 @@ class ForgotPassword extends ConsumerWidget {
             children: [
               TextButton(
               onPressed: () => formNotifier.previousStep(),
-              child: Text('Previous'),
+              child: Text('Previous', style: TextStyle(fontSize: 18),),
             ),
             TextButton(
           onPressed: () async {
@@ -126,13 +126,16 @@ class ForgotPassword extends ConsumerWidget {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : (form.password.length > 4 && form.confirmPassword.length > 4) && (form.password.trim() == form.confirmPassword.trim())
-              ? Text('Submit')
+              ? Text('Submit', style: TextStyle(fontSize: 18),)
               : SizedBox.shrink()
 
         ),
             ],
           ),
           if (form.step == 1 && form.email.isNotEmpty && form.emailError == null)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
           TextButton(
           onPressed: () async {
             final success = await ref
@@ -155,9 +158,9 @@ class ForgotPassword extends ConsumerWidget {
                   width: 16, height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text('Next'),
+              : Text('Next', style: TextStyle(fontSize: 18),),
 
-        ),
+        ),])
 
 ],
       ),

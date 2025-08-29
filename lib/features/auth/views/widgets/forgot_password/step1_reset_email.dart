@@ -13,7 +13,7 @@ Widget step1ResetEmail(WidgetRef ref, BuildContext context) {
       children: [
         Center(child:
         Column(children: [ 
-          Text('Reset Email', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: -0.9)),
+          Text('Reset Email', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, letterSpacing: -0.9)),
           Text(form.email),
           ])),
           const SizedBox(height: 18),
@@ -22,6 +22,7 @@ Widget step1ResetEmail(WidgetRef ref, BuildContext context) {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               errorText: form.emailError,
+              errorStyle: TextStyle(fontSize: 14),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none, // Removes the border
                 borderRadius: BorderRadius.circular(8), // Rounded corners
@@ -38,7 +39,7 @@ Widget step1ResetEmail(WidgetRef ref, BuildContext context) {
       child: Text(
         'Email',
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 18,
         ),
       ),
     ),

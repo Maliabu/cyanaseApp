@@ -27,13 +27,13 @@ class _LoginState extends ConsumerState<Login> {
         MediaQuery.of(context).viewInsets.bottom + 20,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           header(context),
           const SizedBox(height: 16),
           Center(child: 
-          const Text('Login', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),),
-          const SizedBox(height: 24),
+          const Text('Login', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),),
+          const SizedBox(height: 30),
 
           TextField(
             onChanged: (val) {
@@ -58,13 +58,13 @@ class _LoginState extends ConsumerState<Login> {
       child: Text(
         'Phone Number',
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 18,
         ),
       ),
     ),
             ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 18),
           TextField(
             obscureText: !submissionState.isPasswordVisible,
             onChanged: notifier.updatePassword,
@@ -93,7 +93,7 @@ class _LoginState extends ConsumerState<Login> {
                 child: Text(
                   'Password',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 18,
                   ),
                 ),
               ),
@@ -114,7 +114,7 @@ SizedBox(
             child: submissionState.submission!.maybeWhen(
               loading:
                   () => const CircularProgressIndicator(color: Colors.white),
-              orElse: () => const Text('Login'),
+              orElse: () => const Text('Login',style: TextStyle(fontWeight: FontWeight.bold),),
             ),
           ),),
           footer(context)
