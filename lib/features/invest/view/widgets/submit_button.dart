@@ -1,4 +1,4 @@
-import 'package:cyanaseapp/core/providers/api_provider.dart';
+import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/invest/application/invest_form_provider.dart';
 import 'package:cyanaseapp/features/invest/domain/invest_form_state.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class RelworxButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formState = ref.watch(investFormProvider);
-    final api = ref.read(apiServiceProvider);
+    final api = ApiService();
 
     return ElevatedButton(
       onPressed:
@@ -37,7 +37,7 @@ class FlutterWave extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formState = ref.watch(investFormProvider);
-    final api = ref.read(apiServiceProvider);
+    final api = ApiService();
 
     return ElevatedButton(
       onPressed:

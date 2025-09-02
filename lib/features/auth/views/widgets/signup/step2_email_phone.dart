@@ -19,15 +19,15 @@ class Step2EmailPhone extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text('Contacts', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+          const Text(
+                      'Enter your full email address and phone number below.',
+                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                    ),
           const SizedBox(height: 25),
-          Text('Email', style: TextStyle(fontSize: 18)),
-          const SizedBox(height: 12),
           EmailField(),
-          const SizedBox(height: 12),
-          Text('Phone Number', style: TextStyle(fontSize: 18)),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
           PhoneField(),
-          const SizedBox(height:12),
+          const SizedBox(height:20),
           Container
           (padding: EdgeInsets.all(16), width: double.infinity, decoration: BoxDecoration(
             border: Border.all(width: 2, color: AppThemes.primaryColor),

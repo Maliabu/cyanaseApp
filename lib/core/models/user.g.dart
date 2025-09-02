@@ -7,24 +7,23 @@ part of 'user.dart';
 // **************************************************************************
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-  token: json['token'] as String,
-  username: json['username'] as String,
-  userId: (json['user_id'] as num).toInt(),
-  isSuperuser: json['is_superuser'] as bool,
-  email: json['email'] as String,
-  lastLogin:
-      json['last_login'] == null
+      token: json['token'] as String,
+      username: json['username'] as String,
+      userId: (json['user_id'] as num).toInt(),
+      isSuperuser: json['is_superuser'] as bool,
+      email: json['email'] as String,
+      lastLogin: json['last_login'] == null
           ? null
           : DateTime.parse(json['last_login'] as String),
-  firstName: json['first_name'] as String,
-  lastName: json['last_name'] as String,
-  isStaff: json['is_staff'] as bool,
-  isActive: json['is_active'] as bool,
-  dateJoined: DateTime.parse(json['date_joined'] as String),
-  message: json['message'] as String?,
-  success: json['success'] as bool,
-  profile: Profile.fromJson(json['profile'] as Map<String, dynamic>),
-);
+      firstName: json['first_name'] as String,
+      lastName: json['last_name'] as String,
+      isStaff: json['is_staff'] as bool,
+      isActive: json['is_active'] as bool,
+      dateJoined: DateTime.parse(json['date_joined'] as String),
+      message: json['message'] as String?,
+      success: json['success'] as bool,
+      profile: Profile.fromJson(json['profile'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{

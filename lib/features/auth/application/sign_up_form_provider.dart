@@ -1,6 +1,6 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:cyanaseapp/core/services/api_service.dart';
-import 'package:cyanaseapp/features/auth/data/sign_up_form_state.dart';
+import 'package:cyanaseapp/features/auth/data/formstates/sign_up_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/sign_up_response.dart';
 import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
 import 'package:cyanaseapp/features/auth/services/sign_up_form_mapper.dart';
@@ -208,7 +208,7 @@ class SignupFormNotifier extends Notifier<SignupFormState> {
         return response;
       }
 
-    } catch(e, st){
+    } catch(e){
       print('still getting some error $e');
       // catch error and stack trace in dev console
       // usually network or some shitty error from server
@@ -250,7 +250,7 @@ class SignupFormNotifier extends Notifier<SignupFormState> {
 
       return response;
     }
-  } catch (e, st) {
+  } catch (e) {
        print('STACK TRACE: $e');
     final responseError = SignUpResponse(success: false, message: 'Network or server Error');
     state = state.copyWith(

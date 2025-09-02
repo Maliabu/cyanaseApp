@@ -23,6 +23,10 @@ class Step4Buttons extends ConsumerWidget {
           onPressed: () => formNotifier.previousStep(),
           child: Text('Previous', style: TextStyle(fontSize: 18)),
         ),
+        if (passwordError == null &&
+                      confirmPasswordError == null &&
+                      password.isNotEmpty &&
+                      confirmPassword.isNotEmpty)
         ElevatedButton(
           onPressed: () async {
             final success = await formNotifier.submit(api);
@@ -42,12 +46,7 @@ class Step4Buttons extends ConsumerWidget {
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : (passwordError == null &&
-                      confirmPasswordError == null &&
-                      password.isNotEmpty &&
-                      confirmPassword.isNotEmpty)
-                  ? Text('Submit', style: TextStyle(fontSize: 18))
-                  : SizedBox.shrink(),
+              : Text('Submit', style: TextStyle(fontSize: 18))
         ),
       ],
     );

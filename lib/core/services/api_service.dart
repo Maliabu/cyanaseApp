@@ -1,63 +1,85 @@
-import 'dart:convert';
 import 'package:cyanaseapp/core/config/env.dart';
 import 'package:cyanaseapp/core/data/api_endpoints.dart';
 import 'package:cyanaseapp/core/data/auth_endpoints.dart';
-import 'package:cyanaseapp/features/auth/data/login_form_state.dart';
-import 'package:cyanaseapp/features/auth/data/sign_up_form_state.dart';
+import 'package:cyanaseapp/core/services/dio_logging_interceptors.dart';
+import 'package:cyanaseapp/core/services/dio_retry_interceptor.dart';
+import 'package:cyanaseapp/features/auth/data/formstates/login_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/sign_up_request.dart';
 import 'package:cyanaseapp/features/auth/models/sign_up_response.dart';
 import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
-import 'package:cyanaseapp/features/auth/views/sign_up.dart';
 import 'package:cyanaseapp/features/invest/domain/invest_form_state.dart';
 import 'package:cyanaseapp/features/invest/models/submission_response.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class ApiService {
-  final String _baseUrl;
+  final String _baseUrl = ApiEndpoints.baseUrl;
   final envUrl = Env.baseUrl;
+  final Dio _dio;
 
+  ApiService() : _dio = Dio() {
+    _dio.options.headers['Content-Type'] = 'application/json';
+    _dio.interceptors.add(LoggingInterceptor());
+    _dio.interceptors.add(
+      RetryInterceptor(
+        dio: _dio,
+        retries: 3,
+        retryDelays: [Duration(seconds: 1), Duration(seconds: 2), Duration(seconds: 4)],
+      ),
+    );
+  }
 
-  ApiService({String? baseUrl}) : _baseUrl = baseUrl ?? ApiEndpoints.baseUrl;
 
   // GET request
-  Future<List<dynamic>> getList(String endpoint) async {
-    final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
-    return _handleResponse(response);
+  Future<List<dynamic>> get(String endpoint) async {
+    CancelToken cancelToken = CancelToken();
+    try {
+      final response = await _dio.get(endpoint, cancelToken: cancelToken);
+      cancelToken.cancel("User navigated away");
+
+      // Dio automatically parses JSON response into Map if responseType = json
+      return response.data;
+    } on DioException catch (e) {
+      // Better error info than http package
+      if (e.response != null) {
+        throw Exception(
+          'API Error ${e.response?.statusCode}: ${e.response?.statusMessage}',
+        );
+      } else {
+        throw Exception('API request failed: ${e.message}');
+      }
+    }
   }
 
-  // POST request
+  //POST
   Future<dynamic> post(
-  String endpoint,
-  Map<String, dynamic> body, {
-  String? token,
-  bool isWebUrl = false,
+    String endpoint,
+    Map<String, dynamic> body, {
+    String? token,
+    bool isWebUrl = false,
   }) async {
     final url = isWebUrl ? '$envUrl/$endpoint' : '$_baseUrl/$endpoint';
-    final headers = {
-      'Content-Type': 'application/json',
-    };
 
+    // Add token if exists
     if (token != null) {
-      headers['Authorization'] = 'Token $token';
+      _dio.options.headers['Authorization'] = 'Token $token';
+    } else {
+      _dio.options.headers.remove('Authorization');
     }
 
-    final response = await http.post(
-      Uri.parse(url),
-      headers: headers,
-      body: jsonEncode(body),
-    );
+    try {
+      final response = await _dio.post(url, data: body);
 
-    return _handleResponse(response);
-  }
-
-
-  dynamic _handleResponse(http.Response response) {
-    if (response.statusCode >= 200 && response.statusCode < 300) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception(
-        'API Error ${response.statusCode}: ${response.reasonPhrase}',
-      );
+      // automatically parses JSON response into Map if responseType = json
+      return response.data;
+    } on DioException catch (e) {
+      // Better error info
+      if (e.response != null) {
+        throw Exception(
+          'API Error ${e.response?.statusCode}: ${e.response?.statusMessage}',
+        );
+      } else {
+        throw Exception('API request failed: ${e.message}');
+      }
     }
   }
 
@@ -102,6 +124,16 @@ class ApiService {
 
   Future<SignUpResponse> signUp(SignupRequest form) async {
     final response = await post(AuthEndpoints.signup, form.toJson());
+    return SignUpResponse.fromJson(response);
+  }
+
+  Future<SignUpResponse> loginWithPasscode(String passcode, String email) async {
+    final response = await post(AuthEndpoints.passcodeLogin, {'password': passcode, 'email': email});
+    return SignUpResponse.fromJson(response);
+  }
+
+  Future<SignUpResponse> getAuthUser(String userId, String token) async {
+    final response = await post(AuthEndpoints.apiUrlGetAuthUserByEmail, {'user_id': userId}, token: token);
     return SignUpResponse.fromJson(response);
   }
 

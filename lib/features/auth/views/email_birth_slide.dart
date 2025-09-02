@@ -9,13 +9,13 @@ class EmailBirthSlide extends StatelessWidget {
   final Function(String?) onGenderSelected; // Callback for gender selection
 
   const EmailBirthSlide({
-    Key? key,
+    super.key,
     required this.yearController,
     required this.monthController,
     required this.dayController,
     this.selectedGender,
     required this.onGenderSelected,
-  }) : super(key: key);
+  });
 
   // Validate the date of birth
   String? _validateDateOfBirth() {
@@ -106,7 +106,7 @@ class EmailBirthSlide extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: DropdownButtonFormField<String>(
-                  value: selectedGender,
+                  initialValue: selectedGender,
                   decoration: InputDecoration(
                     labelText: 'Gender',
                     labelStyle: TextStyle(color: AppThemes.primaryColor),

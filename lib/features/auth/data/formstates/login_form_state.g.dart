@@ -14,9 +14,9 @@ _$LoginFormStateImpl _$$LoginFormStateImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$LoginFormStateImplToJson(
-  _$LoginFormStateImpl instance,
-) => <String, dynamic>{
-  'phoneNumber': instance.phoneNumber,
-  'password': instance.password,
-  'isPasswordVisible': instance.isPasswordVisible,
-};
+        _$LoginFormStateImpl instance) =>
+    <String, dynamic>{
+      'phoneNumber': instance.phoneNumber,
+      'password': instance.password,
+      'isPasswordVisible': instance.isPasswordVisible,
+    };

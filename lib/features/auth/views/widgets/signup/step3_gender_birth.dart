@@ -1,5 +1,5 @@
-import 'package:cyanaseapp/features/auth/views/widgets/signup/birth_date_field.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/signup/gender_field.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/fields/birth_date_field.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/fields/gender_field.dart';
 import 'package:flutter/material.dart';
 
 class Step3GenderBirth extends StatelessWidget {
@@ -9,18 +9,18 @@ class Step3GenderBirth extends StatelessWidget {
 Widget build(BuildContext context) {
 
   return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      const Text('Contacts', style: TextStyle(fontSize: 18)),
-        const SizedBox(height: 8),
-      const Text('Gender', style: TextStyle(fontSize: 14)),
-      const SizedBox(height: 8),
+      const Text('Personal Information', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+        const Text(
+                      'We would like to know some more information about you...',
+                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                    ),
+        const SizedBox(height: 25),
       GenderField(),
-      const SizedBox(height: 16),
-      const Text('Date of Birth', style: TextStyle(fontSize: 14)),
-      const SizedBox(height: 8),
+      const SizedBox(height: 20),
       BirthDateField(),
-      SizedBox(height: 12,)
+      SizedBox(height: 20)
     ],
   );
 }

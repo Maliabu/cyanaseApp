@@ -16,17 +16,11 @@ class LastNameField extends ConsumerWidget {
           decoration: InputDecoration(
             errorText: error,
             errorStyle: const TextStyle(fontSize: 14),
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            filled: true,
-            fillColor: Colors.grey[100],
             prefixIcon: const Icon(Icons.person, color: AppThemes.primaryColor),
             label: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.grey[100],
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Text('last name', style: TextStyle(fontSize: 18)),

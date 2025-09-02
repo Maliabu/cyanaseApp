@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Widget step3NewPassword(WidgetRef ref, BuildContext context) {
-  final state = ref.watch(forgotPasswordProvider);
+  final passwordError = ref.watch(forgotPasswordProvider.select((s) => s.passwordError));
+  final confirmPasswordError = ref.watch(forgotPasswordProvider.select((s) => s.confirmPasswordError));
+  final isPasswordVisible = ref.watch(forgotPasswordProvider.select((s) => s.isPasswordVisible));
+  final isConfirmPasswordVisible = ref.watch(forgotPasswordProvider.select((s) => s.isConfirmPasswordVisible));
   final notifier = ref.read(forgotPasswordProvider.notifier);
 
   return Column(
@@ -13,19 +16,13 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
       const Text('Password', style: TextStyle(fontSize: 14)),
       const SizedBox(height: 8),
       TextField(
-        obscureText: !state.isPasswordVisible,
+        obscureText: !isPasswordVisible,
         onChanged: (value) => notifier.setPassword(value),
         decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(12), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
           prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
           suffixIcon: IconButton(
             icon: Icon( color: AppThemes.primaryColor,
-              state.isPasswordVisible
+              isPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
             ),
@@ -34,7 +31,7 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
           label: Container(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.grey[100], // Background color for label
+              color: Colors.white, // Background color for label
               borderRadius: BorderRadius.circular(8), // Rounded corners
             ),
             child: Text(
@@ -46,11 +43,11 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
           ),
         ),
       ),
-      if (state.passwordError != null && state.passwordError!.isNotEmpty)
+      if (passwordError != null && passwordError.isNotEmpty)
       Padding(
         padding: const EdgeInsets.only(top: 4.0),
         child: Text(
-          state.passwordError!,
+          passwordError,
           style: TextStyle(
             color: Colors.red,
             fontSize: 12,
@@ -61,20 +58,14 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
       const Text('Confirm Password', style: TextStyle(fontSize: 14)),
       const SizedBox(height: 8),
       TextField(
-        obscureText: !state.isConfirmPasswordVisible,
+        obscureText: !isConfirmPasswordVisible,
         onChanged: (value) => notifier.setConfirmPassword(value),
         decoration: InputDecoration(
-          errorText: state.confirmPasswordError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(12), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
+          errorText: confirmPasswordError,
           prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
           suffixIcon: IconButton(
             icon: Icon( color: AppThemes.primaryColor,
-              state.isConfirmPasswordVisible
+              isConfirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
             ),
@@ -83,7 +74,7 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
           label: Container(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.grey[100], // Background color for label
+              color: Colors.white, // Background color for label
               borderRadius: BorderRadius.circular(8), // Rounded corners
             ),
             child: Text(

@@ -20,12 +20,6 @@ class PhoneField extends ConsumerWidget {
             decoration: InputDecoration(
               errorText: error,
               errorStyle: TextStyle(fontSize: 14),
-              border: OutlineInputBorder(
-              borderSide: BorderSide.none, // Removes the border
-              borderRadius: BorderRadius.circular(8), // Rounded corners
-            ),
-            filled: true,
-            fillColor: Colors.grey[100],
               prefixIcon: GestureDetector(
                 onTap: () {
                   showCountryPicker(

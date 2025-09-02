@@ -4,7 +4,9 @@ import 'package:cyanaseapp/features/auth/application/forgot_password_provider.da
 
 Widget step2Verification(WidgetRef ref, BuildContext context) {
   final formNotifier = ref.watch(forgotPasswordProvider.notifier);
-  final form = ref.watch(forgotPasswordProvider);
+  final email = ref.watch(forgotPasswordProvider.select((s)=>s.email));
+  final codeError = ref.watch(forgotPasswordProvider.select((s)=>s.codeError));
+  final codeDigits = ref.watch(forgotPasswordProvider.select((s)=>s.codeDigits));
 
   final List<FocusNode> focusNodes = List.generate(6, (_) => FocusNode());
 
@@ -33,7 +35,7 @@ Widget step2Verification(WidgetRef ref, BuildContext context) {
         const Text(
           'Enter Verification Code',
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 30,
             fontWeight: FontWeight.w700,
             letterSpacing: -0.9,
           ),
@@ -41,7 +43,7 @@ Widget step2Verification(WidgetRef ref, BuildContext context) {
         ),
         const SizedBox(height: 8),
         Text(
-          'sent to: ${form.email}',
+          'sent to: $email',
           style: const TextStyle(fontSize: 12),
         ),
         const SizedBox(height: 28),
@@ -60,20 +62,18 @@ Widget step2Verification(WidgetRef ref, BuildContext context) {
                 style: const TextStyle(fontSize: 24),
                 decoration: InputDecoration(
                   counterText: '',
-                  filled: true,
-                  fillColor: Colors.grey[100],
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 onChanged: (value) => handleChange(value, index),
                 // Reflect state (e.g. in hot reload or rebuild)
-                key: ValueKey(form.codeDigits[index]),
+                key: ValueKey(codeDigits[index]),
                 controller: TextEditingController.fromValue(
                   TextEditingValue(
-                    text: form.codeDigits[index],
+                    text: codeDigits[index],
                     selection: TextSelection.collapsed(
-                        offset: form.codeDigits[index].length),
+                        offset: codeDigits[index].length),
                   ),
                 ),
               ),
@@ -81,11 +81,11 @@ Widget step2Verification(WidgetRef ref, BuildContext context) {
           }),
         ),
 
-        if (form.codeError != null)
+        if (codeError != null)
           Padding(
             padding: const EdgeInsets.only(top: 12.0),
             child: Text(
-              form.codeError!,
+              codeError,
               style: const TextStyle(color: Colors.red),
             ),
           ),

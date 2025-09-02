@@ -9,7 +9,7 @@ class AppThemes {
     fontFamily: 'Geist',
     brightness: Brightness.light,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.grey[100],
     colorScheme: const ColorScheme.light(
       primary: primaryColor,
       secondary: secondaryColor,
@@ -17,6 +17,15 @@ class AppThemes {
       onPrimary: Colors.black,
       onSecondary: Colors.white,
       onSurface: Colors.black87,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Colors.white,
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      hintStyle: const TextStyle(fontSize: 18, color: Colors.grey)
     ),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(
@@ -41,12 +50,12 @@ class AppThemes {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         shadowColor: const Color.fromARGB(0, 158, 158, 158),
-        textStyle: TextStyle(fontSize: 18)
+        textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -107,14 +116,3 @@ class AppThemes {
   );
 }
 
-// BuildContext extension for easier access to colors and styles
-extension ThemeHelpers on BuildContext {
-  Color get primaryColor => Theme.of(this).colorScheme.primary;
-  Color get secondaryColor => Theme.of(this).colorScheme.secondary;
-  Color get backgroundColor => Theme.of(this).colorScheme.surface;
-  Color get surfaceColor => Theme.of(this).colorScheme.surface;
-
-  TextStyle get bodyLarge => Theme.of(this).textTheme.bodyLarge!;
-  TextStyle get bodyMedium => Theme.of(this).textTheme.bodyMedium!;
-  TextStyle get headlineMedium => Theme.of(this).textTheme.headlineMedium!;
-}

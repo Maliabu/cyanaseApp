@@ -12,8 +12,7 @@ part of 'verification_code.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$VerificationCode {
@@ -21,9 +20,7 @@ mixin _$VerificationCode {
   AsyncValue<SubmissionResponse?> get submission =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of VerificationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $VerificationCodeCopyWith<VerificationCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -31,14 +28,11 @@ mixin _$VerificationCode {
 /// @nodoc
 abstract class $VerificationCodeCopyWith<$Res> {
   factory $VerificationCodeCopyWith(
-    VerificationCode value,
-    $Res Function(VerificationCode) then,
-  ) = _$VerificationCodeCopyWithImpl<$Res, VerificationCode>;
+          VerificationCode value, $Res Function(VerificationCode) then) =
+      _$VerificationCodeCopyWithImpl<$Res, VerificationCode>;
   @useResult
-  $Res call({
-    String verificationCode,
-    AsyncValue<SubmissionResponse?> submission,
-  });
+  $Res call(
+      {String verificationCode, AsyncValue<SubmissionResponse?> submission});
 }
 
 /// @nodoc
@@ -51,82 +45,70 @@ class _$VerificationCodeCopyWithImpl<$Res, $Val extends VerificationCode>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of VerificationCode
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? verificationCode = null, Object? submission = null}) {
-    return _then(
-      _value.copyWith(
-            verificationCode:
-                null == verificationCode
-                    ? _value.verificationCode
-                    : verificationCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            submission:
-                null == submission
-                    ? _value.submission
-                    : submission // ignore: cast_nullable_to_non_nullable
-                        as AsyncValue<SubmissionResponse?>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? verificationCode = null,
+    Object? submission = null,
+  }) {
+    return _then(_value.copyWith(
+      verificationCode: null == verificationCode
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<SubmissionResponse?>,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$VerificationCodeImplCopyWith<$Res>
     implements $VerificationCodeCopyWith<$Res> {
-  factory _$$VerificationCodeImplCopyWith(
-    _$VerificationCodeImpl value,
-    $Res Function(_$VerificationCodeImpl) then,
-  ) = __$$VerificationCodeImplCopyWithImpl<$Res>;
+  factory _$$VerificationCodeImplCopyWith(_$VerificationCodeImpl value,
+          $Res Function(_$VerificationCodeImpl) then) =
+      __$$VerificationCodeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String verificationCode,
-    AsyncValue<SubmissionResponse?> submission,
-  });
+  $Res call(
+      {String verificationCode, AsyncValue<SubmissionResponse?> submission});
 }
 
 /// @nodoc
 class __$$VerificationCodeImplCopyWithImpl<$Res>
     extends _$VerificationCodeCopyWithImpl<$Res, _$VerificationCodeImpl>
     implements _$$VerificationCodeImplCopyWith<$Res> {
-  __$$VerificationCodeImplCopyWithImpl(
-    _$VerificationCodeImpl _value,
-    $Res Function(_$VerificationCodeImpl) _then,
-  ) : super(_value, _then);
+  __$$VerificationCodeImplCopyWithImpl(_$VerificationCodeImpl _value,
+      $Res Function(_$VerificationCodeImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of VerificationCode
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? verificationCode = null, Object? submission = null}) {
-    return _then(
-      _$VerificationCodeImpl(
-        verificationCode:
-            null == verificationCode
-                ? _value.verificationCode
-                : verificationCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        submission:
-            null == submission
-                ? _value.submission
-                : submission // ignore: cast_nullable_to_non_nullable
-                    as AsyncValue<SubmissionResponse?>,
-      ),
-    );
+  $Res call({
+    Object? verificationCode = null,
+    Object? submission = null,
+  }) {
+    return _then(_$VerificationCodeImpl(
+      verificationCode: null == verificationCode
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<SubmissionResponse?>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$VerificationCodeImpl implements _VerificationCode {
-  const _$VerificationCodeImpl({
-    required this.verificationCode,
-    this.submission = const AsyncData<SubmissionResponse?>(null),
-  });
+  const _$VerificationCodeImpl(
+      {required this.verificationCode,
+      this.submission = const AsyncData<SubmissionResponse?>(null)});
 
   @override
   final String verificationCode;
@@ -153,33 +135,26 @@ class _$VerificationCodeImpl implements _VerificationCode {
   @override
   int get hashCode => Object.hash(runtimeType, verificationCode, submission);
 
-  /// Create a copy of VerificationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$VerificationCodeImplCopyWith<_$VerificationCodeImpl> get copyWith =>
       __$$VerificationCodeImplCopyWithImpl<_$VerificationCodeImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _VerificationCode implements VerificationCode {
-  const factory _VerificationCode({
-    required final String verificationCode,
-    final AsyncValue<SubmissionResponse?> submission,
-  }) = _$VerificationCodeImpl;
+  const factory _VerificationCode(
+          {required final String verificationCode,
+          final AsyncValue<SubmissionResponse?> submission}) =
+      _$VerificationCodeImpl;
 
   @override
   String get verificationCode;
   @override
   AsyncValue<SubmissionResponse?> get submission;
-
-  /// Create a copy of VerificationCode
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$VerificationCodeImplCopyWith<_$VerificationCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

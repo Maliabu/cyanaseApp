@@ -12,8 +12,7 @@ part of 'async_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AsyncState<T> {
@@ -22,47 +21,52 @@ mixin _$AsyncState<T> {
     required TResult Function() loading,
     required TResult Function(T value) data,
     required TResult Function(Object error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(T value)? data,
     TResult? Function(Object error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(T value)? data,
     TResult Function(Object error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AsyncLoading<T> value) loading,
     required TResult Function(AsyncData<T> value) data,
     required TResult Function(AsyncError<T> value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AsyncLoading<T> value)? loading,
     TResult? Function(AsyncData<T> value)? data,
     TResult? Function(AsyncError<T> value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AsyncLoading<T> value)? loading,
     TResult Function(AsyncData<T> value)? data,
     TResult Function(AsyncError<T> value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AsyncStateCopyWith<T, $Res> {
   factory $AsyncStateCopyWith(
-    AsyncState<T> value,
-    $Res Function(AsyncState<T>) then,
-  ) = _$AsyncStateCopyWithImpl<T, $Res, AsyncState<T>>;
+          AsyncState<T> value, $Res Function(AsyncState<T>) then) =
+      _$AsyncStateCopyWithImpl<T, $Res, AsyncState<T>>;
 }
 
 /// @nodoc
@@ -74,17 +78,13 @@ class _$AsyncStateCopyWithImpl<T, $Res, $Val extends AsyncState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$AsyncLoadingImplCopyWith<T, $Res> {
-  factory _$$AsyncLoadingImplCopyWith(
-    _$AsyncLoadingImpl<T> value,
-    $Res Function(_$AsyncLoadingImpl<T>) then,
-  ) = __$$AsyncLoadingImplCopyWithImpl<T, $Res>;
+  factory _$$AsyncLoadingImplCopyWith(_$AsyncLoadingImpl<T> value,
+          $Res Function(_$AsyncLoadingImpl<T>) then) =
+      __$$AsyncLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
@@ -92,12 +92,8 @@ class __$$AsyncLoadingImplCopyWithImpl<T, $Res>
     extends _$AsyncStateCopyWithImpl<T, $Res, _$AsyncLoadingImpl<T>>
     implements _$$AsyncLoadingImplCopyWith<T, $Res> {
   __$$AsyncLoadingImplCopyWithImpl(
-    _$AsyncLoadingImpl<T> _value,
-    $Res Function(_$AsyncLoadingImpl<T>) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
+      _$AsyncLoadingImpl<T> _value, $Res Function(_$AsyncLoadingImpl<T>) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -195,9 +191,8 @@ abstract class AsyncLoading<T> implements AsyncState<T> {
 /// @nodoc
 abstract class _$$AsyncDataImplCopyWith<T, $Res> {
   factory _$$AsyncDataImplCopyWith(
-    _$AsyncDataImpl<T> value,
-    $Res Function(_$AsyncDataImpl<T>) then,
-  ) = __$$AsyncDataImplCopyWithImpl<T, $Res>;
+          _$AsyncDataImpl<T> value, $Res Function(_$AsyncDataImpl<T>) then) =
+      __$$AsyncDataImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T value});
 }
@@ -207,23 +202,20 @@ class __$$AsyncDataImplCopyWithImpl<T, $Res>
     extends _$AsyncStateCopyWithImpl<T, $Res, _$AsyncDataImpl<T>>
     implements _$$AsyncDataImplCopyWith<T, $Res> {
   __$$AsyncDataImplCopyWithImpl(
-    _$AsyncDataImpl<T> _value,
-    $Res Function(_$AsyncDataImpl<T>) _then,
-  ) : super(_value, _then);
+      _$AsyncDataImpl<T> _value, $Res Function(_$AsyncDataImpl<T>) _then)
+      : super(_value, _then);
 
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? value = freezed}) {
-    return _then(
-      _$AsyncDataImpl<T>(
-        freezed == value
-            ? _value.value
-            : value // ignore: cast_nullable_to_non_nullable
-                as T,
-      ),
-    );
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$AsyncDataImpl<T>(
+      freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
   }
 }
 
@@ -252,9 +244,7 @@ class _$AsyncDataImpl<T> implements AsyncData<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AsyncDataImplCopyWith<T, _$AsyncDataImpl<T>> get copyWith =>
@@ -333,10 +323,7 @@ abstract class AsyncData<T> implements AsyncState<T> {
   const factory AsyncData(final T value) = _$AsyncDataImpl<T>;
 
   T get value;
-
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AsyncDataImplCopyWith<T, _$AsyncDataImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -344,9 +331,8 @@ abstract class AsyncData<T> implements AsyncState<T> {
 /// @nodoc
 abstract class _$$AsyncErrorImplCopyWith<T, $Res> {
   factory _$$AsyncErrorImplCopyWith(
-    _$AsyncErrorImpl<T> value,
-    $Res Function(_$AsyncErrorImpl<T>) then,
-  ) = __$$AsyncErrorImplCopyWithImpl<T, $Res>;
+          _$AsyncErrorImpl<T> value, $Res Function(_$AsyncErrorImpl<T>) then) =
+      __$$AsyncErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Object error});
 }
@@ -356,16 +342,17 @@ class __$$AsyncErrorImplCopyWithImpl<T, $Res>
     extends _$AsyncStateCopyWithImpl<T, $Res, _$AsyncErrorImpl<T>>
     implements _$$AsyncErrorImplCopyWith<T, $Res> {
   __$$AsyncErrorImplCopyWithImpl(
-    _$AsyncErrorImpl<T> _value,
-    $Res Function(_$AsyncErrorImpl<T>) _then,
-  ) : super(_value, _then);
+      _$AsyncErrorImpl<T> _value, $Res Function(_$AsyncErrorImpl<T>) _then)
+      : super(_value, _then);
 
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? error = null}) {
-    return _then(_$AsyncErrorImpl<T>(null == error ? _value.error : error));
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$AsyncErrorImpl<T>(
+      null == error ? _value.error : error,
+    ));
   }
 }
 
@@ -394,9 +381,7 @@ class _$AsyncErrorImpl<T> implements AsyncError<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AsyncErrorImplCopyWith<T, _$AsyncErrorImpl<T>> get copyWith =>
@@ -475,10 +460,7 @@ abstract class AsyncError<T> implements AsyncState<T> {
   const factory AsyncError(final Object error) = _$AsyncErrorImpl<T>;
 
   Object get error;
-
-  /// Create a copy of AsyncState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AsyncErrorImplCopyWith<T, _$AsyncErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

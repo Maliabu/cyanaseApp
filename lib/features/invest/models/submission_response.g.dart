@@ -7,17 +7,17 @@ part of 'submission_response.dart';
 // **************************************************************************
 
 _$SubmissionResponseImpl _$$SubmissionResponseImplFromJson(
-  Map<String, dynamic> json,
-) => _$SubmissionResponseImpl(
-  id: json['id'] as String,
-  status: json['status'] as String,
-  message: json['message'] as String?,
-);
+        Map<String, dynamic> json) =>
+    _$SubmissionResponseImpl(
+      id: json['id'] as String,
+      status: json['status'] as String,
+      message: json['message'] as String?,
+    );
 
 Map<String, dynamic> _$$SubmissionResponseImplToJson(
-  _$SubmissionResponseImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'status': instance.status,
-  'message': instance.message,
-};
+        _$SubmissionResponseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'status': instance.status,
+      'message': instance.message,
+    };

@@ -24,12 +24,6 @@ class GenderField extends ConsumerWidget{
         },
         decoration:  InputDecoration(
           errorText: genderError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(8), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
           hintText: 'Select gender',
           prefixIcon: AnimatedSwitcher(
             duration: Duration(milliseconds: 300),

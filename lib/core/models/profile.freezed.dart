@@ -12,8 +12,7 @@ part of 'profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return _Profile.fromJson(json);
@@ -21,7 +20,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  // for responses, we only need an annotation.
+// for responses, we only need an annotation.
   String get gender => throw _privateConstructorUsedError;
   String get birthDate => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
@@ -38,12 +37,8 @@ mixin _$Profile {
   DateTime get created => throw _privateConstructorUsedError;
   int? get passcode => throw _privateConstructorUsedError;
 
-  /// Serializes this Profile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ProfileCopyWith<Profile> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -52,23 +47,22 @@ abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
       _$ProfileCopyWithImpl<$Res, Profile>;
   @useResult
-  $Res call({
-    String gender,
-    String birthDate,
-    String country,
-    String phoneno,
-    int profileId,
-    String? language,
-    String? timeZone,
-    String? address,
-    String? profilePicture,
-    String verificationCode,
-    bool isVerified,
-    bool? isDeletable,
-    bool isDisabled,
-    DateTime created,
-    int? passcode,
-  });
+  $Res call(
+      {String gender,
+      String birthDate,
+      String country,
+      String phoneno,
+      int profileId,
+      String? language,
+      String? timeZone,
+      String? address,
+      String? profilePicture,
+      String verificationCode,
+      bool isVerified,
+      bool? isDeletable,
+      bool isDisabled,
+      DateTime created,
+      int? passcode});
 }
 
 /// @nodoc
@@ -81,8 +75,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,114 +94,94 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? created = null,
     Object? passcode = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            gender:
-                null == gender
-                    ? _value.gender
-                    : gender // ignore: cast_nullable_to_non_nullable
-                        as String,
-            birthDate:
-                null == birthDate
-                    ? _value.birthDate
-                    : birthDate // ignore: cast_nullable_to_non_nullable
-                        as String,
-            country:
-                null == country
-                    ? _value.country
-                    : country // ignore: cast_nullable_to_non_nullable
-                        as String,
-            phoneno:
-                null == phoneno
-                    ? _value.phoneno
-                    : phoneno // ignore: cast_nullable_to_non_nullable
-                        as String,
-            profileId:
-                null == profileId
-                    ? _value.profileId
-                    : profileId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            language:
-                freezed == language
-                    ? _value.language
-                    : language // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            timeZone:
-                freezed == timeZone
-                    ? _value.timeZone
-                    : timeZone // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            address:
-                freezed == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            profilePicture:
-                freezed == profilePicture
-                    ? _value.profilePicture
-                    : profilePicture // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            verificationCode:
-                null == verificationCode
-                    ? _value.verificationCode
-                    : verificationCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isVerified:
-                null == isVerified
-                    ? _value.isVerified
-                    : isVerified // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isDeletable:
-                freezed == isDeletable
-                    ? _value.isDeletable
-                    : isDeletable // ignore: cast_nullable_to_non_nullable
-                        as bool?,
-            isDisabled:
-                null == isDisabled
-                    ? _value.isDisabled
-                    : isDisabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            created:
-                null == created
-                    ? _value.created
-                    : created // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            passcode:
-                freezed == passcode
-                    ? _value.passcode
-                    : passcode // ignore: cast_nullable_to_non_nullable
-                        as int?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthDate: null == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneno: null == phoneno
+          ? _value.phoneno
+          : phoneno // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileId: null == profileId
+          ? _value.profileId
+          : profileId // ignore: cast_nullable_to_non_nullable
+              as int,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeZone: freezed == timeZone
+          ? _value.timeZone
+          : timeZone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      verificationCode: null == verificationCode
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      isVerified: null == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeletable: freezed == isDeletable
+          ? _value.isDeletable
+          : isDeletable // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisabled: null == isDisabled
+          ? _value.isDisabled
+          : isDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      passcode: freezed == passcode
+          ? _value.passcode
+          : passcode // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   factory _$$ProfileImplCopyWith(
-    _$ProfileImpl value,
-    $Res Function(_$ProfileImpl) then,
-  ) = __$$ProfileImplCopyWithImpl<$Res>;
+          _$ProfileImpl value, $Res Function(_$ProfileImpl) then) =
+      __$$ProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String gender,
-    String birthDate,
-    String country,
-    String phoneno,
-    int profileId,
-    String? language,
-    String? timeZone,
-    String? address,
-    String? profilePicture,
-    String verificationCode,
-    bool isVerified,
-    bool? isDeletable,
-    bool isDisabled,
-    DateTime created,
-    int? passcode,
-  });
+  $Res call(
+      {String gender,
+      String birthDate,
+      String country,
+      String phoneno,
+      int profileId,
+      String? language,
+      String? timeZone,
+      String? address,
+      String? profilePicture,
+      String verificationCode,
+      bool isVerified,
+      bool? isDeletable,
+      bool isDisabled,
+      DateTime created,
+      int? passcode});
 }
 
 /// @nodoc
@@ -217,12 +189,9 @@ class __$$ProfileImplCopyWithImpl<$Res>
     extends _$ProfileCopyWithImpl<$Res, _$ProfileImpl>
     implements _$$ProfileImplCopyWith<$Res> {
   __$$ProfileImplCopyWithImpl(
-    _$ProfileImpl _value,
-    $Res Function(_$ProfileImpl) _then,
-  ) : super(_value, _then);
+      _$ProfileImpl _value, $Res Function(_$ProfileImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -242,85 +211,68 @@ class __$$ProfileImplCopyWithImpl<$Res>
     Object? created = null,
     Object? passcode = freezed,
   }) {
-    return _then(
-      _$ProfileImpl(
-        gender:
-            null == gender
-                ? _value.gender
-                : gender // ignore: cast_nullable_to_non_nullable
-                    as String,
-        birthDate:
-            null == birthDate
-                ? _value.birthDate
-                : birthDate // ignore: cast_nullable_to_non_nullable
-                    as String,
-        country:
-            null == country
-                ? _value.country
-                : country // ignore: cast_nullable_to_non_nullable
-                    as String,
-        phoneno:
-            null == phoneno
-                ? _value.phoneno
-                : phoneno // ignore: cast_nullable_to_non_nullable
-                    as String,
-        profileId:
-            null == profileId
-                ? _value.profileId
-                : profileId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        language:
-            freezed == language
-                ? _value.language
-                : language // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        timeZone:
-            freezed == timeZone
-                ? _value.timeZone
-                : timeZone // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        address:
-            freezed == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        profilePicture:
-            freezed == profilePicture
-                ? _value.profilePicture
-                : profilePicture // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        verificationCode:
-            null == verificationCode
-                ? _value.verificationCode
-                : verificationCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isVerified:
-            null == isVerified
-                ? _value.isVerified
-                : isVerified // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isDeletable:
-            freezed == isDeletable
-                ? _value.isDeletable
-                : isDeletable // ignore: cast_nullable_to_non_nullable
-                    as bool?,
-        isDisabled:
-            null == isDisabled
-                ? _value.isDisabled
-                : isDisabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        created:
-            null == created
-                ? _value.created
-                : created // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        passcode:
-            freezed == passcode
-                ? _value.passcode
-                : passcode // ignore: cast_nullable_to_non_nullable
-                    as int?,
-      ),
-    );
+    return _then(_$ProfileImpl(
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthDate: null == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneno: null == phoneno
+          ? _value.phoneno
+          : phoneno // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileId: null == profileId
+          ? _value.profileId
+          : profileId // ignore: cast_nullable_to_non_nullable
+              as int,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeZone: freezed == timeZone
+          ? _value.timeZone
+          : timeZone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      verificationCode: null == verificationCode
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      isVerified: null == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeletable: freezed == isDeletable
+          ? _value.isDeletable
+          : isDeletable // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisabled: null == isDisabled
+          ? _value.isDisabled
+          : isDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      passcode: freezed == passcode
+          ? _value.passcode
+          : passcode // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
   }
 }
 
@@ -328,28 +280,27 @@ class __$$ProfileImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$ProfileImpl implements _Profile {
-  const _$ProfileImpl({
-    required this.gender,
-    required this.birthDate,
-    required this.country,
-    required this.phoneno,
-    required this.profileId,
-    this.language,
-    this.timeZone,
-    this.address,
-    this.profilePicture,
-    required this.verificationCode,
-    required this.isVerified,
-    this.isDeletable,
-    required this.isDisabled,
-    required this.created,
-    this.passcode,
-  });
+  const _$ProfileImpl(
+      {required this.gender,
+      required this.birthDate,
+      required this.country,
+      required this.phoneno,
+      required this.profileId,
+      this.language,
+      this.timeZone,
+      this.address,
+      this.profilePicture,
+      required this.verificationCode,
+      required this.isVerified,
+      this.isDeletable,
+      required this.isDisabled,
+      required this.created,
+      this.passcode});
 
   factory _$ProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileImplFromJson(json);
 
-  // for responses, we only need an annotation.
+// for responses, we only need an annotation.
   @override
   final String gender;
   @override
@@ -418,30 +369,27 @@ class _$ProfileImpl implements _Profile {
                 other.passcode == passcode));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    gender,
-    birthDate,
-    country,
-    phoneno,
-    profileId,
-    language,
-    timeZone,
-    address,
-    profilePicture,
-    verificationCode,
-    isVerified,
-    isDeletable,
-    isDisabled,
-    created,
-    passcode,
-  );
+      runtimeType,
+      gender,
+      birthDate,
+      country,
+      phoneno,
+      profileId,
+      language,
+      timeZone,
+      address,
+      profilePicture,
+      verificationCode,
+      isVerified,
+      isDeletable,
+      isDisabled,
+      created,
+      passcode);
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
@@ -449,33 +397,33 @@ class _$ProfileImpl implements _Profile {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProfileImplToJson(this);
+    return _$$ProfileImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Profile implements Profile {
-  const factory _Profile({
-    required final String gender,
-    required final String birthDate,
-    required final String country,
-    required final String phoneno,
-    required final int profileId,
-    final String? language,
-    final String? timeZone,
-    final String? address,
-    final String? profilePicture,
-    required final String verificationCode,
-    required final bool isVerified,
-    final bool? isDeletable,
-    required final bool isDisabled,
-    required final DateTime created,
-    final int? passcode,
-  }) = _$ProfileImpl;
+  const factory _Profile(
+      {required final String gender,
+      required final String birthDate,
+      required final String country,
+      required final String phoneno,
+      required final int profileId,
+      final String? language,
+      final String? timeZone,
+      final String? address,
+      final String? profilePicture,
+      required final String verificationCode,
+      required final bool isVerified,
+      final bool? isDeletable,
+      required final bool isDisabled,
+      required final DateTime created,
+      final int? passcode}) = _$ProfileImpl;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$ProfileImpl.fromJson;
 
-  // for responses, we only need an annotation.
-  @override
+  @override // for responses, we only need an annotation.
   String get gender;
   @override
   String get birthDate;
@@ -505,11 +453,8 @@ abstract class _Profile implements Profile {
   DateTime get created;
   @override
   int? get passcode;
-
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

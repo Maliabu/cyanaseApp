@@ -12,25 +12,30 @@ class Step4Password extends ConsumerWidget {
     final passwordError = ref.watch(signupFormProvider.select((s) => s.passwordError));
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text('Password', style: TextStyle(fontSize: 14)),
-        const SizedBox(height: 8),
+        const Text('Create Password', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+        
+        const Text(
+                      'Secure your new account with a strong password and start investing today!',
+                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                    ),
+        const SizedBox(height: 25),
         PasswordField(),
-        if (passwordError != null && passwordError!.isNotEmpty)
+        if (passwordError != null && passwordError.isNotEmpty)
         Padding(
           padding: const EdgeInsets.only(top: 4.0),
           child: Text(
-            passwordError!,
+            passwordError,
             style: TextStyle(
               color: Colors.red[700],
-              fontSize: 12,
+              fontSize: 18,
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 20),
         ConfirmPasswordField(),
-        const SizedBox(height: 12),
+        const SizedBox(height: 20),
       ],
     );
   }

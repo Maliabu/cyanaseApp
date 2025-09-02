@@ -6,10 +6,10 @@ class FirstNameSlide extends StatelessWidget {
   final TextEditingController lastNameController;
 
   const FirstNameSlide({
-    Key? key,
+    super.key,
     required this.firstNameController,
     required this.lastNameController,
-  }) : super(key: key);
+  });
 
   bool validateInputs(BuildContext context) {
     if (firstNameController.text.trim().isEmpty) {

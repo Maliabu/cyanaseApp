@@ -12,8 +12,7 @@ part of 'profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return _Profile.fromJson(json);
@@ -21,8 +20,8 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  // @JsonKey(name: 'name') converts our camelCase to django/api snake_case
-  // so no issues with keyErrors when submitting the model
+// @JsonKey(name: 'name') converts our camelCase to django/api snake_case
+// so no issues with keyErrors when submitting the model
   @JsonKey(name: 'gender')
   String get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'birth_date')
@@ -32,12 +31,8 @@ mixin _$Profile {
   @JsonKey(name: 'phone_no')
   String get phoneNumber => throw _privateConstructorUsedError;
 
-  /// Serializes this Profile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ProfileCopyWith<Profile> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,12 +41,11 @@ abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
       _$ProfileCopyWithImpl<$Res, Profile>;
   @useResult
-  $Res call({
-    @JsonKey(name: 'gender') String gender,
-    @JsonKey(name: 'birth_date') String birthDate,
-    @JsonKey(name: 'country') String country,
-    @JsonKey(name: 'phone_no') String phoneNumber,
-  });
+  $Res call(
+      {@JsonKey(name: 'gender') String gender,
+      @JsonKey(name: 'birth_date') String birthDate,
+      @JsonKey(name: 'country') String country,
+      @JsonKey(name: 'phone_no') String phoneNumber});
 }
 
 /// @nodoc
@@ -64,8 +58,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,48 +66,39 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? country = null,
     Object? phoneNumber = null,
   }) {
-    return _then(
-      _value.copyWith(
-            gender:
-                null == gender
-                    ? _value.gender
-                    : gender // ignore: cast_nullable_to_non_nullable
-                        as String,
-            birthDate:
-                null == birthDate
-                    ? _value.birthDate
-                    : birthDate // ignore: cast_nullable_to_non_nullable
-                        as String,
-            country:
-                null == country
-                    ? _value.country
-                    : country // ignore: cast_nullable_to_non_nullable
-                        as String,
-            phoneNumber:
-                null == phoneNumber
-                    ? _value.phoneNumber
-                    : phoneNumber // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthDate: null == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   factory _$$ProfileImplCopyWith(
-    _$ProfileImpl value,
-    $Res Function(_$ProfileImpl) then,
-  ) = __$$ProfileImplCopyWithImpl<$Res>;
+          _$ProfileImpl value, $Res Function(_$ProfileImpl) then) =
+      __$$ProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    @JsonKey(name: 'gender') String gender,
-    @JsonKey(name: 'birth_date') String birthDate,
-    @JsonKey(name: 'country') String country,
-    @JsonKey(name: 'phone_no') String phoneNumber,
-  });
+  $Res call(
+      {@JsonKey(name: 'gender') String gender,
+      @JsonKey(name: 'birth_date') String birthDate,
+      @JsonKey(name: 'country') String country,
+      @JsonKey(name: 'phone_no') String phoneNumber});
 }
 
 /// @nodoc
@@ -123,12 +106,9 @@ class __$$ProfileImplCopyWithImpl<$Res>
     extends _$ProfileCopyWithImpl<$Res, _$ProfileImpl>
     implements _$$ProfileImplCopyWith<$Res> {
   __$$ProfileImplCopyWithImpl(
-    _$ProfileImpl _value,
-    $Res Function(_$ProfileImpl) _then,
-  ) : super(_value, _then);
+      _$ProfileImpl _value, $Res Function(_$ProfileImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,48 +117,41 @@ class __$$ProfileImplCopyWithImpl<$Res>
     Object? country = null,
     Object? phoneNumber = null,
   }) {
-    return _then(
-      _$ProfileImpl(
-        gender:
-            null == gender
-                ? _value.gender
-                : gender // ignore: cast_nullable_to_non_nullable
-                    as String,
-        birthDate:
-            null == birthDate
-                ? _value.birthDate
-                : birthDate // ignore: cast_nullable_to_non_nullable
-                    as String,
-        country:
-            null == country
-                ? _value.country
-                : country // ignore: cast_nullable_to_non_nullable
-                    as String,
-        phoneNumber:
-            null == phoneNumber
-                ? _value.phoneNumber
-                : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$ProfileImpl(
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthDate: null == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ProfileImpl implements _Profile {
-  const _$ProfileImpl({
-    @JsonKey(name: 'gender') required this.gender,
-    @JsonKey(name: 'birth_date') required this.birthDate,
-    @JsonKey(name: 'country') required this.country,
-    @JsonKey(name: 'phone_no') required this.phoneNumber,
-  });
+  const _$ProfileImpl(
+      {@JsonKey(name: 'gender') required this.gender,
+      @JsonKey(name: 'birth_date') required this.birthDate,
+      @JsonKey(name: 'country') required this.country,
+      @JsonKey(name: 'phone_no') required this.phoneNumber});
 
   factory _$ProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileImplFromJson(json);
 
-  // @JsonKey(name: 'name') converts our camelCase to django/api snake_case
-  // so no issues with keyErrors when submitting the model
+// @JsonKey(name: 'name') converts our camelCase to django/api snake_case
+// so no issues with keyErrors when submitting the model
   @override
   @JsonKey(name: 'gender')
   final String gender;
@@ -210,14 +183,12 @@ class _$ProfileImpl implements _Profile {
                 other.phoneNumber == phoneNumber));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, gender, birthDate, country, phoneNumber);
 
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
@@ -225,23 +196,24 @@ class _$ProfileImpl implements _Profile {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProfileImplToJson(this);
+    return _$$ProfileImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Profile implements Profile {
-  const factory _Profile({
-    @JsonKey(name: 'gender') required final String gender,
-    @JsonKey(name: 'birth_date') required final String birthDate,
-    @JsonKey(name: 'country') required final String country,
-    @JsonKey(name: 'phone_no') required final String phoneNumber,
-  }) = _$ProfileImpl;
+  const factory _Profile(
+          {@JsonKey(name: 'gender') required final String gender,
+          @JsonKey(name: 'birth_date') required final String birthDate,
+          @JsonKey(name: 'country') required final String country,
+          @JsonKey(name: 'phone_no') required final String phoneNumber}) =
+      _$ProfileImpl;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$ProfileImpl.fromJson;
 
-  // @JsonKey(name: 'name') converts our camelCase to django/api snake_case
-  // so no issues with keyErrors when submitting the model
-  @override
+  @override // @JsonKey(name: 'name') converts our camelCase to django/api snake_case
+// so no issues with keyErrors when submitting the model
   @JsonKey(name: 'gender')
   String get gender;
   @override
@@ -253,11 +225,8 @@ abstract class _Profile implements Profile {
   @override
   @JsonKey(name: 'phone_no')
   String get phoneNumber;
-
-  /// Create a copy of Profile
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,8 +12,7 @@ part of 'login_form_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LoginFormState _$LoginFormStateFromJson(Map<String, dynamic> json) {
   return _LoginFormState.fromJson(json);
@@ -28,12 +27,8 @@ mixin _$LoginFormState {
   AsyncValue<SubmissionResponse?>? get submission =>
       throw _privateConstructorUsedError;
 
-  /// Serializes this LoginFormState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of LoginFormState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LoginFormStateCopyWith<LoginFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,17 +36,15 @@ mixin _$LoginFormState {
 /// @nodoc
 abstract class $LoginFormStateCopyWith<$Res> {
   factory $LoginFormStateCopyWith(
-    LoginFormState value,
-    $Res Function(LoginFormState) then,
-  ) = _$LoginFormStateCopyWithImpl<$Res, LoginFormState>;
+          LoginFormState value, $Res Function(LoginFormState) then) =
+      _$LoginFormStateCopyWithImpl<$Res, LoginFormState>;
   @useResult
-  $Res call({
-    String phoneNumber,
-    String password,
-    bool isPasswordVisible,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    AsyncValue<SubmissionResponse?>? submission,
-  });
+  $Res call(
+      {String phoneNumber,
+      String password,
+      bool isPasswordVisible,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      AsyncValue<SubmissionResponse?>? submission});
 }
 
 /// @nodoc
@@ -64,8 +57,6 @@ class _$LoginFormStateCopyWithImpl<$Res, $Val extends LoginFormState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LoginFormState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,50 +65,41 @@ class _$LoginFormStateCopyWithImpl<$Res, $Val extends LoginFormState>
     Object? isPasswordVisible = null,
     Object? submission = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            phoneNumber:
-                null == phoneNumber
-                    ? _value.phoneNumber
-                    : phoneNumber // ignore: cast_nullable_to_non_nullable
-                        as String,
-            password:
-                null == password
-                    ? _value.password
-                    : password // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isPasswordVisible:
-                null == isPasswordVisible
-                    ? _value.isPasswordVisible
-                    : isPasswordVisible // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            submission:
-                freezed == submission
-                    ? _value.submission
-                    : submission // ignore: cast_nullable_to_non_nullable
-                        as AsyncValue<SubmissionResponse?>?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPasswordVisible: null == isPasswordVisible
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      submission: freezed == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<SubmissionResponse?>?,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$LoginFormStateImplCopyWith<$Res>
     implements $LoginFormStateCopyWith<$Res> {
-  factory _$$LoginFormStateImplCopyWith(
-    _$LoginFormStateImpl value,
-    $Res Function(_$LoginFormStateImpl) then,
-  ) = __$$LoginFormStateImplCopyWithImpl<$Res>;
+  factory _$$LoginFormStateImplCopyWith(_$LoginFormStateImpl value,
+          $Res Function(_$LoginFormStateImpl) then) =
+      __$$LoginFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String phoneNumber,
-    String password,
-    bool isPasswordVisible,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    AsyncValue<SubmissionResponse?>? submission,
-  });
+  $Res call(
+      {String phoneNumber,
+      String password,
+      bool isPasswordVisible,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      AsyncValue<SubmissionResponse?>? submission});
 }
 
 /// @nodoc
@@ -125,12 +107,9 @@ class __$$LoginFormStateImplCopyWithImpl<$Res>
     extends _$LoginFormStateCopyWithImpl<$Res, _$LoginFormStateImpl>
     implements _$$LoginFormStateImplCopyWith<$Res> {
   __$$LoginFormStateImplCopyWithImpl(
-    _$LoginFormStateImpl _value,
-    $Res Function(_$LoginFormStateImpl) _then,
-  ) : super(_value, _then);
+      _$LoginFormStateImpl _value, $Res Function(_$LoginFormStateImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of LoginFormState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,42 +118,35 @@ class __$$LoginFormStateImplCopyWithImpl<$Res>
     Object? isPasswordVisible = null,
     Object? submission = freezed,
   }) {
-    return _then(
-      _$LoginFormStateImpl(
-        phoneNumber:
-            null == phoneNumber
-                ? _value.phoneNumber
-                : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String,
-        password:
-            null == password
-                ? _value.password
-                : password // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isPasswordVisible:
-            null == isPasswordVisible
-                ? _value.isPasswordVisible
-                : isPasswordVisible // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        submission:
-            freezed == submission
-                ? _value.submission
-                : submission // ignore: cast_nullable_to_non_nullable
-                    as AsyncValue<SubmissionResponse?>?,
-      ),
-    );
+    return _then(_$LoginFormStateImpl(
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPasswordVisible: null == isPasswordVisible
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      submission: freezed == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<SubmissionResponse?>?,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LoginFormStateImpl implements _LoginFormState {
-  const _$LoginFormStateImpl({
-    required this.phoneNumber,
-    required this.password,
-    this.isPasswordVisible = false,
-    @JsonKey(includeFromJson: false, includeToJson: false) this.submission,
-  });
+  const _$LoginFormStateImpl(
+      {required this.phoneNumber,
+      required this.password,
+      this.isPasswordVisible = false,
+      @JsonKey(includeFromJson: false, includeToJson: false) this.submission});
 
   factory _$LoginFormStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginFormStateImplFromJson(json);
@@ -210,41 +182,34 @@ class _$LoginFormStateImpl implements _LoginFormState {
                 other.submission == submission));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    phoneNumber,
-    password,
-    isPasswordVisible,
-    submission,
-  );
+      runtimeType, phoneNumber, password, isPasswordVisible, submission);
 
-  /// Create a copy of LoginFormState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LoginFormStateImplCopyWith<_$LoginFormStateImpl> get copyWith =>
       __$$LoginFormStateImplCopyWithImpl<_$LoginFormStateImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LoginFormStateImplToJson(this);
+    return _$$LoginFormStateImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _LoginFormState implements LoginFormState {
-  const factory _LoginFormState({
-    required final String phoneNumber,
-    required final String password,
-    final bool isPasswordVisible,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    final AsyncValue<SubmissionResponse?>? submission,
-  }) = _$LoginFormStateImpl;
+  const factory _LoginFormState(
+          {required final String phoneNumber,
+          required final String password,
+          final bool isPasswordVisible,
+          @JsonKey(includeFromJson: false, includeToJson: false)
+          final AsyncValue<SubmissionResponse?>? submission}) =
+      _$LoginFormStateImpl;
 
   factory _LoginFormState.fromJson(Map<String, dynamic> json) =
       _$LoginFormStateImpl.fromJson;
@@ -258,11 +223,8 @@ abstract class _LoginFormState implements LoginFormState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   AsyncValue<SubmissionResponse?>? get submission;
-
-  /// Create a copy of LoginFormState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LoginFormStateImplCopyWith<_$LoginFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

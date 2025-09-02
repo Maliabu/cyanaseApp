@@ -21,12 +21,6 @@ class ConfirmPasswordField  extends ConsumerWidget{
         onChanged: (value) => notifier.setConfirmPassword(value),
         decoration: InputDecoration(
           errorText: confirmPasswordError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(12), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
           prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
           suffixIcon: IconButton(
             icon: Icon( color: AppThemes.primaryColor,
@@ -39,13 +33,13 @@ class ConfirmPasswordField  extends ConsumerWidget{
           label: Container(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.grey[100], // Background color for label
+              color: Colors.white, // Background color for label
               borderRadius: BorderRadius.circular(8), // Rounded corners
             ),
             child: Text(
               'Confirm Password',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
           ),

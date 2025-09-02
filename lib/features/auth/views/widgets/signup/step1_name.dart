@@ -1,5 +1,5 @@
-import 'package:cyanaseapp/features/auth/views/widgets/signup/first_name_field.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/signup/last_name_field.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/fields/first_name_field.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/signup/fields/last_name_field.dart';
 import 'package:flutter/material.dart';
 
 class Step1Name extends StatelessWidget {
@@ -15,15 +15,15 @@ class Step1Name extends StatelessWidget {
         const Center(
           child: Text('Full names', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
         ),
+        const Text(
+                      'Enter your first and last name to proceed',
+                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                    ),
         const SizedBox(height: 25),
-        const Text('First Name', style: TextStyle(fontSize: 18)),
-        const SizedBox(height: 12),
         FirstNameField(),
-        const SizedBox(height: 18),
-        const Text('Last Name', style: TextStyle(fontSize: 18)),
-        const SizedBox(height: 12),
+        const SizedBox(height: 20),
         LastNameField(),
-        const SizedBox(height: 12),
+        const SizedBox(height: 20),
       ],
     );
   }

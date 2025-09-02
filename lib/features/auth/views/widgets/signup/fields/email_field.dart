@@ -18,17 +18,11 @@ class EmailField extends ConsumerWidget {
           decoration: InputDecoration(
             errorText: error,
             errorStyle: TextStyle(fontSize: 14),
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none, // Removes the border
-              borderRadius: BorderRadius.circular(8), // Rounded corners
-            ),
-            filled: true,
-            fillColor: Colors.grey[100],
             prefixIcon: const Icon(Icons.mail, color: AppThemes.primaryColor,),
             label: Container(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.grey[100], // Background color for label
+                color: Colors.white, // Background color for label
                 borderRadius: BorderRadius.circular(8), // Rounded corners
               ),
               child: Text(

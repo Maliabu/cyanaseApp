@@ -12,8 +12,7 @@ part of 'submission_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SubmissionResponse _$SubmissionResponseFromJson(Map<String, dynamic> json) {
   return _SubmissionResponse.fromJson(json);
@@ -25,12 +24,8 @@ mixin _$SubmissionResponse {
   String get status => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
-  /// Serializes this SubmissionResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of SubmissionResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SubmissionResponseCopyWith<SubmissionResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -38,9 +33,8 @@ mixin _$SubmissionResponse {
 /// @nodoc
 abstract class $SubmissionResponseCopyWith<$Res> {
   factory $SubmissionResponseCopyWith(
-    SubmissionResponse value,
-    $Res Function(SubmissionResponse) then,
-  ) = _$SubmissionResponseCopyWithImpl<$Res, SubmissionResponse>;
+          SubmissionResponse value, $Res Function(SubmissionResponse) then) =
+      _$SubmissionResponseCopyWithImpl<$Res, SubmissionResponse>;
   @useResult
   $Res call({String id, String status, String? message});
 }
@@ -55,8 +49,6 @@ class _$SubmissionResponseCopyWithImpl<$Res, $Val extends SubmissionResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SubmissionResponse
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,36 +56,29 @@ class _$SubmissionResponseCopyWithImpl<$Res, $Val extends SubmissionResponse>
     Object? status = null,
     Object? message = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            message:
-                freezed == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$SubmissionResponseImplCopyWith<$Res>
     implements $SubmissionResponseCopyWith<$Res> {
-  factory _$$SubmissionResponseImplCopyWith(
-    _$SubmissionResponseImpl value,
-    $Res Function(_$SubmissionResponseImpl) then,
-  ) = __$$SubmissionResponseImplCopyWithImpl<$Res>;
+  factory _$$SubmissionResponseImplCopyWith(_$SubmissionResponseImpl value,
+          $Res Function(_$SubmissionResponseImpl) then) =
+      __$$SubmissionResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String status, String? message});
@@ -103,13 +88,10 @@ abstract class _$$SubmissionResponseImplCopyWith<$Res>
 class __$$SubmissionResponseImplCopyWithImpl<$Res>
     extends _$SubmissionResponseCopyWithImpl<$Res, _$SubmissionResponseImpl>
     implements _$$SubmissionResponseImplCopyWith<$Res> {
-  __$$SubmissionResponseImplCopyWithImpl(
-    _$SubmissionResponseImpl _value,
-    $Res Function(_$SubmissionResponseImpl) _then,
-  ) : super(_value, _then);
+  __$$SubmissionResponseImplCopyWithImpl(_$SubmissionResponseImpl _value,
+      $Res Function(_$SubmissionResponseImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of SubmissionResponse
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,36 +99,28 @@ class __$$SubmissionResponseImplCopyWithImpl<$Res>
     Object? status = null,
     Object? message = freezed,
   }) {
-    return _then(
-      _$SubmissionResponseImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        message:
-            freezed == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
+    return _then(_$SubmissionResponseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SubmissionResponseImpl implements _SubmissionResponse {
-  const _$SubmissionResponseImpl({
-    required this.id,
-    required this.status,
-    this.message,
-  });
+  const _$SubmissionResponseImpl(
+      {required this.id, required this.status, this.message});
 
   factory _$SubmissionResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubmissionResponseImplFromJson(json);
@@ -173,33 +147,30 @@ class _$SubmissionResponseImpl implements _SubmissionResponse {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, status, message);
 
-  /// Create a copy of SubmissionResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmissionResponseImplCopyWith<_$SubmissionResponseImpl> get copyWith =>
       __$$SubmissionResponseImplCopyWithImpl<_$SubmissionResponseImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubmissionResponseImplToJson(this);
+    return _$$SubmissionResponseImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _SubmissionResponse implements SubmissionResponse {
-  const factory _SubmissionResponse({
-    required final String id,
-    required final String status,
-    final String? message,
-  }) = _$SubmissionResponseImpl;
+  const factory _SubmissionResponse(
+      {required final String id,
+      required final String status,
+      final String? message}) = _$SubmissionResponseImpl;
 
   factory _SubmissionResponse.fromJson(Map<String, dynamic> json) =
       _$SubmissionResponseImpl.fromJson;
@@ -210,11 +181,8 @@ abstract class _SubmissionResponse implements SubmissionResponse {
   String get status;
   @override
   String? get message;
-
-  /// Create a copy of SubmissionResponse
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SubmissionResponseImplCopyWith<_$SubmissionResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

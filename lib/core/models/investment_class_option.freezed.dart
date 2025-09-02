@@ -12,12 +12,10 @@ part of 'investment_class_option.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InvestmentClassOption _$InvestmentClassOptionFromJson(
-  Map<String, dynamic> json,
-) {
+    Map<String, dynamic> json) {
   return _InvestmentClassOption.fromJson(json);
 }
 
@@ -35,45 +33,37 @@ mixin _$InvestmentClassOption {
   String get description => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
 
-  /// Serializes this InvestmentClassOption to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $InvestmentClassOptionCopyWith<InvestmentClassOption> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $InvestmentClassOptionCopyWith<$Res> {
-  factory $InvestmentClassOptionCopyWith(
-    InvestmentClassOption value,
-    $Res Function(InvestmentClassOption) then,
-  ) = _$InvestmentClassOptionCopyWithImpl<$Res, InvestmentClassOption>;
+  factory $InvestmentClassOptionCopyWith(InvestmentClassOption value,
+          $Res Function(InvestmentClassOption) then) =
+      _$InvestmentClassOptionCopyWithImpl<$Res, InvestmentClassOption>;
   @useResult
-  $Res call({
-    String name,
-    String classType,
-    FundManager? fundManager,
-    String handler,
-    int minimum,
-    String funcManagerCountry,
-    int interest,
-    String status,
-    double units,
-    String description,
-    DateTime created,
-  });
+  $Res call(
+      {String name,
+      String classType,
+      FundManager? fundManager,
+      String handler,
+      int minimum,
+      String funcManagerCountry,
+      int interest,
+      String status,
+      double units,
+      String description,
+      DateTime created});
 
   $FundManagerCopyWith<$Res>? get fundManager;
 }
 
 /// @nodoc
-class _$InvestmentClassOptionCopyWithImpl<
-  $Res,
-  $Val extends InvestmentClassOption
->
+class _$InvestmentClassOptionCopyWithImpl<$Res,
+        $Val extends InvestmentClassOption>
     implements $InvestmentClassOptionCopyWith<$Res> {
   _$InvestmentClassOptionCopyWithImpl(this._value, this._then);
 
@@ -82,8 +72,6 @@ class _$InvestmentClassOptionCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,70 +87,54 @@ class _$InvestmentClassOptionCopyWithImpl<
     Object? description = null,
     Object? created = null,
   }) {
-    return _then(
-      _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            classType:
-                null == classType
-                    ? _value.classType
-                    : classType // ignore: cast_nullable_to_non_nullable
-                        as String,
-            fundManager:
-                freezed == fundManager
-                    ? _value.fundManager
-                    : fundManager // ignore: cast_nullable_to_non_nullable
-                        as FundManager?,
-            handler:
-                null == handler
-                    ? _value.handler
-                    : handler // ignore: cast_nullable_to_non_nullable
-                        as String,
-            minimum:
-                null == minimum
-                    ? _value.minimum
-                    : minimum // ignore: cast_nullable_to_non_nullable
-                        as int,
-            funcManagerCountry:
-                null == funcManagerCountry
-                    ? _value.funcManagerCountry
-                    : funcManagerCountry // ignore: cast_nullable_to_non_nullable
-                        as String,
-            interest:
-                null == interest
-                    ? _value.interest
-                    : interest // ignore: cast_nullable_to_non_nullable
-                        as int,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            units:
-                null == units
-                    ? _value.units
-                    : units // ignore: cast_nullable_to_non_nullable
-                        as double,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
-            created:
-                null == created
-                    ? _value.created
-                    : created // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      classType: null == classType
+          ? _value.classType
+          : classType // ignore: cast_nullable_to_non_nullable
+              as String,
+      fundManager: freezed == fundManager
+          ? _value.fundManager
+          : fundManager // ignore: cast_nullable_to_non_nullable
+              as FundManager?,
+      handler: null == handler
+          ? _value.handler
+          : handler // ignore: cast_nullable_to_non_nullable
+              as String,
+      minimum: null == minimum
+          ? _value.minimum
+          : minimum // ignore: cast_nullable_to_non_nullable
+              as int,
+      funcManagerCountry: null == funcManagerCountry
+          ? _value.funcManagerCountry
+          : funcManagerCountry // ignore: cast_nullable_to_non_nullable
+              as String,
+      interest: null == interest
+          ? _value.interest
+          : interest // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      units: null == units
+          ? _value.units
+          : units // ignore: cast_nullable_to_non_nullable
+              as double,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
   }
 
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FundManagerCopyWith<$Res>? get fundManager {
@@ -180,24 +152,23 @@ class _$InvestmentClassOptionCopyWithImpl<
 abstract class _$$InvestmentClassOptionImplCopyWith<$Res>
     implements $InvestmentClassOptionCopyWith<$Res> {
   factory _$$InvestmentClassOptionImplCopyWith(
-    _$InvestmentClassOptionImpl value,
-    $Res Function(_$InvestmentClassOptionImpl) then,
-  ) = __$$InvestmentClassOptionImplCopyWithImpl<$Res>;
+          _$InvestmentClassOptionImpl value,
+          $Res Function(_$InvestmentClassOptionImpl) then) =
+      __$$InvestmentClassOptionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String name,
-    String classType,
-    FundManager? fundManager,
-    String handler,
-    int minimum,
-    String funcManagerCountry,
-    int interest,
-    String status,
-    double units,
-    String description,
-    DateTime created,
-  });
+  $Res call(
+      {String name,
+      String classType,
+      FundManager? fundManager,
+      String handler,
+      int minimum,
+      String funcManagerCountry,
+      int interest,
+      String status,
+      double units,
+      String description,
+      DateTime created});
 
   @override
   $FundManagerCopyWith<$Res>? get fundManager;
@@ -205,16 +176,13 @@ abstract class _$$InvestmentClassOptionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$InvestmentClassOptionImplCopyWithImpl<$Res>
-    extends
-        _$InvestmentClassOptionCopyWithImpl<$Res, _$InvestmentClassOptionImpl>
+    extends _$InvestmentClassOptionCopyWithImpl<$Res,
+        _$InvestmentClassOptionImpl>
     implements _$$InvestmentClassOptionImplCopyWith<$Res> {
-  __$$InvestmentClassOptionImplCopyWithImpl(
-    _$InvestmentClassOptionImpl _value,
-    $Res Function(_$InvestmentClassOptionImpl) _then,
-  ) : super(_value, _then);
+  __$$InvestmentClassOptionImplCopyWithImpl(_$InvestmentClassOptionImpl _value,
+      $Res Function(_$InvestmentClassOptionImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -230,84 +198,70 @@ class __$$InvestmentClassOptionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? created = null,
   }) {
-    return _then(
-      _$InvestmentClassOptionImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        classType:
-            null == classType
-                ? _value.classType
-                : classType // ignore: cast_nullable_to_non_nullable
-                    as String,
-        fundManager:
-            freezed == fundManager
-                ? _value.fundManager
-                : fundManager // ignore: cast_nullable_to_non_nullable
-                    as FundManager?,
-        handler:
-            null == handler
-                ? _value.handler
-                : handler // ignore: cast_nullable_to_non_nullable
-                    as String,
-        minimum:
-            null == minimum
-                ? _value.minimum
-                : minimum // ignore: cast_nullable_to_non_nullable
-                    as int,
-        funcManagerCountry:
-            null == funcManagerCountry
-                ? _value.funcManagerCountry
-                : funcManagerCountry // ignore: cast_nullable_to_non_nullable
-                    as String,
-        interest:
-            null == interest
-                ? _value.interest
-                : interest // ignore: cast_nullable_to_non_nullable
-                    as int,
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        units:
-            null == units
-                ? _value.units
-                : units // ignore: cast_nullable_to_non_nullable
-                    as double,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        created:
-            null == created
-                ? _value.created
-                : created // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-      ),
-    );
+    return _then(_$InvestmentClassOptionImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      classType: null == classType
+          ? _value.classType
+          : classType // ignore: cast_nullable_to_non_nullable
+              as String,
+      fundManager: freezed == fundManager
+          ? _value.fundManager
+          : fundManager // ignore: cast_nullable_to_non_nullable
+              as FundManager?,
+      handler: null == handler
+          ? _value.handler
+          : handler // ignore: cast_nullable_to_non_nullable
+              as String,
+      minimum: null == minimum
+          ? _value.minimum
+          : minimum // ignore: cast_nullable_to_non_nullable
+              as int,
+      funcManagerCountry: null == funcManagerCountry
+          ? _value.funcManagerCountry
+          : funcManagerCountry // ignore: cast_nullable_to_non_nullable
+              as String,
+      interest: null == interest
+          ? _value.interest
+          : interest // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      units: null == units
+          ? _value.units
+          : units // ignore: cast_nullable_to_non_nullable
+              as double,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$InvestmentClassOptionImpl implements _InvestmentClassOption {
-  const _$InvestmentClassOptionImpl({
-    required this.name,
-    required this.classType,
-    this.fundManager,
-    required this.handler,
-    required this.minimum,
-    required this.funcManagerCountry,
-    required this.interest,
-    required this.status,
-    required this.units,
-    required this.description,
-    required this.created,
-  });
+  const _$InvestmentClassOptionImpl(
+      {required this.name,
+      required this.classType,
+      this.fundManager,
+      required this.handler,
+      required this.minimum,
+      required this.funcManagerCountry,
+      required this.interest,
+      required this.status,
+      required this.units,
+      required this.description,
+      required this.created});
 
   factory _$InvestmentClassOptionImpl.fromJson(Map<String, dynamic> json) =>
       _$$InvestmentClassOptionImplFromJson(json);
@@ -363,55 +317,50 @@ class _$InvestmentClassOptionImpl implements _InvestmentClassOption {
             (identical(other.created, created) || other.created == created));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    name,
-    classType,
-    fundManager,
-    handler,
-    minimum,
-    funcManagerCountry,
-    interest,
-    status,
-    units,
-    description,
-    created,
-  );
+      runtimeType,
+      name,
+      classType,
+      fundManager,
+      handler,
+      minimum,
+      funcManagerCountry,
+      interest,
+      status,
+      units,
+      description,
+      created);
 
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InvestmentClassOptionImplCopyWith<_$InvestmentClassOptionImpl>
-  get copyWith =>
-      __$$InvestmentClassOptionImplCopyWithImpl<_$InvestmentClassOptionImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$InvestmentClassOptionImplCopyWithImpl<
+          _$InvestmentClassOptionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$InvestmentClassOptionImplToJson(this);
+    return _$$InvestmentClassOptionImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _InvestmentClassOption implements InvestmentClassOption {
-  const factory _InvestmentClassOption({
-    required final String name,
-    required final String classType,
-    final FundManager? fundManager,
-    required final String handler,
-    required final int minimum,
-    required final String funcManagerCountry,
-    required final int interest,
-    required final String status,
-    required final double units,
-    required final String description,
-    required final DateTime created,
-  }) = _$InvestmentClassOptionImpl;
+  const factory _InvestmentClassOption(
+      {required final String name,
+      required final String classType,
+      final FundManager? fundManager,
+      required final String handler,
+      required final int minimum,
+      required final String funcManagerCountry,
+      required final int interest,
+      required final String status,
+      required final double units,
+      required final String description,
+      required final DateTime created}) = _$InvestmentClassOptionImpl;
 
   factory _InvestmentClassOption.fromJson(Map<String, dynamic> json) =
       _$InvestmentClassOptionImpl.fromJson;
@@ -438,11 +387,8 @@ abstract class _InvestmentClassOption implements InvestmentClassOption {
   String get description;
   @override
   DateTime get created;
-
-  /// Create a copy of InvestmentClassOption
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InvestmentClassOptionImplCopyWith<_$InvestmentClassOptionImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }

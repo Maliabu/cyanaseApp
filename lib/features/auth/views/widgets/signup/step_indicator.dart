@@ -7,7 +7,7 @@ class StepProgressIndicator extends StatelessWidget {
   const StepProgressIndicator({
     super.key,
     required this.currentStep,
-    this.totalSteps = 4,
+    required this.totalSteps,
   });
 
   @override
@@ -18,28 +18,16 @@ class StepProgressIndicator extends StatelessWidget {
         final item = index + 1;
         return Row(
           children: [
-            Container(
-              height: 20,
-              width: 20,
-              padding: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: item == currentStep
-                    ? Colors.amber[50]
-                    : Colors.grey[100],
-              ),
-              child: Center(
-                child: Text(
-                  item.toString(),
-                  style: TextStyle(
-                    fontSize: 12,
+              Center(
+                child: Icon(
+                  Icons.rectangle,
+                  size: 12,
                     color: item == currentStep
                         ? Colors.amber
-                        : Colors.grey,
-                  ),
+                        : Colors.grey[200],
                 ),
               ),
-            ),
+            
             if (item < totalSteps) ...[
               const SizedBox(width: 8),
               const SizedBox(
@@ -50,7 +38,7 @@ class StepProgressIndicator extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 18),
             ]
           ],
         );

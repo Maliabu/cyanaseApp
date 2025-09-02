@@ -12,8 +12,7 @@ part of 'user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
@@ -36,12 +35,8 @@ mixin _$User {
   bool get success => throw _privateConstructorUsedError;
   Profile get profile => throw _privateConstructorUsedError;
 
-  /// Serializes this User to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -50,22 +45,21 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({
-    String token,
-    String username,
-    int userId,
-    bool isSuperuser,
-    String email,
-    DateTime? lastLogin,
-    String firstName,
-    String lastName,
-    bool isStaff,
-    bool isActive,
-    DateTime dateJoined,
-    String? message,
-    bool success,
-    Profile profile,
-  });
+  $Res call(
+      {String token,
+      String username,
+      int userId,
+      bool isSuperuser,
+      String email,
+      DateTime? lastLogin,
+      String firstName,
+      String lastName,
+      bool isStaff,
+      bool isActive,
+      DateTime dateJoined,
+      String? message,
+      bool success,
+      Profile profile});
 
   $ProfileCopyWith<$Res> get profile;
 }
@@ -80,8 +74,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,85 +92,66 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? success = null,
     Object? profile = null,
   }) {
-    return _then(
-      _value.copyWith(
-            token:
-                null == token
-                    ? _value.token
-                    : token // ignore: cast_nullable_to_non_nullable
-                        as String,
-            username:
-                null == username
-                    ? _value.username
-                    : username // ignore: cast_nullable_to_non_nullable
-                        as String,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isSuperuser:
-                null == isSuperuser
-                    ? _value.isSuperuser
-                    : isSuperuser // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            lastLogin:
-                freezed == lastLogin
-                    ? _value.lastLogin
-                    : lastLogin // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            firstName:
-                null == firstName
-                    ? _value.firstName
-                    : firstName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            lastName:
-                null == lastName
-                    ? _value.lastName
-                    : lastName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isStaff:
-                null == isStaff
-                    ? _value.isStaff
-                    : isStaff // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isActive:
-                null == isActive
-                    ? _value.isActive
-                    : isActive // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            dateJoined:
-                null == dateJoined
-                    ? _value.dateJoined
-                    : dateJoined // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            message:
-                freezed == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            success:
-                null == success
-                    ? _value.success
-                    : success // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            profile:
-                null == profile
-                    ? _value.profile
-                    : profile // ignore: cast_nullable_to_non_nullable
-                        as Profile,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      isSuperuser: null == isSuperuser
+          ? _value.isSuperuser
+          : isSuperuser // ignore: cast_nullable_to_non_nullable
+              as bool,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastLogin: freezed == lastLogin
+          ? _value.lastLogin
+          : lastLogin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      isStaff: null == isStaff
+          ? _value.isStaff
+          : isStaff // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dateJoined: null == dateJoined
+          ? _value.dateJoined
+          : dateJoined // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as Profile,
+    ) as $Val);
   }
 
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProfileCopyWith<$Res> get profile {
@@ -191,27 +164,25 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 /// @nodoc
 abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$UserImplCopyWith(
-    _$UserImpl value,
-    $Res Function(_$UserImpl) then,
-  ) = __$$UserImplCopyWithImpl<$Res>;
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String token,
-    String username,
-    int userId,
-    bool isSuperuser,
-    String email,
-    DateTime? lastLogin,
-    String firstName,
-    String lastName,
-    bool isStaff,
-    bool isActive,
-    DateTime dateJoined,
-    String? message,
-    bool success,
-    Profile profile,
-  });
+  $Res call(
+      {String token,
+      String username,
+      int userId,
+      bool isSuperuser,
+      String email,
+      DateTime? lastLogin,
+      String firstName,
+      String lastName,
+      bool isStaff,
+      bool isActive,
+      DateTime dateJoined,
+      String? message,
+      bool success,
+      Profile profile});
 
   @override
   $ProfileCopyWith<$Res> get profile;
@@ -222,10 +193,8 @@ class __$$UserImplCopyWithImpl<$Res>
     extends _$UserCopyWithImpl<$Res, _$UserImpl>
     implements _$$UserImplCopyWith<$Res> {
   __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -244,80 +213,64 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? success = null,
     Object? profile = null,
   }) {
-    return _then(
-      _$UserImpl(
-        token:
-            null == token
-                ? _value.token
-                : token // ignore: cast_nullable_to_non_nullable
-                    as String,
-        username:
-            null == username
-                ? _value.username
-                : username // ignore: cast_nullable_to_non_nullable
-                    as String,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isSuperuser:
-            null == isSuperuser
-                ? _value.isSuperuser
-                : isSuperuser // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        lastLogin:
-            freezed == lastLogin
-                ? _value.lastLogin
-                : lastLogin // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        firstName:
-            null == firstName
-                ? _value.firstName
-                : firstName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        lastName:
-            null == lastName
-                ? _value.lastName
-                : lastName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isStaff:
-            null == isStaff
-                ? _value.isStaff
-                : isStaff // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isActive:
-            null == isActive
-                ? _value.isActive
-                : isActive // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        dateJoined:
-            null == dateJoined
-                ? _value.dateJoined
-                : dateJoined // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        message:
-            freezed == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        success:
-            null == success
-                ? _value.success
-                : success // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        profile:
-            null == profile
-                ? _value.profile
-                : profile // ignore: cast_nullable_to_non_nullable
-                    as Profile,
-      ),
-    );
+    return _then(_$UserImpl(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      isSuperuser: null == isSuperuser
+          ? _value.isSuperuser
+          : isSuperuser // ignore: cast_nullable_to_non_nullable
+              as bool,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastLogin: freezed == lastLogin
+          ? _value.lastLogin
+          : lastLogin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      isStaff: null == isStaff
+          ? _value.isStaff
+          : isStaff // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dateJoined: null == dateJoined
+          ? _value.dateJoined
+          : dateJoined // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as Profile,
+    ));
   }
 }
 
@@ -325,22 +278,21 @@ class __$$UserImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$UserImpl implements _User {
-  const _$UserImpl({
-    required this.token,
-    required this.username,
-    required this.userId,
-    required this.isSuperuser,
-    required this.email,
-    this.lastLogin,
-    required this.firstName,
-    required this.lastName,
-    required this.isStaff,
-    required this.isActive,
-    required this.dateJoined,
-    this.message,
-    required this.success,
-    required this.profile,
-  });
+  const _$UserImpl(
+      {required this.token,
+      required this.username,
+      required this.userId,
+      required this.isSuperuser,
+      required this.email,
+      this.lastLogin,
+      required this.firstName,
+      required this.lastName,
+      required this.isStaff,
+      required this.isActive,
+      required this.dateJoined,
+      this.message,
+      required this.success,
+      required this.profile});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -407,29 +359,26 @@ class _$UserImpl implements _User {
             (identical(other.profile, profile) || other.profile == profile));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    token,
-    username,
-    userId,
-    isSuperuser,
-    email,
-    lastLogin,
-    firstName,
-    lastName,
-    isStaff,
-    isActive,
-    dateJoined,
-    message,
-    success,
-    profile,
-  );
+      runtimeType,
+      token,
+      username,
+      userId,
+      isSuperuser,
+      email,
+      lastLogin,
+      firstName,
+      lastName,
+      isStaff,
+      isActive,
+      dateJoined,
+      message,
+      success,
+      profile);
 
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
@@ -437,27 +386,28 @@ class _$UserImpl implements _User {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(this);
+    return _$$UserImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _User implements User {
-  const factory _User({
-    required final String token,
-    required final String username,
-    required final int userId,
-    required final bool isSuperuser,
-    required final String email,
-    final DateTime? lastLogin,
-    required final String firstName,
-    required final String lastName,
-    required final bool isStaff,
-    required final bool isActive,
-    required final DateTime dateJoined,
-    final String? message,
-    required final bool success,
-    required final Profile profile,
-  }) = _$UserImpl;
+  const factory _User(
+      {required final String token,
+      required final String username,
+      required final int userId,
+      required final bool isSuperuser,
+      required final String email,
+      final DateTime? lastLogin,
+      required final String firstName,
+      required final String lastName,
+      required final bool isStaff,
+      required final bool isActive,
+      required final DateTime dateJoined,
+      final String? message,
+      required final bool success,
+      required final Profile profile}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -489,11 +439,8 @@ abstract class _User implements User {
   bool get success;
   @override
   Profile get profile;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,8 +12,7 @@ part of 'sign_up_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SignUpResponse _$SignUpResponseFromJson(Map<String, dynamic> json) {
   return _SignUpResponse.fromJson(json);
@@ -27,12 +26,8 @@ mixin _$SignUpResponse {
   User? get user => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
 
-  /// Serializes this SignUpResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SignUpResponseCopyWith<SignUpResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -40,17 +35,15 @@ mixin _$SignUpResponse {
 /// @nodoc
 abstract class $SignUpResponseCopyWith<$Res> {
   factory $SignUpResponseCopyWith(
-    SignUpResponse value,
-    $Res Function(SignUpResponse) then,
-  ) = _$SignUpResponseCopyWithImpl<$Res, SignUpResponse>;
+          SignUpResponse value, $Res Function(SignUpResponse) then) =
+      _$SignUpResponseCopyWithImpl<$Res, SignUpResponse>;
   @useResult
-  $Res call({
-    String message,
-    bool success,
-    String? verificationcode,
-    User? user,
-    String? type,
-  });
+  $Res call(
+      {String message,
+      bool success,
+      String? verificationcode,
+      User? user,
+      String? type});
 
   $UserCopyWith<$Res>? get user;
 }
@@ -65,8 +58,6 @@ class _$SignUpResponseCopyWithImpl<$Res, $Val extends SignUpResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,40 +67,30 @@ class _$SignUpResponseCopyWithImpl<$Res, $Val extends SignUpResponse>
     Object? user = freezed,
     Object? type = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            message:
-                null == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String,
-            success:
-                null == success
-                    ? _value.success
-                    : success // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            verificationcode:
-                freezed == verificationcode
-                    ? _value.verificationcode
-                    : verificationcode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            user:
-                freezed == user
-                    ? _value.user
-                    : user // ignore: cast_nullable_to_non_nullable
-                        as User?,
-            type:
-                freezed == type
-                    ? _value.type
-                    : type // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verificationcode: freezed == verificationcode
+          ? _value.verificationcode
+          : verificationcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserCopyWith<$Res>? get user {
@@ -126,19 +107,17 @@ class _$SignUpResponseCopyWithImpl<$Res, $Val extends SignUpResponse>
 /// @nodoc
 abstract class _$$SignUpResponseImplCopyWith<$Res>
     implements $SignUpResponseCopyWith<$Res> {
-  factory _$$SignUpResponseImplCopyWith(
-    _$SignUpResponseImpl value,
-    $Res Function(_$SignUpResponseImpl) then,
-  ) = __$$SignUpResponseImplCopyWithImpl<$Res>;
+  factory _$$SignUpResponseImplCopyWith(_$SignUpResponseImpl value,
+          $Res Function(_$SignUpResponseImpl) then) =
+      __$$SignUpResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String message,
-    bool success,
-    String? verificationcode,
-    User? user,
-    String? type,
-  });
+  $Res call(
+      {String message,
+      bool success,
+      String? verificationcode,
+      User? user,
+      String? type});
 
   @override
   $UserCopyWith<$Res>? get user;
@@ -149,12 +128,9 @@ class __$$SignUpResponseImplCopyWithImpl<$Res>
     extends _$SignUpResponseCopyWithImpl<$Res, _$SignUpResponseImpl>
     implements _$$SignUpResponseImplCopyWith<$Res> {
   __$$SignUpResponseImplCopyWithImpl(
-    _$SignUpResponseImpl _value,
-    $Res Function(_$SignUpResponseImpl) _then,
-  ) : super(_value, _then);
+      _$SignUpResponseImpl _value, $Res Function(_$SignUpResponseImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,35 +140,28 @@ class __$$SignUpResponseImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? type = freezed,
   }) {
-    return _then(
-      _$SignUpResponseImpl(
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-        success:
-            null == success
-                ? _value.success
-                : success // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        verificationcode:
-            freezed == verificationcode
-                ? _value.verificationcode
-                : verificationcode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        user:
-            freezed == user
-                ? _value.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as User?,
-        type:
-            freezed == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
+    return _then(_$SignUpResponseImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verificationcode: freezed == verificationcode
+          ? _value.verificationcode
+          : verificationcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -200,13 +169,12 @@ class __$$SignUpResponseImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$SignUpResponseImpl implements _SignUpResponse {
-  const _$SignUpResponseImpl({
-    required this.message,
-    required this.success,
-    this.verificationcode,
-    this.user,
-    this.type,
-  });
+  const _$SignUpResponseImpl(
+      {required this.message,
+      required this.success,
+      this.verificationcode,
+      this.user,
+      this.type});
 
   factory _$SignUpResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$SignUpResponseImplFromJson(json);
@@ -240,36 +208,33 @@ class _$SignUpResponseImpl implements _SignUpResponse {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, message, success, verificationcode, user, type);
 
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SignUpResponseImplCopyWith<_$SignUpResponseImpl> get copyWith =>
       __$$SignUpResponseImplCopyWithImpl<_$SignUpResponseImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SignUpResponseImplToJson(this);
+    return _$$SignUpResponseImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _SignUpResponse implements SignUpResponse {
-  const factory _SignUpResponse({
-    required final String message,
-    required final bool success,
-    final String? verificationcode,
-    final User? user,
-    final String? type,
-  }) = _$SignUpResponseImpl;
+  const factory _SignUpResponse(
+      {required final String message,
+      required final bool success,
+      final String? verificationcode,
+      final User? user,
+      final String? type}) = _$SignUpResponseImpl;
 
   factory _SignUpResponse.fromJson(Map<String, dynamic> json) =
       _$SignUpResponseImpl.fromJson;
@@ -284,11 +249,8 @@ abstract class _SignUpResponse implements SignUpResponse {
   User? get user;
   @override
   String? get type;
-
-  /// Create a copy of SignUpResponse
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SignUpResponseImplCopyWith<_$SignUpResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

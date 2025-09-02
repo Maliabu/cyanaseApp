@@ -30,18 +30,12 @@ class BirthDateField extends ConsumerWidget{
         child: InputDecorator(
           decoration: InputDecoration(
             errorText: birthDateError,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none, // Removes the border
-            borderRadius: BorderRadius.circular(8), // Rounded corners
-          ),
-          filled: true,
-          fillColor: Colors.grey[100],
             hintText: 'Select birth date',
             prefixIcon: Icon(Icons.calendar_month, color: AppThemes.primaryColor,)
           ),
           child: Text(
             birthDate != null
-                ? DateFormat('yyyy-MM-dd').format(birthDate!)
+                ? DateFormat('yyyy-MM-dd').format(birthDate)
                 : 'Tap to pick date',
             style: const TextStyle(fontSize: 16),
           ),

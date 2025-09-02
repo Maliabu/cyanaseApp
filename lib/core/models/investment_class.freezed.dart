@@ -12,8 +12,7 @@ part of 'investment_class.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InvestmentClass _$InvestmentClassFromJson(Map<String, dynamic> json) {
   return _InvestmentClass.fromJson(json);
@@ -27,12 +26,8 @@ mixin _$InvestmentClass {
   String get description => throw _privateConstructorUsedError;
   InvestmentClassOption get options => throw _privateConstructorUsedError;
 
-  /// Serializes this InvestmentClass to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $InvestmentClassCopyWith<InvestmentClass> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -40,17 +35,15 @@ mixin _$InvestmentClass {
 /// @nodoc
 abstract class $InvestmentClassCopyWith<$Res> {
   factory $InvestmentClassCopyWith(
-    InvestmentClass value,
-    $Res Function(InvestmentClass) then,
-  ) = _$InvestmentClassCopyWithImpl<$Res, InvestmentClass>;
+          InvestmentClass value, $Res Function(InvestmentClass) then) =
+      _$InvestmentClassCopyWithImpl<$Res, InvestmentClass>;
   @useResult
-  $Res call({
-    String? logo,
-    int classId,
-    String name,
-    String description,
-    InvestmentClassOption options,
-  });
+  $Res call(
+      {String? logo,
+      int classId,
+      String name,
+      String description,
+      InvestmentClassOption options});
 
   $InvestmentClassOptionCopyWith<$Res> get options;
 }
@@ -65,8 +58,6 @@ class _$InvestmentClassCopyWithImpl<$Res, $Val extends InvestmentClass>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,40 +67,30 @@ class _$InvestmentClassCopyWithImpl<$Res, $Val extends InvestmentClass>
     Object? description = null,
     Object? options = null,
   }) {
-    return _then(
-      _value.copyWith(
-            logo:
-                freezed == logo
-                    ? _value.logo
-                    : logo // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            classId:
-                null == classId
-                    ? _value.classId
-                    : classId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
-            options:
-                null == options
-                    ? _value.options
-                    : options // ignore: cast_nullable_to_non_nullable
-                        as InvestmentClassOption,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classId: null == classId
+          ? _value.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      options: null == options
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as InvestmentClassOption,
+    ) as $Val);
   }
 
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $InvestmentClassOptionCopyWith<$Res> get options {
@@ -122,19 +103,17 @@ class _$InvestmentClassCopyWithImpl<$Res, $Val extends InvestmentClass>
 /// @nodoc
 abstract class _$$InvestmentClassImplCopyWith<$Res>
     implements $InvestmentClassCopyWith<$Res> {
-  factory _$$InvestmentClassImplCopyWith(
-    _$InvestmentClassImpl value,
-    $Res Function(_$InvestmentClassImpl) then,
-  ) = __$$InvestmentClassImplCopyWithImpl<$Res>;
+  factory _$$InvestmentClassImplCopyWith(_$InvestmentClassImpl value,
+          $Res Function(_$InvestmentClassImpl) then) =
+      __$$InvestmentClassImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String? logo,
-    int classId,
-    String name,
-    String description,
-    InvestmentClassOption options,
-  });
+  $Res call(
+      {String? logo,
+      int classId,
+      String name,
+      String description,
+      InvestmentClassOption options});
 
   @override
   $InvestmentClassOptionCopyWith<$Res> get options;
@@ -145,12 +124,9 @@ class __$$InvestmentClassImplCopyWithImpl<$Res>
     extends _$InvestmentClassCopyWithImpl<$Res, _$InvestmentClassImpl>
     implements _$$InvestmentClassImplCopyWith<$Res> {
   __$$InvestmentClassImplCopyWithImpl(
-    _$InvestmentClassImpl _value,
-    $Res Function(_$InvestmentClassImpl) _then,
-  ) : super(_value, _then);
+      _$InvestmentClassImpl _value, $Res Function(_$InvestmentClassImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,48 +136,40 @@ class __$$InvestmentClassImplCopyWithImpl<$Res>
     Object? description = null,
     Object? options = null,
   }) {
-    return _then(
-      _$InvestmentClassImpl(
-        logo:
-            freezed == logo
-                ? _value.logo
-                : logo // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        classId:
-            null == classId
-                ? _value.classId
-                : classId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        options:
-            null == options
-                ? _value.options
-                : options // ignore: cast_nullable_to_non_nullable
-                    as InvestmentClassOption,
-      ),
-    );
+    return _then(_$InvestmentClassImpl(
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classId: null == classId
+          ? _value.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      options: null == options
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as InvestmentClassOption,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$InvestmentClassImpl implements _InvestmentClass {
-  const _$InvestmentClassImpl({
-    this.logo,
-    required this.classId,
-    required this.name,
-    required this.description,
-    required this.options,
-  });
+  const _$InvestmentClassImpl(
+      {this.logo,
+      required this.classId,
+      required this.name,
+      required this.description,
+      required this.options});
 
   factory _$InvestmentClassImpl.fromJson(Map<String, dynamic> json) =>
       _$$InvestmentClassImplFromJson(json);
@@ -235,36 +203,33 @@ class _$InvestmentClassImpl implements _InvestmentClass {
             (identical(other.options, options) || other.options == options));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, logo, classId, name, description, options);
 
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InvestmentClassImplCopyWith<_$InvestmentClassImpl> get copyWith =>
       __$$InvestmentClassImplCopyWithImpl<_$InvestmentClassImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$InvestmentClassImplToJson(this);
+    return _$$InvestmentClassImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _InvestmentClass implements InvestmentClass {
-  const factory _InvestmentClass({
-    final String? logo,
-    required final int classId,
-    required final String name,
-    required final String description,
-    required final InvestmentClassOption options,
-  }) = _$InvestmentClassImpl;
+  const factory _InvestmentClass(
+      {final String? logo,
+      required final int classId,
+      required final String name,
+      required final String description,
+      required final InvestmentClassOption options}) = _$InvestmentClassImpl;
 
   factory _InvestmentClass.fromJson(Map<String, dynamic> json) =
       _$InvestmentClassImpl.fromJson;
@@ -279,11 +244,8 @@ abstract class _InvestmentClass implements InvestmentClass {
   String get description;
   @override
   InvestmentClassOption get options;
-
-  /// Create a copy of InvestmentClass
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InvestmentClassImplCopyWith<_$InvestmentClassImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
