@@ -1,4 +1,4 @@
-import 'package:cyanaseapp/features/auth/application/auth_provider.dart';
+import 'package:cyanaseapp/features/auth/application/auth_mode_provider.dart';
 import 'package:cyanaseapp/features/auth/views/login_with_phone.dart';
 import 'package:cyanaseapp/features/auth/views/login_with_passcode.dart';
 import 'package:cyanaseapp/features/auth/views/sign_up.dart';

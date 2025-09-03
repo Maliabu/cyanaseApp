@@ -1,7 +1,7 @@
-import 'package:cyanaseapp/core/services/api_service.dart';
-import 'package:cyanaseapp/features/auth/application/auth_state_provider.dart';
+import 'package:cyanaseapp/core/widgets/responsive_helper.dart';
 import 'package:cyanaseapp/features/auth/application/login_with_passcode_provider.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/footer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,30 +12,33 @@ class PasscodeLoginScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final passcode = ref.watch(passcodeProvider.select((s) => s.passcode));
-      final notifier = ref.read(passcodeProvider.notifier);
-      final api = ApiService();
-      ref.listen(passcodeProvider, (_,state) async {
-        if(state.passcode.length == 4){
-          // validate and submit
-          final success = await notifier.validatePasscode(api);
-          if(success.success){
-            // successful login
-            // call auth + isar
-            ref.read(authProvider.notifier).loadOnStartup();
-            // confirm cache
-            Navigator.pushNamed(context, '/');
-          }
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(success.message!),
-              backgroundColor: Colors.amber,
-            ),
+    print('kIsWeb: $kIsWeb');
+
+    ref.listen(passcodeProvider.select((s)=>s.snack), (prev, next) {
+      if (next != null) {
+        // snack has error message
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(next)),
           );
-        }
-      });
+      }
+    });
+
+    ScreenSize screenSize = ResponsiveHelper.getScreenSize(context);
+    double size = 450; //large screens height: so width = h-100
+    // Note: Sizes are optimized for mobile (iOS/Android).
+// If expanding to tablets or desktop, consider using percentage-based sizing or MediaQuery scale ratios.
+
+    if(screenSize == ScreenSize.sm){
+      size = 300;
+    } else{
+      // md
+      size = 400;
+    }
+
 
   return Scaffold(appBar: AppBar(title: Text('Login with Passcode'),),
-    body: SingleChildScrollView(
+    body: SafeArea(
+      child: Padding(
       padding: EdgeInsets.fromLTRB(
         20,
         20,
@@ -62,50 +65,63 @@ class PasscodeLoginScreen extends ConsumerWidget {
         );
       }),),
       SizedBox(height: 20,),
-      buildNumPad(ref),
-      SizedBox(height: 20,),
+      buildNumPad(context,ref,size),
       footer(context, false)
       ]
       ),
       ),
-    );
+    )
+  );
   }
 
 
-  Widget buildNumPad(WidgetRef ref) {
-      final notifier = ref.read(passcodeProvider.notifier);
+  Widget buildNumPad(BuildContext context,WidgetRef ref, double size) {
+  final notifier = ref.read(passcodeProvider.notifier);
+
+  final digits = [
+    '1', '2', '3',
+    '4', '5', '6',
+    '7', '8', '9',
+    '',  '0', 'x'
+  ];
 
   return Container(
-    padding: EdgeInsets.all(20),
-    child: GridView.count(
-    crossAxisCount: 3,
-    shrinkWrap: true,
-    children: [
-      for (var i = 1; i <= 9; i++)
-        buildDigitButton(i.toString(), () => notifier.addDigit(i.toString())),
-        SizedBox.shrink(),
-        buildDigitButton('0', () => notifier.addDigit('0')),
-        buildDigitButton('x', notifier.deleteDigit),
-      ],
-    )
-  );
-}
+    width: size - 100,
+    height: size,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: digits.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+        ),
+        itemBuilder: (_, index) {
+          final label = digits[index];
+          if (label == '') return SizedBox.shrink();
 
-Widget buildDigitButton(String label, VoidCallback onPressed) {
-  return Padding(
-    padding: const EdgeInsets.all(5.0),
-    child: ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: label == 'x' ? Colors.grey[100]:Colors.grey[200],
-        shape: CircleBorder(),
+          return ElevatedButton(
+            onPressed: () {
+              if (label == 'x') {
+                notifier.deleteDigit();
+              } else {
+                notifier.addDigit(label);
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: label == 'x' ? Colors.grey[100] : Colors.grey[200],
+              shape: CircleBorder(),
+              padding: EdgeInsets.all(12),
+            ),
+            child: label != 'x'
+                ? Text(label, style: TextStyle(fontSize: ResponsiveHelper.responsiveFontSize(context: context,sm: 20, md: 25, lg: 30), color: Colors.black))
+                : Icon(Icons.backspace_rounded, size: 20, color: Colors.black),
+          );
+        },
       ),
-      child: label != 'x'?
-      Text(label, style: TextStyle(fontSize: 24, color: Colors.black))
-      : Icon(Icons.backspace_rounded, size: 20, color: Colors.black,)
-      ,
     ),
   );
 }
-
 }

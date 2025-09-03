@@ -12,14 +12,18 @@ class Step2Buttons extends ConsumerWidget {
     final formNotifier = ref.read(forgotPasswordProvider.notifier);
     final apiService = ApiService();
 
-    return Row(
+    return Padding(padding: EdgeInsetsGeometry.all(16),
+    child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
               onPressed: () => formNotifier.previousStep(),
               child: Text('Previous', style: TextStyle(fontSize: 18),),
             ),
-            TextButton(
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber
+              ),
           onPressed: () async {
             final success = await ref
                 .read(forgotPasswordProvider.notifier)
@@ -45,6 +49,7 @@ class Step2Buttons extends ConsumerWidget {
 
         ),
             ],
-          );
+          )
+    );
   }
 }

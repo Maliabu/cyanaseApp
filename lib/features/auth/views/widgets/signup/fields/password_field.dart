@@ -19,9 +19,9 @@ class PasswordField  extends ConsumerWidget{
         obscureText: !isPasswordVisible,
         onChanged: (value) => notifier.setPassword(value),
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
+          prefixIcon: const Icon(Icons.lock, color: AppThemes.secondaryColor,),
           suffixIcon: IconButton(
-            icon: Icon( color: AppThemes.primaryColor,
+            icon: Icon( color: AppThemes.secondaryColor,
               isPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,

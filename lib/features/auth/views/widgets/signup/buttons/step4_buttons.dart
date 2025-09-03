@@ -16,7 +16,8 @@ class Step4Buttons extends ConsumerWidget {
     final formNotifier = ref.read(signupFormProvider.notifier);
     final api = ApiService();
 
-    return Row(
+    return Padding(padding: EdgeInsetsGeometry.all(20),
+    child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextButton(
@@ -30,15 +31,15 @@ class Step4Buttons extends ConsumerWidget {
         ElevatedButton(
           onPressed: () async {
             final success = await formNotifier.submit(api);
+            if (success.success) {
+              Navigator.pushNamed(context, '/');
+            }
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(success.message),
                 backgroundColor: Colors.amber,
               ),
             );
-            if (success.success) {
-              Navigator.pushNamed(context, '/');
-            }
           },
           child: submission?.isLoading ?? false
               ? SizedBox(
@@ -49,6 +50,7 @@ class Step4Buttons extends ConsumerWidget {
               : Text('Submit', style: TextStyle(fontSize: 18))
         ),
       ],
+    )
     );
   }
 }

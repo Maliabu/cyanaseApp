@@ -31,7 +31,7 @@ class BirthDateField extends ConsumerWidget{
           decoration: InputDecoration(
             errorText: birthDateError,
             hintText: 'Select birth date',
-            prefixIcon: Icon(Icons.calendar_month, color: AppThemes.primaryColor,)
+            prefixIcon: Icon(Icons.calendar_month, color: AppThemes.secondaryColor,)
           ),
           child: Text(
             birthDate != null

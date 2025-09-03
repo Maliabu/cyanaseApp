@@ -16,7 +16,8 @@ class Step2Buttons extends ConsumerWidget {
     final formNotifier = ref.read(signupFormProvider.notifier);
     final api = ApiService();
 
-    return Row(
+    return Padding(padding: EdgeInsetsGeometry.all(20),
+    child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextButton(
@@ -50,6 +51,7 @@ class Step2Buttons extends ConsumerWidget {
                 : Text('Next', style: TextStyle(fontSize: 18)),
           ),
       ],
+    )
     );
   }
 }

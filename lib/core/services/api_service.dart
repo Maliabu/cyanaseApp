@@ -132,6 +132,11 @@ class ApiService {
     return SignUpResponse.fromJson(response);
   }
 
+  Future<SignUpResponse> loginWithPhone(String password, String phone) async {
+    final response = await post(AuthEndpoints.passcodeLogin, {'phone': phone, 'password': password});
+    return SignUpResponse.fromJson(response);
+  }
+
   Future<SignUpResponse> getAuthUser(String userId, String token) async {
     final response = await post(AuthEndpoints.apiUrlGetAuthUserByEmail, {'user_id': userId}, token: token);
     return SignUpResponse.fromJson(response);

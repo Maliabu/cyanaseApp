@@ -13,15 +13,20 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text('Password', style: TextStyle(fontSize: 14)),
-      const SizedBox(height: 8),
+      
+          Text('Create a password', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, letterSpacing: -0.9)),
+          const Text(
+                      'Secure your new account with a strong password and start investing today!',
+                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                    ),
+          const SizedBox(height: 25),
       TextField(
         obscureText: !isPasswordVisible,
         onChanged: (value) => notifier.setPassword(value),
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
+          prefixIcon: const Icon(Icons.lock, color: AppThemes.secondaryColor,),
           suffixIcon: IconButton(
-            icon: Icon( color: AppThemes.primaryColor,
+            icon: Icon( color: AppThemes.secondaryColor,
               isPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
@@ -37,7 +42,7 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
             child: Text(
               'Password',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
           ),
@@ -54,17 +59,15 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
           ),
         ),
       ),
-      const SizedBox(height: 16),
-      const Text('Confirm Password', style: TextStyle(fontSize: 14)),
-      const SizedBox(height: 8),
+      const SizedBox(height: 20),
       TextField(
         obscureText: !isConfirmPasswordVisible,
         onChanged: (value) => notifier.setConfirmPassword(value),
         decoration: InputDecoration(
           errorText: confirmPasswordError,
-          prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
+          prefixIcon: const Icon(Icons.lock, color: AppThemes.secondaryColor,),
           suffixIcon: IconButton(
-            icon: Icon( color: AppThemes.primaryColor,
+            icon: Icon( color: AppThemes.secondaryColor,
               isConfirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
@@ -80,13 +83,13 @@ Widget step3NewPassword(WidgetRef ref, BuildContext context) {
             child: Text(
               'Confirm Password',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
           ),
         ),
       ),
-      const SizedBox(height: 12),
+      const SizedBox(height: 20),
     ],
   );
 }

@@ -18,7 +18,8 @@ class Step1NextButton extends ConsumerWidget {
       return SizedBox.shrink();
     }
 
-    return TextButton(
+    return Padding(padding: EdgeInsetsGeometry.all(20),
+    child: TextButton(
       onPressed: () => formNotifier.nextStep(),
       child: submission?.isLoading ?? false
           ? SizedBox(
@@ -29,6 +30,7 @@ class Step1NextButton extends ConsumerWidget {
           : (firstNameError == null && lastNameError == null)
               ? Text('Next', style: TextStyle(fontSize: 18))
               : SizedBox.shrink(),
+    )
     );
   }
 }

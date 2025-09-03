@@ -18,7 +18,7 @@ class EmailField extends ConsumerWidget {
           decoration: InputDecoration(
             errorText: error,
             errorStyle: TextStyle(fontSize: 14),
-            prefixIcon: const Icon(Icons.mail, color: AppThemes.primaryColor,),
+            prefixIcon: const Icon(Icons.mail, color: AppThemes.secondaryColor,),
             label: Container(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
@@ -29,7 +29,6 @@ class EmailField extends ConsumerWidget {
                 'email',
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.grey
                 ),
               ),
             ),

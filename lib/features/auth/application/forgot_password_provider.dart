@@ -1,6 +1,6 @@
 
 import 'package:cyanaseapp/core/services/api_service.dart';
-import 'package:cyanaseapp/features/auth/data/forgot_password_form_state.dart';
+import 'package:cyanaseapp/features/auth/data/formstates/forgot_password_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +13,7 @@ final forgotPasswordProvider =
 class ForgotPasswordProvider extends Notifier<ForgotPasswordFormState> {
   @override
   ForgotPasswordFormState build() => ForgotPasswordFormState.initial();
+  
 
   void nextStep() => state = state.copyWith(step: state.step + 1);
   void previousStep() => state = state.copyWith(step: state.step - 1);
@@ -104,7 +105,7 @@ Future<VerifyEmailResponse> validateAndProceedEmailCode(ApiService api, String c
     );}
   }
 
-  void setVerificationCode(int index, String value) {
+  void setVerificationCode(int index, String value) async {
     final updated = [...state.codeDigits];
     updated[index] = value;
     state = state.copyWith(codeDigits: updated);
@@ -112,6 +113,17 @@ Future<VerifyEmailResponse> validateAndProceedEmailCode(ApiService api, String c
     if (updated.every((d) => d.isNotEmpty)) {
       final fullCode = updated.join();
       state = state.copyWith(verificationCode: fullCode);
+
+      // await
+      final api = ApiService();
+      final validate = await validateAndProceedEmailCode(api, fullCode);
+      if(validate.success){
+        // remove codeerrors
+        state = state.copyWith(codeError: null, submission: AsyncData(null));
+      } else {
+        // set codeerrors, we listen for them in ui
+        state = state.copyWith(codeError: validate.message, submission: AsyncData(null));
+      }
     }
   }
 

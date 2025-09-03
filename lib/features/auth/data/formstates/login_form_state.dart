@@ -9,21 +9,15 @@ part 'login_form_state.g.dart';
 @freezed
 class LoginFormState with _$LoginFormState {
   const factory LoginFormState({
-    required String phoneNumber,
-    required String password,
+    @Default('+256') String phoneNumber,
+    @Default(null) String? phoneError,
+    @Default('') String password,
+    @Default(null) String? passwordError,
     @Default(false) bool isPasswordVisible,
     @JsonKey(includeFromJson: false, includeToJson: false)
-    AsyncValue<SubmissionResponse?>? submission,
+    @Default(null) AsyncValue<SubmissionResponse?>? submission,
   }) = _LoginFormState;
 
-  // 👇 Custom constructor (like initial state)
-  // factory constructors return instances of classes/instance/subtype
-  factory LoginFormState.initial() => const LoginFormState(
-    phoneNumber: '',
-    password: '',
-    isPasswordVisible: false,
-    submission: AsyncData(null),
-  );
   factory LoginFormState.fromJson(Map<String, dynamic> json) =>
       _$LoginFormStateFromJson(json);
 

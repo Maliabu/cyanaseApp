@@ -17,27 +17,27 @@ Widget step1ResetEmail(WidgetRef ref, BuildContext context) {
           Text('Reset Email', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, letterSpacing: -0.9)),
           Text(email),
           ])),
-          const SizedBox(height: 18),
+          const SizedBox(height: 25),
           TextField(
             onChanged: (value) => formNotifier.setEmail(value),
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               errorText: emailError,
               errorStyle: TextStyle(fontSize: 14),
-              prefixIcon: Icon(Icons.mail, color: AppThemes.primaryColor,),
+              prefixIcon: Icon(Icons.mail, color: AppThemes.secondaryColor,),
               label: Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.white, // Background color for label
-        borderRadius: BorderRadius.circular(8), // Rounded corners
-      ),
-      child: Text(
-        'Email',
-        style: TextStyle(
-          fontSize: 18,
-        ),
-      ),
-    ),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.white, // Background color for label
+                borderRadius: BorderRadius.circular(8), // Rounded corners
+              ),
+              child: Text(
+                'Email',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ),
             ),
           ),
         const SizedBox(height: 12),

@@ -15,11 +15,13 @@ class Step1Button extends ConsumerWidget {
     final formNotifier = ref.read(forgotPasswordProvider.notifier);
     final apiService = ApiService();
 
-    if (step == 1 && email.isNotEmpty && emailError == null){
+    if (email.isEmpty || emailError != null){
+      //error or no email?
       return SizedBox.shrink();
     }
 
-    return Row(
+    return Padding(padding: EdgeInsetsGeometry.all(16),
+    child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
           TextButton(
@@ -44,6 +46,7 @@ class Step1Button extends ConsumerWidget {
                 )
               : Text('Next', style: TextStyle(fontSize: 18),),
 
-        ),]);
+        ),])
+    );
   }
 }

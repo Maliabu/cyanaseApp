@@ -19,13 +19,14 @@ class AppThemes {
       onSurface: Colors.black87,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      errorStyle: TextStyle(fontSize: 14),
       filled: true,
       fillColor: Colors.white,
       border: OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.circular(12),
       ),
-      hintStyle: const TextStyle(fontSize: 18, color: Colors.grey)
+      hintStyle: const TextStyle(fontSize: 18)
     ),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(

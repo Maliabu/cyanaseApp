@@ -1,4 +1,4 @@
-import 'package:cyanaseapp/features/auth/data/sign_up_form_state.dart';
+import 'package:cyanaseapp/features/auth/data/formstates/sign_up_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/profile.dart';
 import 'package:cyanaseapp/features/auth/models/sign_up_request.dart';
 

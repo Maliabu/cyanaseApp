@@ -29,7 +29,7 @@ class Step4Password extends ConsumerWidget {
             passwordError,
             style: TextStyle(
               color: Colors.red[700],
-              fontSize: 18,
+              fontSize: 14,
             ),
           ),
         ),

@@ -44,10 +44,9 @@ Widget step2Verification(WidgetRef ref, BuildContext context) {
         const SizedBox(height: 8),
         Text(
           'sent to: $email',
-          style: const TextStyle(fontSize: 12),
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),
         ),
-        const SizedBox(height: 28),
-
+        const SizedBox(height: 25),
         // Input boxes
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -21,7 +21,9 @@ LoginFormState _$LoginFormStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LoginFormState {
   String get phoneNumber => throw _privateConstructorUsedError;
+  String? get phoneError => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String? get passwordError => throw _privateConstructorUsedError;
   bool get isPasswordVisible => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   AsyncValue<SubmissionResponse?>? get submission =>
@@ -41,7 +43,9 @@ abstract class $LoginFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String phoneNumber,
+      String? phoneError,
       String password,
+      String? passwordError,
       bool isPasswordVisible,
       @JsonKey(includeFromJson: false, includeToJson: false)
       AsyncValue<SubmissionResponse?>? submission});
@@ -61,7 +65,9 @@ class _$LoginFormStateCopyWithImpl<$Res, $Val extends LoginFormState>
   @override
   $Res call({
     Object? phoneNumber = null,
+    Object? phoneError = freezed,
     Object? password = null,
+    Object? passwordError = freezed,
     Object? isPasswordVisible = null,
     Object? submission = freezed,
   }) {
@@ -70,10 +76,18 @@ class _$LoginFormStateCopyWithImpl<$Res, $Val extends LoginFormState>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneError: freezed == phoneError
+          ? _value.phoneError
+          : phoneError // ignore: cast_nullable_to_non_nullable
+              as String?,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordError: freezed == passwordError
+          ? _value.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as String?,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
           : isPasswordVisible // ignore: cast_nullable_to_non_nullable
@@ -96,7 +110,9 @@ abstract class _$$LoginFormStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String phoneNumber,
+      String? phoneError,
       String password,
+      String? passwordError,
       bool isPasswordVisible,
       @JsonKey(includeFromJson: false, includeToJson: false)
       AsyncValue<SubmissionResponse?>? submission});
@@ -114,7 +130,9 @@ class __$$LoginFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phoneNumber = null,
+    Object? phoneError = freezed,
     Object? password = null,
+    Object? passwordError = freezed,
     Object? isPasswordVisible = null,
     Object? submission = freezed,
   }) {
@@ -123,10 +141,18 @@ class __$$LoginFormStateImplCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneError: freezed == phoneError
+          ? _value.phoneError
+          : phoneError // ignore: cast_nullable_to_non_nullable
+              as String?,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordError: freezed == passwordError
+          ? _value.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as String?,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
           : isPasswordVisible // ignore: cast_nullable_to_non_nullable
@@ -143,18 +169,29 @@ class __$$LoginFormStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LoginFormStateImpl implements _LoginFormState {
   const _$LoginFormStateImpl(
-      {required this.phoneNumber,
-      required this.password,
+      {this.phoneNumber = '+256',
+      this.phoneError = null,
+      this.password = '',
+      this.passwordError = null,
       this.isPasswordVisible = false,
-      @JsonKey(includeFromJson: false, includeToJson: false) this.submission});
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.submission = null});
 
   factory _$LoginFormStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginFormStateImplFromJson(json);
 
   @override
+  @JsonKey()
   final String phoneNumber;
   @override
+  @JsonKey()
+  final String? phoneError;
+  @override
+  @JsonKey()
   final String password;
+  @override
+  @JsonKey()
+  final String? passwordError;
   @override
   @JsonKey()
   final bool isPasswordVisible;
@@ -164,7 +201,7 @@ class _$LoginFormStateImpl implements _LoginFormState {
 
   @override
   String toString() {
-    return 'LoginFormState(phoneNumber: $phoneNumber, password: $password, isPasswordVisible: $isPasswordVisible, submission: $submission)';
+    return 'LoginFormState(phoneNumber: $phoneNumber, phoneError: $phoneError, password: $password, passwordError: $passwordError, isPasswordVisible: $isPasswordVisible, submission: $submission)';
   }
 
   @override
@@ -174,8 +211,12 @@ class _$LoginFormStateImpl implements _LoginFormState {
             other is _$LoginFormStateImpl &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
+            (identical(other.phoneError, phoneError) ||
+                other.phoneError == phoneError) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.passwordError, passwordError) ||
+                other.passwordError == passwordError) &&
             (identical(other.isPasswordVisible, isPasswordVisible) ||
                 other.isPasswordVisible == isPasswordVisible) &&
             (identical(other.submission, submission) ||
@@ -184,8 +225,8 @@ class _$LoginFormStateImpl implements _LoginFormState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, phoneNumber, password, isPasswordVisible, submission);
+  int get hashCode => Object.hash(runtimeType, phoneNumber, phoneError,
+      password, passwordError, isPasswordVisible, submission);
 
   @JsonKey(ignore: true)
   @override
@@ -204,8 +245,10 @@ class _$LoginFormStateImpl implements _LoginFormState {
 
 abstract class _LoginFormState implements LoginFormState {
   const factory _LoginFormState(
-          {required final String phoneNumber,
-          required final String password,
+          {final String phoneNumber,
+          final String? phoneError,
+          final String password,
+          final String? passwordError,
           final bool isPasswordVisible,
           @JsonKey(includeFromJson: false, includeToJson: false)
           final AsyncValue<SubmissionResponse?>? submission}) =
@@ -217,7 +260,11 @@ abstract class _LoginFormState implements LoginFormState {
   @override
   String get phoneNumber;
   @override
+  String? get phoneError;
+  @override
   String get password;
+  @override
+  String? get passwordError;
   @override
   bool get isPasswordVisible;
   @override

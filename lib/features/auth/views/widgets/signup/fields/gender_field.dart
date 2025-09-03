@@ -27,7 +27,7 @@ class GenderField extends ConsumerWidget{
           hintText: 'Select gender',
           prefixIcon: AnimatedSwitcher(
             duration: Duration(milliseconds: 300),
-            child: gender == 'M' ? Icon(Icons.face_6, color: AppThemes.primaryColor,) : Icon(Icons.face_3, color: AppThemes.primaryColor,) ,
+            child: gender == 'M' ? Icon(Icons.face_6, color: AppThemes.secondaryColor,) : Icon(Icons.face_3, color: AppThemes.secondaryColor,) ,
           ),
         ),
       );

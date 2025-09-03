@@ -23,7 +23,8 @@ LoginWithPasscodeFormState _$LoginWithPasscodeFormStateFromJson(
 mixin _$LoginWithPasscodeFormState {
 // we are submitting a passcode so
 // only serializable we need to send to django
-  String get passcode =>
+  String get passcode => throw _privateConstructorUsedError;
+  String? get snack =>
       throw _privateConstructorUsedError; // django will probably return sth so
 // we probably need a login response model
 // unless we have a reusable one like the signup response
@@ -49,6 +50,7 @@ abstract class $LoginWithPasscodeFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String passcode,
+      String? snack,
       @JsonKey(includeFromJson: false, includeToJson: false)
       AsyncValue<SignUpResponse?> loginResponse,
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -70,6 +72,7 @@ class _$LoginWithPasscodeFormStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? passcode = null,
+    Object? snack = freezed,
     Object? loginResponse = null,
     Object? submission = null,
   }) {
@@ -78,6 +81,10 @@ class _$LoginWithPasscodeFormStateCopyWithImpl<$Res,
           ? _value.passcode
           : passcode // ignore: cast_nullable_to_non_nullable
               as String,
+      snack: freezed == snack
+          ? _value.snack
+          : snack // ignore: cast_nullable_to_non_nullable
+              as String?,
       loginResponse: null == loginResponse
           ? _value.loginResponse
           : loginResponse // ignore: cast_nullable_to_non_nullable
@@ -101,6 +108,7 @@ abstract class _$$LoginWithPasscodeFormStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String passcode,
+      String? snack,
       @JsonKey(includeFromJson: false, includeToJson: false)
       AsyncValue<SignUpResponse?> loginResponse,
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -121,6 +129,7 @@ class __$$LoginWithPasscodeFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? passcode = null,
+    Object? snack = freezed,
     Object? loginResponse = null,
     Object? submission = null,
   }) {
@@ -129,6 +138,10 @@ class __$$LoginWithPasscodeFormStateImplCopyWithImpl<$Res>
           ? _value.passcode
           : passcode // ignore: cast_nullable_to_non_nullable
               as String,
+      snack: freezed == snack
+          ? _value.snack
+          : snack // ignore: cast_nullable_to_non_nullable
+              as String?,
       loginResponse: null == loginResponse
           ? _value.loginResponse
           : loginResponse // ignore: cast_nullable_to_non_nullable
@@ -146,6 +159,7 @@ class __$$LoginWithPasscodeFormStateImplCopyWithImpl<$Res>
 class _$LoginWithPasscodeFormStateImpl implements _LoginWithPasscodeFormState {
   const _$LoginWithPasscodeFormStateImpl(
       {this.passcode = '',
+      this.snack = null,
       @JsonKey(includeFromJson: false, includeToJson: false)
       this.loginResponse = const AsyncData(null),
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -160,6 +174,9 @@ class _$LoginWithPasscodeFormStateImpl implements _LoginWithPasscodeFormState {
   @override
   @JsonKey()
   final String passcode;
+  @override
+  @JsonKey()
+  final String? snack;
 // django will probably return sth so
 // we probably need a login response model
 // unless we have a reusable one like the signup response
@@ -173,7 +190,7 @@ class _$LoginWithPasscodeFormStateImpl implements _LoginWithPasscodeFormState {
 
   @override
   String toString() {
-    return 'LoginWithPasscodeFormState(passcode: $passcode, loginResponse: $loginResponse, submission: $submission)';
+    return 'LoginWithPasscodeFormState(passcode: $passcode, snack: $snack, loginResponse: $loginResponse, submission: $submission)';
   }
 
   @override
@@ -183,6 +200,7 @@ class _$LoginWithPasscodeFormStateImpl implements _LoginWithPasscodeFormState {
             other is _$LoginWithPasscodeFormStateImpl &&
             (identical(other.passcode, passcode) ||
                 other.passcode == passcode) &&
+            (identical(other.snack, snack) || other.snack == snack) &&
             (identical(other.loginResponse, loginResponse) ||
                 other.loginResponse == loginResponse) &&
             (identical(other.submission, submission) ||
@@ -192,7 +210,7 @@ class _$LoginWithPasscodeFormStateImpl implements _LoginWithPasscodeFormState {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, passcode, loginResponse, submission);
+      Object.hash(runtimeType, passcode, snack, loginResponse, submission);
 
   @JsonKey(ignore: true)
   @override
@@ -213,6 +231,7 @@ abstract class _LoginWithPasscodeFormState
     implements LoginWithPasscodeFormState {
   const factory _LoginWithPasscodeFormState(
           {final String passcode,
+          final String? snack,
           @JsonKey(includeFromJson: false, includeToJson: false)
           final AsyncValue<SignUpResponse?> loginResponse,
           @JsonKey(includeFromJson: false, includeToJson: false)
@@ -225,6 +244,8 @@ abstract class _LoginWithPasscodeFormState
   @override // we are submitting a passcode so
 // only serializable we need to send to django
   String get passcode;
+  @override
+  String? get snack;
   @override // django will probably return sth so
 // we probably need a login response model
 // unless we have a reusable one like the signup response

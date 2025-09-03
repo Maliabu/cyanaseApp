@@ -21,9 +21,9 @@ class ConfirmPasswordField  extends ConsumerWidget{
         onChanged: (value) => notifier.setConfirmPassword(value),
         decoration: InputDecoration(
           errorText: confirmPasswordError,
-          prefixIcon: const Icon(Icons.lock, color: AppThemes.primaryColor,),
+          prefixIcon: const Icon(Icons.lock, color: AppThemes.secondaryColor,),
           suffixIcon: IconButton(
-            icon: Icon( color: AppThemes.primaryColor,
+            icon: Icon( color: AppThemes.secondaryColor,
               isConfirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,

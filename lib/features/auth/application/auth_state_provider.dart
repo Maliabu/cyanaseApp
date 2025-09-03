@@ -19,25 +19,29 @@ class AuthNotifier extends Notifier<AuthState> {
 
     if (token == null || userId == null) return;
 
-    final cachedUser = await ref.read(isarProvider).getCachedUser();
+    // ensures proper wait for isar initialization
+    final cachedUser = await ref.read(isarProvider.future);
+    final user = cachedUser.getCachedUser();
 
     state = state.copyWith(
       isAuthenticated: true,
       token: token,
       userId: userId,
-      user: cachedUser,
+      user: await user,
     );
 
     // Refresh user from server in background
     final updatedUser = await api.getAuthUser(userId, token);
-    await ref.read(isarProvider).cacheUser(updatedUser.user!);
+    final cacheUser = await ref.read(isarProvider.future);
+    cacheUser.cacheUser(updatedUser.user!);
 
     state = state.copyWith(user: updatedUser.user);
   }
 
   Future<void> logout() async {
     await ref.read(secureStorageProvider).clear();
-    await ref.read(isarProvider).clear();
+    final clear = await ref.read(isarProvider.future);
+    clear.clear();
 
     state = AuthState.initial();
   }

@@ -1,11 +1,10 @@
-import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/auth/application/forgot_password_provider.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/buttons/step1_button.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/buttons/step2_buttons.dart';
+import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/buttons/step3_buttons.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step2_verification.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step1_reset_email.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/forgot_password/step3_new_password.dart';
-import 'package:cyanaseapp/features/auth/views/widgets/signup/buttons/step3_buttons.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/signup/step_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,26 +15,25 @@ class ForgotPassword extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final step = ref.watch(forgotPasswordProvider.select((s) => s.step));
-    final apiService = ApiService();
-    ref.listen(forgotPasswordProvider.select((state) => state.codeDigits), (prev, next) async {
-      final isCodeComplete = next.every((d) => d.isNotEmpty);
-      if (isCodeComplete) {
-        ref.read(forgotPasswordProvider.notifier).setLoading(true);
-        final fullCode = next.join();
-        final success = await ref
-          .read(forgotPasswordProvider.notifier)
-          .validateAndProceedEmailCode(apiService, fullCode);
-        if (!success.success) {
-          ref.read(forgotPasswordProvider.notifier).setLoading(false);
+    
+    // dont risk many listeners on rebuild
+    // that equals many async and snacks
+    // listen for errorrs in verification code state
+    ref.listen(
+      forgotPasswordProvider.select((s) => s.codeError),
+      (prev, next) {
+        // get previous and updated states
+        if (next != null) {
+
+          // if the state changed, meaning error has a message
+          // show snackbar
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(success.message!),
-              backgroundColor: Colors.amber,
-            ),
+            SnackBar(content: Text(next)),
           );
         }
-      }
-    });
+      },
+    );
+
     
     Widget stepContent() {
       switch (step) {
@@ -69,6 +67,7 @@ class ForgotPassword extends ConsumerWidget {
           if (step == 1) Step1Button(),
           if (step == 2) Step2Buttons(),
           if (step == 3) Step3Buttons(),
+          
           const SizedBox(height: 20,),
           StepProgressIndicator(currentStep: step, totalSteps: 3),
           const SizedBox(height: 20,),

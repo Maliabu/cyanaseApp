@@ -18,7 +18,7 @@ class FirstNameField extends ConsumerWidget {
           decoration: InputDecoration(
             errorText: error,
             errorStyle: const TextStyle(fontSize: 14),
-            prefixIcon: const Icon(Icons.person, color: AppThemes.primaryColor),
+            prefixIcon: const Icon(Icons.person, color: AppThemes.secondaryColor),
             label: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(

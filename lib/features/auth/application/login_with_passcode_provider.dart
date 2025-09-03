@@ -1,7 +1,7 @@
 import 'package:cyanaseapp/core/services/api_service.dart';
+import 'package:cyanaseapp/features/auth/application/isar_provider.dart';
 import 'package:cyanaseapp/features/auth/data/formstates/login_with_passcode_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
-import 'package:cyanaseapp/features/auth/services/isar.dart';
 import 'package:cyanaseapp/features/auth/services/secure_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,11 +22,31 @@ class PasscodeNotifier extends Notifier<LoginWithPasscodeFormState>{
   bool get isFull => state.passcode.length == 4;
   bool get isEmpty => state.passcode.isEmpty;
 
-  void addDigit(String digit) {
-    if (!isFull) {
-      state = state.copyWith(passcode: state.passcode + digit);
+  void addDigit(String digit) async {
+    final newPasscode = state.passcode + digit;
+
+    if (newPasscode.length < 4) {
+      state = state.copyWith(passcode: newPasscode);
+      return;
+    }
+    if(newPasscode.length == 4)
+    {
+      // Passcode is now 4 digits
+      state = state.copyWith(passcode: newPasscode, submission: AsyncLoading());
+
+      final api = ApiService();
+      final success = await validatePasscode(api);
+
+      if (!success.success) {
+        state = state.copyWith(
+          submission: AsyncError({'error': success.message}, StackTrace.current),
+        );
+      } else {
+        state = state.copyWith(submission: AsyncData(null));
+      }
     }
   }
+
 
   void deleteDigit() {
     if (!isEmpty) {
@@ -52,8 +72,7 @@ class PasscodeNotifier extends Notifier<LoginWithPasscodeFormState>{
 
   // api guys
   Future<VerifyEmailResponse> loginWithPasscode(ApiService api, int passcode) async {
-    state = state.copyWith(submission: AsyncLoading());
-    final isarService = IsarService();
+    final isarService = await ref.read(isarProvider.future);
   try {
     // Step 1: Get cached user
     final cachedUser = await isarService.getCachedUser();

@@ -14,7 +14,8 @@ class Step3Buttons extends ConsumerWidget {
     final submission = ref.watch(signupFormProvider.select((f) => f.submission));
     final formNotifier = ref.read(signupFormProvider.notifier);
 
-    return Row(
+    return Padding(padding: EdgeInsetsGeometry.all(20),
+    child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextButton(
@@ -37,6 +38,7 @@ class Step3Buttons extends ConsumerWidget {
                   : SizedBox.shrink(),
         ),
       ],
+    )
     );
   }
 }

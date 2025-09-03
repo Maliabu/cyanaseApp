@@ -20,6 +20,7 @@ class LoginWithPasscodeFormState with _$LoginWithPasscodeFormState{
     // we are submitting a passcode so
     // only serializable we need to send to django
     @Default('') String passcode,
+    @Default(null) String? snack,
     // django will probably return sth so
     // we probably need a login response model
     // unless we have a reusable one like the signup response
