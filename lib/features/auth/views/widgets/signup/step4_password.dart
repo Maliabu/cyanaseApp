@@ -14,7 +14,7 @@ class Step4Password extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text('Create Password', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+        const Text('Create Password', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         
         const Text(
                       'Secure your new account with a strong password and start investing today!',

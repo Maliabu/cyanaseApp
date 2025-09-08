@@ -42,7 +42,6 @@ class AppThemes {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppThemes.primaryColor,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
@@ -53,7 +52,6 @@ class AppThemes {
       style: ElevatedButton.styleFrom(
         backgroundColor: secondaryColor,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         shadowColor: const Color.fromARGB(0, 158, 158, 158),
         textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)

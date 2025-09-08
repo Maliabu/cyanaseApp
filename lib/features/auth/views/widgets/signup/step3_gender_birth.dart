@@ -11,7 +11,7 @@ Widget build(BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      const Text('Personal Information', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+      const Text('Personal Information', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         const Text(
                       'We would like to know some more information about you...',
                       style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),

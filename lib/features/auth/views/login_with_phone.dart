@@ -1,5 +1,4 @@
 import 'package:cyanaseapp/core/models/theme.dart';
-import 'package:cyanaseapp/core/widgets/responsive_helper.dart';
 import 'package:cyanaseapp/features/auth/application/login_with_phone_provider.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/footer.dart';
 import 'package:cyanaseapp/features/auth/views/widgets/header.dart';
@@ -16,55 +15,57 @@ class Login extends ConsumerWidget {
     final passwordError = ref.watch(loginFormProvider.select((s)=>s.passwordError));
     final isPasswordVisible = ref.watch(loginFormProvider.select((s)=>s.isPasswordVisible));
     final notifier = ref.read(loginFormProvider.notifier);
-    print(phoneError);
 
     return Scaffold(
       body: SafeArea(
         child: 
-            Container(
-              padding: ResponsiveHelper.responsivePadding(context: context, sm: 20, md: 30, lg: 60),
-              child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(
+                  20,
+                  20,
+                  20,
+                  MediaQuery.of(context).viewInsets.bottom + 20,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             header(context),
+            SizedBox(height: 50,),
             Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const Text(
                         'Login',
-                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                       ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        'Enter your details below to securely login to your account.',
-                        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 20),
-
+                      const SizedBox(height: 18),
                       TextField(
                         onChanged: (value) => notifier.setPhone(value),
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                           errorText: phoneError,
                           errorStyle: const TextStyle(fontSize: 14),
                           prefixText: '',
+                          hintText: '+256',
+                          hintStyle: const TextStyle(fontSize: 14),
                           prefixIcon: Icon(Icons.call, color: AppThemes.secondaryColor),
                           label: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child: const Text('phone number', style: TextStyle(fontSize: 18)),
                           ),
                         ),
                       ),
                       const SizedBox(height: 18),
-
                       TextField(
                         obscureText: !isPasswordVisible,
                         onChanged: (value) => notifier.setPassword(value),
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.lock, color: AppThemes.secondaryColor),
                           suffixIcon: IconButton(
                             icon: Icon(
@@ -79,7 +80,7 @@ class Login extends ConsumerWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child: const Text('Password', style: TextStyle(fontSize: 18)),
                           ),
@@ -96,11 +97,14 @@ class Login extends ConsumerWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
 
                       ElevatedButton(
-                        onPressed: () async {
-                                final success = await notifier.validatePhonePassword();
+                        // so we dont have any double clicks
+                        // no button click when loading
+                        onPressed: (submission?.isLoading ?? false) ? null :
+                        () async {
+                          final success = await notifier.validatePhonePassword();
                                 if (success.success) {
                                   Navigator.pushNamed(context, '/');
                                 }
@@ -119,14 +123,14 @@ class Login extends ConsumerWidget {
                             )
                           : Text('Submit', style: TextStyle(fontSize: 18))
                         ),
-                      
                     ],
                   ),
-            
+            SizedBox(height: 40,),
             footer(context, true),
           ],
         ),
       ),
-    ));
+    )
+    );
   }
 }

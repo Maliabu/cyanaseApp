@@ -22,7 +22,6 @@ class ApiService {
     _dio.interceptors.add(
       RetryInterceptor(
         dio: _dio,
-        retries: 3,
         retryDelays: [Duration(seconds: 1), Duration(seconds: 2), Duration(seconds: 4)],
       ),
     );
@@ -69,18 +68,12 @@ class ApiService {
     try {
       final response = await _dio.post(url, data: body);
 
-      // automatically parses JSON response into Map if responseType = json
+      // dio auto parses json
       return response.data;
     } on DioException catch (e) {
-      // Better error info
-      if (e.response != null) {
-        throw Exception(
-          'API Error ${e.response?.statusCode}: ${e.response?.statusMessage}',
-        );
-      } else {
-        throw Exception('API request failed: ${e.message}');
-      }
-    }
+    final message = e.response?.data['message'] ?? e.message;
+    throw Exception(message);
+  }
   }
 
   Future<SubmissionResponse> investRelworx(InvestFormState formState) async {

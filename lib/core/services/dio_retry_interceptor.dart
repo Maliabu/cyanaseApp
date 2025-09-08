@@ -3,12 +3,12 @@ import 'dart:async';
 
 class RetryInterceptor extends Interceptor {
   final Dio dio;
-  final int retries;
+  final int maxRetries;
   final List<Duration> retryDelays;
 
   RetryInterceptor({
     required this.dio,
-    this.retries = 3,
+    this.maxRetries = 3,
     this.retryDelays = const [
       Duration(seconds: 1),
       Duration(seconds: 2),
@@ -20,38 +20,52 @@ class RetryInterceptor extends Interceptor {
   Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
     final requestOptions = err.requestOptions;
 
-    // Only retry for certain types of errors, e.g., timeout or socket exceptions
-    bool shouldRetry = err.type == DioExceptionType.connectionTimeout ||
-                       err.type == DioExceptionType.receiveTimeout ||
-                       err.type == DioExceptionType.sendTimeout ||
-                       err.type == DioExceptionType.connectionError;
+    // Only retry for network-related errors
+    final isNetworkError = err.type == DioExceptionType.connectionTimeout ||
+        err.type == DioExceptionType.receiveTimeout ||
+        err.type == DioExceptionType.sendTimeout ||
+        err.type == DioExceptionType.connectionError;
 
-    if (!shouldRetry || retries <= 0) {
+    // Get retry count from extra or default to 0
+    final currentRetry = requestOptions.extra['retryCount'] as int? ?? 0;
+
+    if (!isNetworkError || currentRetry >= maxRetries) {
+      print('[RetryInterceptor] Giving up after $currentRetry retries.');
       return handler.next(err);
     }
 
-    for (int attempt = 0; attempt < retries; attempt++) {
-      try {
-        await Future.delayed(retryDelays[attempt]);
+    // Wait before retry
+    final delay = retryDelays.length > currentRetry
+        ? retryDelays[currentRetry]
+        : retryDelays.last;
 
-        final response = await dio.request(
-          requestOptions.path,
-          data: requestOptions.data,
-          queryParameters: requestOptions.queryParameters,
-          options: Options(
-            method: requestOptions.method,
-            headers: requestOptions.headers,
-            responseType: requestOptions.responseType,
-          ),
-        );
+    print('[RetryInterceptor] Attempt ${currentRetry + 1}/$maxRetries after ${delay.inSeconds}s: ${requestOptions.uri}');
+    await Future.delayed(delay);
 
-        return handler.resolve(response);
-      } catch (e) {
-        // On final failure, pass the error
-        if (attempt == retries - 1) {
-          return handler.next(err);
-        }
-      }
+    // Retry with incremented retryCount
+    final updatedOptions = Options(
+      method: requestOptions.method,
+      headers: requestOptions.headers,
+      responseType: requestOptions.responseType,
+      contentType: requestOptions.contentType,
+      sendTimeout: requestOptions.sendTimeout,
+      receiveTimeout: requestOptions.receiveTimeout,
+      extra: Map<String, dynamic>.from(requestOptions.extra)
+        ..['retryCount'] = currentRetry + 1,
+    );
+
+    try {
+      final response = await dio.request(
+        requestOptions.path,
+        data: requestOptions.data,
+        queryParameters: requestOptions.queryParameters,
+        options: updatedOptions,
+      );
+
+      return handler.resolve(response);
+    } catch (e) {
+      // Pass along the final error
+      return handler.next(err);
     }
   }
 }

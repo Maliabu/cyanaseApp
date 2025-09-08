@@ -13,7 +13,7 @@ class Step1Name extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Center(
-          child: Text('Full names', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+          child: Text('Full names', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         ),
         const Text(
                       'Enter your first and last name to proceed',

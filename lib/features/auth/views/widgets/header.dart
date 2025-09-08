@@ -6,7 +6,7 @@ Widget header(BuildContext context){
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
     Image(image: AssetImage('assets/images/logo.png'), height: 30, width: 30,),
-    Text('Investments made easy at Cyanase Investors!', style: TextStyle(fontSize: ResponsiveHelper.responsiveFontSize(context: context, sm: 30, md: 35, lg: 50), fontWeight: FontWeight.bold, height: 1),)
+    Text('Investments made easy at Cyanase Investors!', style: TextStyle(fontSize: ResponsiveHelper.responsiveFontSize(context: context, sm: 35, md: 40, lg: 50), fontWeight: FontWeight.w700, height: 1, letterSpacing: -2),)
     ]
   );
 }

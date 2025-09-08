@@ -29,7 +29,7 @@ class PasscodeLoginScreen extends ConsumerWidget {
 // If expanding to tablets or desktop, consider using percentage-based sizing or MediaQuery scale ratios.
 
     if(screenSize == ScreenSize.sm){
-      size = 300;
+      size = 350;
     } else{
       // md
       size = 400;
@@ -48,7 +48,7 @@ class PasscodeLoginScreen extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Enter your Passcode', style: TextStyle(fontSize: 14, color: Colors.grey, fontWeight: FontWeight.w500),),
+        Text('Enter your Passcode', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
         SizedBox(height: 12,),
       Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +85,7 @@ class PasscodeLoginScreen extends ConsumerWidget {
     '',  '0', 'x'
   ];
 
-  return Container(
+  return SizedBox(
     width: size - 100,
     height: size,
     child: Padding(
@@ -101,8 +101,18 @@ class PasscodeLoginScreen extends ConsumerWidget {
         itemBuilder: (_, index) {
           final label = digits[index];
           if (label == '') return SizedBox.shrink();
-
+          if(label == 'x') {
           return ElevatedButton(
+            onPressed: () {
+                notifier.deleteDigit();
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              padding: EdgeInsets.all(12),
+            ),
+            child: Icon(Icons.backspace_rounded, size: 20, color: Colors.black),
+          );}
+          return OutlinedButton(
             onPressed: () {
               if (label == 'x') {
                 notifier.deleteDigit();
@@ -110,13 +120,12 @@ class PasscodeLoginScreen extends ConsumerWidget {
                 notifier.addDigit(label);
               }
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: label == 'x' ? Colors.grey[100] : Colors.grey[200],
+            style: OutlinedButton.styleFrom(
               shape: CircleBorder(),
               padding: EdgeInsets.all(12),
             ),
             child: label != 'x'
-                ? Text(label, style: TextStyle(fontSize: ResponsiveHelper.responsiveFontSize(context: context,sm: 20, md: 25, lg: 30), color: Colors.black))
+                ? Text(label, style: TextStyle(fontSize: ResponsiveHelper.responsiveFontSize(context: context,sm: 25, md: 25, lg: 30), color: Colors.black))
                 : Icon(Icons.backspace_rounded, size: 20, color: Colors.black),
           );
         },

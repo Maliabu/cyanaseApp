@@ -111,7 +111,7 @@ class PasscodeNotifier extends Notifier<LoginWithPasscodeFormState>{
       state = state.copyWith(submission: AsyncData(null));
       return VerifyEmailResponse(success: false, message: response.message);
     }
-  } catch (e, st) {
+  } catch (e) {
     print(e);
     state = state.copyWith(submission: AsyncData(null));
     return VerifyEmailResponse(success: false, message: 'Server Error');

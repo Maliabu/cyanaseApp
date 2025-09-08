@@ -4,6 +4,7 @@ import 'package:cyanaseapp/core/services/api_service.dart';
 import 'package:cyanaseapp/features/auth/application/isar_provider.dart';
 import 'package:cyanaseapp/features/auth/data/formstates/login_form_state.dart';
 import 'package:cyanaseapp/features/auth/models/verify_email_response.dart';
+import 'package:cyanaseapp/features/auth/services/encryption_helper.dart';
 import 'package:cyanaseapp/features/auth/services/secure_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,31 +22,39 @@ class LoginFormNotifier extends Notifier<LoginFormState> {
   bool get isPhoneEmpty => state.phoneNumber.isEmpty;
 
   void setPhone(String phone) {
-    // valid and not empty check
-    if(isPhoneEmpty){
-      // throw phone errors yooo
-      state = state.copyWith(phoneError: 'Phone number is required');
+    // Basic checks
+    if (phone.isEmpty) {
+      state = state.copyWith(phoneNumber: phone, phoneError: 'Phone number is required');
+      return;
     }
-    if(phone.length != 13){
-      // throw phone errors yooo
-      state = state.copyWith(phoneError: 'Invalid Phone number');
+
+    if (phone.length != 13) {
+      state = state.copyWith(phoneNumber: phone, phoneError: 'Invalid phone number');
+      return;
     }
-    // else remove errors, update state
-    final prefix = state.phoneNumber;
-    state = state.copyWith(phoneNumber: prefix+phone, phoneError: null);
+
+    // If valid
+    state = state.copyWith(phoneNumber: phone, phoneError: null);
   }
 
+
   void setPassword(String password) {
+    if (password.isEmpty) {
+      state = state.copyWith(password: password, passwordError: 'Password is required');
+      return;
+    }
+
     final isValid = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$&*~]).{6,}$')
         .hasMatch(password);
-    if(isPasswordEmpty){
-      state = state.copyWith(passwordError: 'Password is required');
+    if (!isValid) {
+      state = state.copyWith(password: password, passwordError: 'Invalid Password');
+      return;
     }
-    if(!isValid){
-      state = state.copyWith(passwordError: 'Invalid Password');
-    }
+
+    // If valid
     state = state.copyWith(password: password, passwordError: null);
   }
+
 
   void togglePasswordVisibility() {
     state = state.copyWith(isPasswordVisible: !state.isPasswordVisible);
@@ -78,6 +87,8 @@ class LoginFormNotifier extends Notifier<LoginFormState> {
       await isarService.cacheUser(response.user!);
 
       // secure token and id
+      // encrypt
+      final encryptedToken = EncryptionHelper.encryptText(response.user!.token);
       await ref.read(secureStorageProvider).saveToken(response.user!.token);
       await ref.read(secureStorageProvider).saveUserId(response.user!.userId.toString());
 
@@ -89,7 +100,7 @@ class LoginFormNotifier extends Notifier<LoginFormState> {
       state = state.copyWith(submission: AsyncData(null));
       return VerifyEmailResponse(success: false, message: response.message);
     }
-  } catch (e, st) {
+  } catch (e) {
     print(e);
     state = state.copyWith(submission: AsyncData(null));
     return VerifyEmailResponse(success: false, message: 'Server Error');
